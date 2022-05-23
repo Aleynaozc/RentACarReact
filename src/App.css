@@ -1,0 +1,28 @@
+:root{
+  --site-color:#cc71279a;
+}
+
+
+.rentacar__header{
+  display: flex;
+  align-items: center;
+  background-color: var(--site-color);
+  height: 80px;
+  text-align: center;
+}
+
+.rentacar__header a{
+  text-decoration: none;
+  color:white;
+
+}
+.header__categories div{
+  color:white;
+  cursor: pointer;
+}
+#signIn{
+  margin-top: 6px;
+}
+#signUp{
+  margin-top: 6px;
+}

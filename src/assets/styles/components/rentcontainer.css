@@ -1,0 +1,146 @@
+
+.background__image{
+    background-image: url(/src/assets/images/bg.jpg);
+    width: 1423px;
+    height: 800px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+    }
+    .search__car__container {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 20px;
+      padding: 20px;
+      width: 900px;
+      height: 300px;
+      display :flex;
+    }
+    .select__pick__up__office{
+      margin-bottom: 40px;
+      
+    }
+    .select__pick__up__office .dropdown-menu{
+      width: 300px;
+    }
+    .pick__up__office{
+      padding: 25px;
+      height: 250px;
+     
+    }
+    
+    .dropdown__pick__up__office{
+      width: 300px;
+      height: 70px;
+      background-color: antiquewhite;
+      border: 1px solid rgb(210, 174, 128)!important;
+      color:rgb(94, 60, 8)!important;
+    }
+    .dropdown__pick__up__office:hover{
+     
+    border:1px solid rgb(194, 166, 149)!important;
+    }
+    .dropdown__pick__up__office .btn-check:focus+.btn, .btn:focus {
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(237, 237, 237, 0.25);
+    }
+    .pick__up__date{
+      padding: 25px;
+      height: 250px;
+    
+    
+    }
+    .select__pick__up__date{
+      margin-bottom: 40px;
+      display: flex;
+      border-left: 1px solid rgb(12, 8, 8);
+    }
+    .date__pick__up{
+      margin-top:20px;
+     width: 250px;
+    }
+    .dropdown__date{
+      width: 160px;
+      background-color: rgb(254, 227, 219);
+      height: 70px;
+    }
+    .dropdown__hour{
+      width: 160px;
+      height: 70px;
+      background-color: rgb(228, 228, 228);
+    }
+    
+    @media only screen and (max-width:900px) {
+      .rentacar__header{
+          
+          font-size: 10px;
+      }
+    
+      .background__image{
+          
+          width: 768px;
+          height: 500px;
+        }
+        .search__car__container {
+          padding:0px;
+          width: 768px;
+          height:200px;
+      }
+      .select__pick__up__office{
+          margin-bottom: 20px;
+          
+      }
+      .select__pick__up__office .dropdown-menu{
+          width: 100px;
+      }
+      .pick__up__office{
+          padding: 25px;
+          height: 50px;
+      }
+      
+      .dropdown__pick__up__office{
+          width: 200px;
+          height: 50px;
+      }
+     
+    
+      .pick__up__date{
+          padding: 25px;
+          height:50px;
+        
+      }
+      .select__pick__up__date{
+          margin-bottom: 20px;
+          display: flex;
+          border-left: 1px solid rgba(12, 8, 8, 0.587);
+      }
+      .date__pick__up{
+         width: 250px;
+      }
+      .dropdown__date{
+          width: 150px;
+          background-color: rgb(254, 227, 219);
+          height: 50px;
+      }
+      .dropdown__hour{
+          width: 150px;
+          height: 50px;
+          background-color: rgb(228, 228, 228);
+      }
+    }
+    
+    @media only screen and (max-width:1023px) {
+      .rentacar__header{
+          
+          font-size: 11px;
+      }
+    
+      .background__image{
+          /* background-image:url(assets/images/mobile.jpg) ; */
+          width: 1024px;
+          height: 900px;
+        }
+       
+    }
+    
