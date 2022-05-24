@@ -3,11 +3,13 @@
     margin-top: 50px;
     justify-content: center;
     padding: 70px;
+    
 }
 .card{
+    width: 400px!important;
     padding:30px;
     margin-left:20px;
-    border:2px solid black;
+    border:2px solid black!important;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .card-text{
@@ -45,6 +47,10 @@
     display: flex;
     justify-content: space-around;
     margin-left: 30px;
+}
+.transmission__image{
+    width:20px;
+    height: 20px;
 }
 .car__price{
     display: flex;
