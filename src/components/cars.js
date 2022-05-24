@@ -19,13 +19,13 @@ function cars() {
                     </div>   
                    
                   
-                    <img className="card-img-top" src={require('../assets/images/araba1.jpg')}  alt="Card image cap"/> 
+                    <img className="card-img-top" src={'../images/araba1.jpg'}  alt="Card image cap"/> 
                 </div>
                     <div className="card-body">
                         <div className="card__features">
                             <i className="fa-solid fa-gas-pump mt-1"></i>
                             <p>Disel</p>
-                            <img src={require('../assets/images/transmission.png')} className="mt-1 transmission__image"/>
+                            <img  className="mt-1 transmission__image" src={'../images/transmission.png'} />
                            <p>Manual</p>
                            <i className="fa-solid fa-credit-card mt-1"></i>
                            <p>Credit Card</p>
@@ -51,13 +51,13 @@ function cars() {
                         <i className="fa-solid fa-circle-arrow-left arrows" ></i>
                         <i className="fa-solid fa-circle-arrow-right arrows" ></i>
                     </div>
-                    <img className="card-img-top" src={require('../assets/images/bmw2.png')} alt="Card image cap"/> 
+                    <img className="card-img-top" src={'../images/araba1.jpg'}  alt="Card image cap"/> 
                 </div>
                     <div className="card-body">
                         <div className="card__features">
                             <i className="fa-solid fa-gas-pump mt-1"></i>
                             <p>Disel</p>
-                               <img src={require('../assets/images/transmission.png')} className="mt-1 transmission__image"/>
+                               <img src={'../images/transmission.png'}  className="mt-1 transmission__image"/>
                            <p>Manual</p>
                            <i className="fa-solid fa-credit-card mt-1"></i>
                            <p>Credit Card</p>
@@ -79,13 +79,13 @@ function cars() {
                         <i className="fa-solid fa-circle-arrow-left arrows" ></i>
                         <i className="fa-solid fa-circle-arrow-right arrows" ></i>
                     </div> 
-                    <img className="card-img-top" src={require('../assets/images/audi-Q8.jpg')} alt="Card image cap"/>
+                    <img className="card-img-top" src={'../images/araba1.jpg'}  alt="Card image cap"/>
                 </div>
                     <div className="card-body">
                         <div className="card__features">
                             <i className="fa-solid fa-gas-pump mt-1"></i>
                             <p>Disel</p>
-                            <img src={require('../assets/images/transmission.png')} className="mt-1 transmission__image"/>
+                            <img  className="mt-1 transmission__image" src={'../images/transmission.png'} />
                            <p>Manual</p>
                            <i className="fa-solid fa-credit-card mt-1"></i>
                            <p>Credit Card</p>
