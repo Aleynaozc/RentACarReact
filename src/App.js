@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/header'
 import Rentcontainer from './components/rentcontainer';
 import axios from 'axios'
+import Car from './components/cars'
 function App() {
 
    
@@ -23,7 +24,9 @@ function App() {
     <div className="App">
     <Header/>
    <Rentcontainer officiesList={officiesList} getOfficies={getOfficies}/>
+   <Car></Car>
     </div>
+    
   );
 }
 

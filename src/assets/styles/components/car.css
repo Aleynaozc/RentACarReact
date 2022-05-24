@@ -1,0 +1,78 @@
+.car__card{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    padding: 70px;
+}
+.card{
+    padding:30px;
+    margin-left:20px;
+    border:2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.card-text{
+    background-color: aliceblue;
+}
+.car__classification{
+    font-size: 20px;
+    color:brown;
+    font-weight: 600;
+}
+.car_name{
+    font-size:15px;
+    color:black;
+    font-weight: 600;
+
+}
+.slider{
+    height: 300px;
+}
+.slider__arrow{
+    display: flex;
+    float: right;
+  
+    
+}
+.card-img-top{
+    height: 238.12px;
+}
+.arrows{
+   cursor: pointer;
+   font-size: 15px;
+    margin-right: 30px;
+}
+.card__features{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 30px;
+}
+.car__price{
+    display: flex;
+    border-radius: 10px;
+    margin-top:20px;
+    margin-bottom:20px;
+    
+    text-align: center;
+    justify-content: center;
+  
+}
+.total__price{
+   color:rebeccapurple;
+   font-weight: 600;
+}
+.daily__price{
+    font-size:14px;
+}
+.pay__button-area{
+    display: flex;
+   
+    justify-content: center;
+}
+.pay__button{
+    width: 100px;
+    border:none;
+    background-color: rgb(255, 183, 0);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 50px;
+}
