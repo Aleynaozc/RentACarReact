@@ -1,5 +1,5 @@
 import React from 'react';
-import "../assets/styles/components/car/style.css"
+import "../assets/styles/components/reservation/style.css"
 
 function cars() {
   return (
