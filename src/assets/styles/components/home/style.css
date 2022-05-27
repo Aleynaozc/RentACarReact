@@ -1,76 +1,63 @@
-
+@import url("https://cdn.syncfusion.com/ej2/material.css");
 .background__image{
-    background-image: url(/src/assets/images/bg.jpg);
     width: 1423px;
-    height: 800px;
-    background-repeat: no-repeat;
+    height: 600px;
     display: flex;
     align-items: center;
-    justify-content: center;
-      
+    justify-content: center;  
     }
     .search__car__container {
-      background-color: rgba(255, 255, 255, 0.92);
+      background-color: rgba(240, 248, 255, 0.516);
       border-radius: 20px;
-      padding: 20px;
       width: 900px;
-      height: 300px;
+      height: 400px;
       display :flex;
-    }
-    .select__pick__up__office{
-      margin-bottom: 40px;
-      
-    }
-    .select__pick__up__office .dropdown-menu{
-      width: 300px;
-    }
-    .pick__up__office{
-      padding: 25px;
-      height: 250px;
-     
+      align-items: center;
+      justify-content: center;  
     }
     
-    .dropdown__pick__up__office{
-      width: 300px;
-      height: 70px;
-      background-color: antiquewhite;
-      border: 1px solid rgb(210, 174, 128)!important;
-      color:rgb(94, 60, 8)!important;
-    }
-    .dropdown__pick__up__office:hover{
-     
-    border:1px solid rgb(194, 166, 149)!important;
-    }
-    .dropdown__pick__up__office .btn-check:focus+.btn, .btn:focus {
-      outline: 0;
-      box-shadow: 0 0 0 0.25rem rgba(237, 237, 237, 0.25);
-    }
     .pick__up__date{
-      padding: 25px;
-      height: 250px;
-    
-    
+      margin-top: 50px;
+      padding: 100px;
     }
     .select__pick__up__date{
-      margin-bottom: 40px;
+      margin-bottom:30px;
       display: flex;
-      border-left: 1px solid rgb(12, 8, 8);
-    }
-    .date__pick__up{
-      margin-top:20px;
-     width: 250px;
-    }
-    .dropdown__date{
-      width: 160px;
-      background-color: rgb(254, 227, 219);
-      height: 70px;
-    }
-    .dropdown__hour{
-      width: 160px;
-      height: 70px;
-      background-color: rgb(228, 228, 228);
+      border-left: 1px solid rgba(12, 8, 8, 0.24);
     }
     
+    .date__pick__up{
+      margin-top:20px;
+       width: 250px;
+    }
+   
+    .form-select{
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .car__search-button{
+      margin-top: 30px;
+      float:right;
+      border:none;
+      border-radius: 10px;
+      padding:10px;
+      
+    }
+    .time__container{
+      margin-top: 15px;
+    }
+    .time__date{
+      position: relative;
+      top:40px;
+    }
+    .date{
+      border-radius: 5px;
+      height: 30px;
+      border:none;
+    }
+    
+   
+  
     @media only screen and (max-width:900px) {
       .rentacar__header{
           

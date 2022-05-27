@@ -4,9 +4,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import '../../assets/styles/components/home/style.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
+import loginImage from "../../assets/images/background.jpg";
+
 
 
 const home = () => {
+
+
+const minTime = new Date ("01/02/2022 09:00 AM");
+
+const maxTime  = new Date ("01/02/2022 05:00 PM");
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -14,8 +22,7 @@ const home = () => {
 
   const [officiesList, setOfficiesList] = useState([]);
 
-  const [selected,setSelected]=useState(null);
-
+ 
 
   const getOfficies = async () => {
     axios.get("https://localhost:44352/api/RentaCar")
@@ -31,155 +38,80 @@ const home = () => {
 
   return (
 
-<section className="container-fluid ">
-        <div className="row ">
-            <div className="background__image">
-                <div className="search__car__container">
-                    <div className="row">
-                        <div className="offset-1 pick__up__office">
-                          <select className="form-select"  defaultValue={'DEFAULT'} >
-                            <option selected value={selected} onChange={setSelected}>Select Pick Up Office</option>
-                            {officiesList.map((officiesItem, index) => {
-                                    return    <option key={index} value={index+1}>{officiesItem.name},{officiesItem.city}</option> 
-                                               
-                                              })}
-                          </select>
-                              <select className="form-select"  >
-                                <option selected>Select Pick Up Office</option>
-                                {officiesList.map((officiesItem, index) => {
-                                    return    <option key={index} value={index+1}>{officiesItem.name},{officiesItem.city}</option> 
-                                               
-                                              })}
-                              </select>
-                            </div>
-                        </div>
-                        <div className="row">
-                          <div className=" offset-2 pick__up__date">
-                              <div className=" select__pick__up__date">
-                                  <div className="offset-1 date__pick__up">
-                                  <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-                                  </div>
-                                  <div className="col-2">
-                                      <div className="dropdown ">
-                                          <button className="dropdown__hour btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                           Pick Up Hour
-                                          </button>
-                                          <ul className="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
-                                            <li><a className="dropdown-item" href="#">20:00 am</a></li>
-                                            <li><a className="dropdown-item" href="#">10:00 am</a></li>
-                                            <li><a className="dropdown-item" href="#">5:00 pm </a></li>
-                                          </ul>
-                                        </div>
-                                  </div>
-                              </div>
-                              <div className=" select__pick__up__date">
-                                  <div className="col-2 offset-1 date__pick__up">
-                                  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-                                  </div>
-                                  <div className="offset-5 col-2">
-                                      <div className="dropdown ">
-                                          <button className="dropdown__hour btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                           Drop Off Hour
-                                          </button>
-                                          <ul className="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
-                                            <li><a className="dropdown-item" href="#">20:00 am </a></li>
-                                            <li><a className="dropdown-item" href="#">10:00 am</a></li>
-                                            <li><a className="dropdown-item" href="#">5:00 pm</a></li>
-                                          </ul>
-                                        </div>
-                                  </div>
-                              </div>
-                          </div>
-                  </div>
-
-                    </div>
+    <section className="container-fluid ">
+      <div className="row ">
+        <div className="background__image" style={{ backgroundImage: `url(${loginImage})`,backgroundSize: 'cover' }}>
+          <div className="search__car__container ">
+            <div className="row">
+              <div className="offset-1 pick__up__office ">
+                <form>
+                
+                  <select className="form-select" defaultValue=""   >
+                    
+                    <option value="" className='form-select__title' >Select Pick Up Office</option>
+                    {officiesList.map((officiesItem, index) => {
                   
-                </div>
+                      return <option key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}  </option>
+   
+                    })}
+                  </select>
+                </form>
+                <form>
+                  <select className="form-select " defaultValue="" id="officeform">
+                    <option value=""  >Select Pick Up Office</option>
+                    {officiesList.map((officiesItem, index) => {
+                      return <option  key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}</option>
+
+                    })}
+                  </select>
+                </form>
+              </div>
             </div>
-       
+            <div className="row">
+              <div className=" offset-2 time__date">
+                <div className=" select__pick__up__date">
+                  <div className="offset-1 date__pick__up">
+                    <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} className='date' />
+                  </div>
+                  <div className="col-5 time__container">
+                    <TimePickerComponent placeholder='Select Pick Up Time'
+                    className='time'
+                    min={minTime}
+                    max={maxTime}
+                    format='HH:mm'
+                    ></TimePickerComponent>
+                   
+                  </div>
+                </div>
+                <div className=" select__pick__up__date">
+                  <div className=" offset-1 date__pick__up">
+                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className='date' />
+                  </div>
+                  <div className=" col-5 time__container">
+                  <TimePickerComponent
+                  placeholder='Select Pick Up Time'
+                  className='time'
+                  min={minTime}
+                  max={maxTime}
+                  format='HH:mm'
+                  
+                  ></TimePickerComponent>
+                  </div>
+                </div>
+              </div>
+              <div >
+             
+                <Link to="reservation"><button  className='car__search-button' type='button' >Search</button></Link> 
+                </div>
+             
+            </div>
+          </div>      
+        </div>
+      </div>
+
     </section>
 
 
-
-
-
-    // <section className="container-fluid ">
-    //   <div className="row ">
-    //     <div className="background__image">
-    //       <div className="search__car__container">
-    //         <div className="row">
-    //           <div className="offset-1 pick__up__office">
-    //             <div className="col-5 offset-1 select__pick__up__office">
-    //             <select className="form-select" aria-label="Default select example">
-    //                         <option selected>Select Pick Up Office</option>
-    //                         {officiesList.map((officiesItem, index,num) => {
-                          
-    //                       return    <option key={index} value={num}>{officiesItem.name},{officiesItem.city}</option> 
-                         
-    //                     })}
-    //                     </select>
-
-    //             <div className="col-5 offset-1 select__pick__up__office">
-    //               <select className="form-select" aria-label="Default select example">
-    //                 <option selected> Select Drop Off Office</option>
-    //                 {officiesList.map((officiesItem, index,num) => {
-                          
-    //                       return    <option key={index} value={num}>{officiesItem.name},{officiesItem.city}</option> 
-                         
-    //                     })}
-                      
-                 
-
-    //               </select>
-                
-    //             </div>
-    //           </div>
-    //         </div>
-    //         <div className="row">
-    //           <div className=" offset-4 pick__up__date">
-    //             <div className=" select__pick__up__date">
-    //               <div className=" offset-1 date__pick__up">
-
-
-    //                 <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-
-    //               </div>
-
-    //               <div className="col-4">
-    //                 <div className="dropdown ">
-
-
-    //                 </div>
-    //               </div>
-    //             </div>
-    //             <div className=" select__pick__up__date">
-    //               <div className="offset-1 date__pick__up">
-    //                 <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-    //               </div>
-    //               <div className="col-2">
-    //                 <div className="dropdown ">
-    //                   <button className="dropdown__hour btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    //                     Drop Off Hour
-    //                   </button>
-    //                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    //                     <li><a className="dropdown-item" href="#">20:00 am </a></li>
-    //                     <li><a className="dropdown-item" href="#">10:00 am</a></li>
-    //                     <li><a className="dropdown-item" href="#">5:00 pm</a></li>
-    //                   </ul>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </div>
-
-
-    //       </div>
-    //       <div>  <Link to="reservation"><button>Search</button></Link> </div>
-    //     </div>
-
-    //   </div>
-    //   </div>
-    // </section>
   )
 }
 export default home;
