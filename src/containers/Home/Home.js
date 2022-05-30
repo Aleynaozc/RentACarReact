@@ -12,21 +12,36 @@ import loginImage from "../../assets/images/background.jpg";
 const home = () => {
 
 
-const minTime = new Date ("01/02/2022 09:00 AM");
+  const minTime = new Date("01/02/2022 09:00 AM");
 
-const maxTime  = new Date ("01/02/2022 05:00 PM");
+  const maxTime = new Date("01/02/2022 05:00 PM");
 
   const [startDate, setStartDate] = useState(new Date());
 
   const [endDate, setEndDate] = useState(new Date());
 
   const [officiesList, setOfficiesList] = useState([]);
-
+  const [status, setStatus] = useState('');
+  const [dropoff, setDropOff] = useState('')
  
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(status)
+  }
+
+  const handleDropOff = (e) => {
+    e.preventDefault();
+    console.log(dropoff)
+  }
   const getOfficies = async () => {
     axios.get("https://localhost:44352/api/RentaCar")
-      .then((res) => setOfficiesList(res.data));
+      .then((res) => {
+        setOfficiesList(res.data)
+
+        
+      });
   };
 
   useEffect(() => {
@@ -39,74 +54,59 @@ const maxTime  = new Date ("01/02/2022 05:00 PM");
   return (
 
     <section className="container-fluid ">
-      <div className="row ">
-        <div className="background__image" style={{ backgroundImage: `url(${loginImage})`,backgroundSize: 'cover' }}>
-          <div className="search__car__container ">
-            <div className="row">
-              <div className="offset-1 pick__up__office ">
-                <form>
-                
-                  <select className="form-select" defaultValue=""   >
-                    
-                    <option value="" className='form-select__title' >Select Pick Up Office</option>
-                    {officiesList.map((officiesItem, index) => {
-                  
-                      return <option key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}  </option>
-   
-                    })}
-                  </select>
-                </form>
-                <form>
-                  <select className="form-select " defaultValue="" id="officeform">
-                    <option value=""  >Select Pick Up Office</option>
-                    {officiesList.map((officiesItem, index) => {
-                      return <option  key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}</option>
+      <div className="row">
+        <div className="background__image" style={{ backgroundImage: `url(${loginImage})`, backgroundSize: 'cover' }}>
+          <div className="search__car__container">
+            <div className="col-lg-4 col-md-4">
+              <p className='form-select-title'>Select Pick-up office</p>
+              <form onSubmit={(e) => handleSubmit(e)} >
+                <select className="form-select" value={status} onChange={(e) => setStatus(e.target.value)} >
+                  {officiesList.map((officiesItem, index) => {
+                    return <option key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}  </option>
+                  })}
+                </select>
+              </form>
+              <p className='form-select-title'>Select return office</p>
+              <form onSubmit={(e) => handleDropOff(e)} >
+                <select className="form-select " value={dropoff} onChange={(e) => setDropOff(e.target.value)}>
+                  {officiesList.map((officiesItem, index) => {
+                    return <option key={index} value={officiesItem.id}>{officiesItem.name},{officiesItem.city}</option>
+                  })}
+                </select>
+              </form>
+            </div>
+            <div className="col-lg-4 col-md-4  time_date">
+              <p className='form-select-title'>Select Pick-up time</p>
+              <div className='date__cont'>
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className='date' />
+              </div>
+              <p className='form-select-title'>Select return office</p>
+              <div className='date__cont'>
+                <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} className='date' />
+              </div>
+            </div>
 
-                    })}
-                  </select>
-                </form>
-              </div>
+            <div className=" col-lg-3 col-md-3 col-sm-3 time">
+              <TimePickerComponent placeholder='Select Pick Up Time'
+
+                min={minTime}
+                max={maxTime}
+                format='HH:mm'
+              />
+              <TimePickerComponent
+                placeholder='Select Drop Off Time'
+                min={minTime}
+                max={maxTime}
+                format='HH:mm'
+              />
             </div>
-            <div className="row">
-              <div className=" offset-2 time__date">
-                <div className=" select__pick__up__date">
-                  <div className="offset-1 date__pick__up">
-                    <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} className='date' />
-                  </div>
-                  <div className="col-5 time__container">
-                    <TimePickerComponent placeholder='Select Pick Up Time'
-                    className='time'
-                    min={minTime}
-                    max={maxTime}
-                    format='HH:mm'
-                    ></TimePickerComponent>
-                   
-                  </div>
-                </div>
-                <div className=" select__pick__up__date">
-                  <div className=" offset-1 date__pick__up">
-                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className='date' />
-                  </div>
-                  <div className=" col-5 time__container">
-                  <TimePickerComponent
-                  placeholder='Select Pick Up Time'
-                  className='time'
-                  min={minTime}
-                  max={maxTime}
-                  format='HH:mm'
-                  
-                  ></TimePickerComponent>
-                  </div>
-                </div>
-              </div>
-              <div >
-             
-                <Link to="reservation"><button  className='car__search-button' type='button' >Search</button></Link> 
-                </div>
-             
+            <div>
             </div>
-          </div>      
+          </div>
+         
+          <Link to="reservation"><button value="" className='car__search-button' id='searchbtn' type='button' >Search</button></Link>
         </div>
+
       </div>
 
     </section>

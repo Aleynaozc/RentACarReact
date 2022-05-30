@@ -1,14 +1,13 @@
 .car__card{
-    display: flex;
+    display: block;
     margin-top: 50px;
     justify-content: center;
     padding: 70px;
     
 }
 .card{
-    width: 400px!important;
-    padding:30px;
-    margin-left:20px;
+    padding:10px;
+    margin-left:10px;
     border:2px solid black!important;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -26,41 +25,73 @@
     font-weight: 600;
 
 }
-.slider{
-    height: 300px;
-}
-.slider__arrow{
+
+.slider__arrow__container{
+    
     display: flex;
-    float: right;
-  
+    position: relative;
+    margin-bottom: 20px;
     
 }
-.card-img-top{
-    height: 238.12px;
+.slider__arrow{
+    margin-left: 270px;
 }
+.slider__container{
+    position: relative;
+    left:4px;
+    height: 200px;
+    align-items: center;
+    display: flex;
+    
+    border-left:1.4px solid rgb(0, 0, 0);
+    border-right:1.4px solid rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
+.card-img-top{
+   height:inherit;
+}
+.slider{
+    width: 400px;
+    height: 200px;
+}
+
+
 .arrows{
    cursor: pointer;
    font-size: 15px;
     margin-right: 30px;
 }
+.card__features-body{
+   
+    padding:30px;
+}
 .card__features{
+    margin-left: 20px;
     display: flex;
-    justify-content: space-around;
-    margin-left: 30px;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+   
+
 }
 .transmission__image{
     width:20px;
     height: 20px;
+    margin-right: 10px;
+}
+
+.icons{
+    margin-right:10px;
+    margin-top: 4px;
+}
+.features{
+    margin-right: 20px;
 }
 .car__price{
     display: flex;
-    border-radius: 10px;
-    margin-top:20px;
-    margin-bottom:20px;
-    
     text-align: center;
     justify-content: center;
-  
 }
 .total__price{
    color:rebeccapurple;
@@ -68,11 +99,12 @@
 }
 .daily__price{
     font-size:14px;
+    margin-left: 20px;
 }
 .pay__button-area{
     display: flex;
-   
     justify-content: center;
+    margin-top: 30px;
 }
 .pay__button{
     width: 100px;
@@ -82,3 +114,144 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 50px;
 }
+
+
+/*FILTER */
+.filter__container{
+    background-color: antiquewhite;
+    position: relative;
+    top:50px;
+    height: 600px;
+    border-radius: 10px;
+    border:1px solid black;
+    padding:30px;
+}
+.filter__categories{
+    margin-top:40px;
+    padding:10px;
+  
+    border-radius: 20px;
+}
+
+.categories__item{
+    border:1.4px solid black;
+    padding:10px;
+    border-radius: 10px;
+    margin-bottom:20px;
+}
+
+.form-check
+input[type='checkbox'] {
+    accent-color:  #892727;
+  }
+
+
+
+  @media only screen and (max-width:768px) {
+    .card{
+        min-width: 340px!important;
+        margin-left:4px;
+ 
+       }
+       .arrows{
+        position: relative;
+        right:90px;
+    }
+   
+    .card__features{
+        display:flex;
+       
+    }
+    .slider__container{
+        display: flex;
+        justify-content: center;
+     
+        left:50px;
+    }
+
+   
+ 
+ 
+ 
+
+
+}
+@media only screen and (max-width:576px) {
+ 
+    .slider__container{
+        left:0px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+@media only screen and (max-width:768px) {
+ 
+    .card{
+     min-width: 340px!important;
+     margin-left:0px;
+    }
+.arrows{
+    position: relative;
+    right:60px;
+ }
+ 
+ .card__features{
+     display: block;
+ }
+ 
+.slider__container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    left:0px;
+}
+.card-img-top{
+    padding:10px;
+ }
+ .filter__container{
+    width:400px!important;
+}
+.filter{
+  justify-content: center;
+  display: flex;  
+}
+}
+@media only screen and (max-width:767px) {
+   .card{
+    margin-left:0px;
+   }
+    .slider__container{
+       
+        left:0px;
+    }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1024) {
+    .card__features-body{
+        margin-left: 40px;
+       
+    }
+    
+    
+    }
+ */
+
+
+

@@ -1,133 +1,120 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
-.background__image{
-    width: 1423px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    }
-    .search__car__container {
-      background-color: rgba(240, 248, 255, 0.516);
-      border-radius: 20px;
-      width: 900px;
-      height: 400px;
-      display :flex;
-      align-items: center;
-      justify-content: center;  
-    }
-    
-    .pick__up__date{
-      margin-top: 50px;
-      padding: 100px;
-    }
-    .select__pick__up__date{
-      margin-bottom:30px;
-      display: flex;
-      border-left: 1px solid rgba(12, 8, 8, 0.24);
-    }
-    
-    .date__pick__up{
-      margin-top:20px;
-       width: 250px;
-    }
-   
-    .form-select{
-      margin-top: 20px;
-      margin-bottom: 30px;
-    }
-    .car__search-button{
-      margin-top: 30px;
-      float:right;
-      border:none;
-      border-radius: 10px;
-      padding:10px;
-      
-    }
-    .time__container{
-      margin-top: 15px;
-    }
-    .time__date{
-      position: relative;
-      top:40px;
-    }
-    .date{
-      border-radius: 5px;
-      height: 30px;
-      border:none;
-    }
-    
-   
+
+.background__image {
+  width: 1423px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.search__car__container {
+  background-color: rgba(240, 248, 255, 0.516);
+  border-radius: 20px;
+  width: 900px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+
+}
+.form-select-title{
+  display: none;
+}
+.form-select {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+
+.time_date {
+
+  margin-left: 30px;
+  display: block;
+  text-align: center;
+  border-left: 1px solid rgba(12, 8, 8, 0.24);
+}
+
+.date__cont {
+  margin-top: 39px;
+}
+
+.date {
+  border-radius: 5px;
+  height: 38px;
+  border: none;
+  position: relative;
+  bottom: 19px;
+}
+
+.time {
+  margin-top: 30px;
+
+}
+
+.e-time-wrapper {
+  margin-bottom: 40px !important;
+}
+
+.car__search-button {
+ color:blueviolet;
+  position:relative;
+  right: 130px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  top:130px;
+
+}
+.car__search-button:hover {
+color:rgb(85, 0, 164);
+
+}
+
+input::placeholder {
+  color: rgb(133, 74, 1) !important;
+
+}
+@media only screen and (max-width : 768px) {
   
-    @media only screen and (max-width:900px) {
-      .rentacar__header{
-          
-          font-size: 10px;
-      }
+
+  .search__car__container {
+    display: block;
+    width: 900px;
+    height: inherit;
+    align-items:center;
+    padding: 10px;
+    position: relative;
+    left:40px;
+  }
+
+  .form-select-title{
+   
     
-      .background__image{
-          
-          width: 768px;
-          height: 500px;
-        }
-        .search__car__container {
-          padding:0px;
-          width: 768px;
-          height:200px;
-      }
-      .select__pick__up__office{
-          margin-bottom: 20px;
-          
-      }
-      .select__pick__up__office .dropdown-menu{
-          width: 100px;
-      }
-      .pick__up__office{
-          padding: 25px;
-          height: 50px;
-      }
-      
-      .dropdown__pick__up__office{
-          width: 200px;
-          height: 50px;
-      }
-     
+    display: block;
+    color:rgb(136, 89, 32);
+    text-align: center;
+  }
+
+  .time_date {
     
-      .pick__up__date{
-          padding: 25px;
-          height:50px;
-        
-      }
-      .select__pick__up__date{
-          margin-bottom: 20px;
-          display: flex;
-          border-left: 1px solid rgba(12, 8, 8, 0.587);
-      }
-      .date__pick__up{
-         width: 250px;
-      }
-      .dropdown__date{
-          width: 150px;
-          background-color: rgb(254, 227, 219);
-          height: 50px;
-      }
-      .dropdown__hour{
-          width: 150px;
-          height: 50px;
-          background-color: rgb(228, 228, 228);
-      }
-    }
+    margin-left: 0px;
+    display: block;
+    text-align: center;
+    border:none;
     
-    @media only screen and (max-width:1023px) {
-      .rentacar__header{
-          
-          font-size: 11px;
-      }
-    
-      .background__image{
-          /* background-image:url(assets/images/mobile.jpg) ; */
-          width: 1024px;
-          height: 900px;
-        }
-       
-    }
-    
+  }
+  .react-datepicker__month-container {
+    float: left;
+  }
+  .car__search-button{
+    position:relative;
+    right: 130px;
+    top:280px;
+  }
+  .time{
+    margin-top: 5px;
+  }
+  
+  }
