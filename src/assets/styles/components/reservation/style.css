@@ -1,15 +1,18 @@
 .car__card{
     display: block;
-    margin-top: 50px;
+   
     justify-content: center;
-    padding: 70px;
+    padding: 50px;
     
 }
 .card{
     padding:10px;
     margin-left:10px;
-    border:2px solid black!important;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+ 
+    border:2px solid rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .card-text{
     background-color: aliceblue;
@@ -34,34 +37,34 @@
     
 }
 .slider__arrow{
-    margin-left: 270px;
+    margin-left: 230px;
 }
+.arrows{
+    cursor: pointer;
+    font-size: 15px;
+     margin-right: 30px;
+ }
 .slider__container{
     position: relative;
-    left:4px;
+    left:40px;
     height: 200px;
     align-items: center;
     display: flex;
-    
-    border-left:1.4px solid rgb(0, 0, 0);
-    border-right:1.4px solid rgb(0, 0, 0);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 20px;
 }
 .card-img-top{
    height:inherit;
 }
 .slider{
+    display: flex;
+    
     width: 400px;
     height: 200px;
 }
 
 
-.arrows{
-   cursor: pointer;
-   font-size: 15px;
-    margin-right: 30px;
-}
+
 .card__features-body{
    
     padding:30px;
@@ -139,12 +142,19 @@
     border-radius: 10px;
     margin-bottom:20px;
 }
+.item__form-check{
+    display: flex;
+}
 
-.form-check
-input[type='checkbox'] {
-    accent-color:  #892727;
+input.custom {
+    accent-color: rebeccapurple;
+    margin-right: 20px;
+    margin-top: 4px;
+    accent-color: auto;
+    display: block;
+    width: 15px;
+    height: 15px;
   }
-
 
 
   @media only screen and (max-width:768px) {

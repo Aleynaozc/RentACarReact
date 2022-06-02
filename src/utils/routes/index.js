@@ -7,7 +7,7 @@ import {
    import Home from "../../containers/Home/Home";
    import NotFound from "../../containers/NotFound";
    import Layout from "../../containers/Layout";
-   import Reservation from "../../containers/Reservation";
+   import Reservation from "../../containers/Reservation/CarList";
    const PageRoutes = () => {
     return (
      <Router>
