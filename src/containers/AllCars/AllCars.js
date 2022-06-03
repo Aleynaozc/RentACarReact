@@ -1,20 +1,22 @@
-import { render } from '@testing-library/react';
+
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 
 import "../../assets/styles/components/reservation/style.css"
-import Category from './Category';
-import handleClick from "../Home/Home"
+import Category from '../Reservation/Category';
 
-function cars() {
-    const search = window.location.search;
+const AllCars = () => {
     
-    const [carList, setCarList] = useState([]);
+    const [allCarList, setAllCarList] = useState([]);
+ 
+    
+
 
     const getCars = async () => {
-        axios.get("https://localhost:44352/api/RentaCar/reservation" + search)
-            .then((res) => setCarList(res.data))
+        axios.get("https://localhost:44352/api/RentaCar/Listcar" )
+            .then((res) => setAllCarList(res.data))
     };
 
     useEffect(() => {
@@ -28,8 +30,9 @@ function cars() {
             <Category />
             <div className="col-lg-8 col-md-8 car__card">
                 <div className='row'>
+
                     {
-                        carList.map((carItem, index) => {
+                        allCarList.map((carItem, index) => {
                             return <div className="card" key={index}>
                                 <div className='row'>
                                     <p className="car__classification">{carItem.classification.type}</p>
@@ -56,7 +59,7 @@ function cars() {
                                         </div>
                                         <div className="car__price">
 
-                                            <span className=" total__price">{carItem.price} </span>
+                                            <span className=" total__price">1.4748,06 TL </span>
 
                                             <span className="daily__price">{carItem.price} / Günlük</span>
                                         </div>
@@ -77,5 +80,4 @@ function cars() {
     )
 }
 
-
-export default cars;
+export default AllCars

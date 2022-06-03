@@ -29,17 +29,17 @@ const home = () => {
   const navigate = useNavigate();
 
 
-const handleClicka = ()   => {
+  function handleClick() {
 
 
-    const date1 = startDate;
-    const date2 = endDate;
+    const date1 = new Date(startDate);
+    const date2 = new Date(endDate);
 
     // One day in milliseconds
     const oneDay = 1000 * 60 * 60 * 24;
 
     // Calculating the time difference between two dates
-    const diffInTime = date2 - date1
+    const diffInTime = date2.getTime() - date1.getTime()
 
     // Calculating the no. of days between two dates
     const diffInDays = Math.round(diffInTime / oneDay);
@@ -98,7 +98,6 @@ const handleClicka = ()   => {
             }}
             onSubmit={(values) => {
               openofficies(values);
-            
             }}
           >
             {({ handleChange, values, setFieldValue }) => (
@@ -134,24 +133,24 @@ const handleClicka = ()   => {
                     <p className='form-select-title'>Select Pick-up time</p>
                     <div className='date__cont'>
                       <DatePicker
+                        maxDate={addMonths(new Date(), 5)}
                         showDisabledMonthNavigation
                         onChange={(date) => { setFieldValue("startDate", date) }}
                         className='date'
                         name="startDate"
                         selected={values.startDate}
-                        minDate={new Date()}
+
                         value={values.startDate}
                       />
                     </div>
                     <p className='form-select-title'>Select return office</p>
                     <div className='date__cont' >
                       <DatePicker
-                        onCalendarClose={handleClicka}
+                        onCalendarClose={handleClick}
                         onChange={(date) => { setFieldValue("endDate", date) }}
                         excludeDates={[addDays(new Date(), 0)]}
                         value={values.endDate}
                         selected={values.endDate}
-                        minDate={values.startDate}
                         name="endDate"
 
                         className='date' />

@@ -63,9 +63,12 @@
   right: 130px;
   border: none;
   border-radius: 10px;
-  padding: 10px;
   top:130px;
 
+  padding: 15px 32px;
+  
+
+  
 }
 .car__search-button:hover {
 color:rgb(85, 0, 164);
@@ -112,6 +115,7 @@ input::placeholder {
     position:relative;
     right: 130px;
     top:280px;
+  
   }
   .time{
     margin-top: 5px;

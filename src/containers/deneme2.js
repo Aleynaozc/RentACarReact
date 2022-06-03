@@ -29,18 +29,18 @@ const home = () => {
   const navigate = useNavigate();
 
 
-const handleClicka = ()   => {
+  function handleClick() {
 
 
-    const date1 = startDate;
-    const date2 = endDate;
-
+    const date1 = new Date(startDate);
+    const date2 = new Date(endDate);
+  
     // One day in milliseconds
     const oneDay = 1000 * 60 * 60 * 24;
-
+  
     // Calculating the time difference between two dates
-    const diffInTime = date2 - date1
-
+    const diffInTime = date2.getTime() - date1.getTime()
+  
     // Calculating the no. of days between two dates
     const diffInDays = Math.round(diffInTime / oneDay);
 
@@ -71,7 +71,7 @@ const handleClicka = ()   => {
     Object.keys(values).forEach((key) => {
       params.append(key, values[key]);
     });
-    navigate("/reservation?" + params.toString());
+    navigate("/reservation?"+ params.toString());
   }
 
 
@@ -93,15 +93,15 @@ const handleClicka = ()   => {
           <Formik
             initialValues={{
               location: "",
-              startDate: new Date(),
-              endDate: new Date(),
+            
+             
+
             }}
             onSubmit={(values) => {
               openofficies(values);
-            
             }}
           >
-            {({ handleChange, values, setFieldValue }) => (
+            {({ handleChange }) => (
 
               <Form >
                 <div className="search__car__container">
@@ -122,7 +122,7 @@ const handleClicka = ()   => {
 
                     <p className='form-select-title'>Select return office</p>
 
-                    <select className="form-select " name="officies" onChange={handleChange}>
+                    <select className="form-select " name="officies" onChange={handleChange} >
                       <option selected>Select Drop Off Officies</option>
                       {officiesList.map((officiesItem, index) => {
                         return <option key={index} value={officiesItem.name}> {officiesItem.name},{officiesItem.city}</option>
@@ -134,25 +134,27 @@ const handleClicka = ()   => {
                     <p className='form-select-title'>Select Pick-up time</p>
                     <div className='date__cont'>
                       <DatePicker
+                        maxDate={addMonths(new Date(), 5)}
                         showDisabledMonthNavigation
-                        onChange={(date) => { setFieldValue("startDate", date) }}
+                        selected={startDate}
+                       
+                        onChange={(date) => setStartDate(date)}
                         className='date'
-                        name="startDate"
-                        selected={values.startDate}
                         minDate={new Date()}
-                        value={values.startDate}
+                        name="date"
+
                       />
                     </div>
                     <p className='form-select-title'>Select return office</p>
                     <div className='date__cont' >
                       <DatePicker
-                        onCalendarClose={handleClicka}
-                        onChange={(date) => { setFieldValue("endDate", date) }}
+                        onCalendarClose={handleClick}
+                        selected={endDate} 
+                        onChange={(date) => setEndDate(date)}
                         excludeDates={[addDays(new Date(), 0)]}
-                        value={values.endDate}
-                        selected={values.endDate}
-                        minDate={values.startDate}
-                        name="endDate"
+                        minDate={startDate}
+
+
 
                         className='date' />
                     </div>
@@ -172,15 +174,15 @@ const handleClicka = ()   => {
                       format='HH:mm'
                     />
                   </div>
-
+                  
 
                   <button
                     className='car__search-button'
                     id='searchbtn'
                     type='submit'
                     name='btndate'
-
-
+                   
+                 
                   >
                     {buttonText}
                   </button>

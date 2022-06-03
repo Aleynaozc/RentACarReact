@@ -15,7 +15,7 @@ export default function header() {
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               </li>
               <li className="nav-item col-6">
-                <Link className="nav-link" to="reservation">Cars</Link>
+                <Link className="nav-link" to="carList">Cars</Link>
               </li>
               <li className="nav-item dropdown col-6">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

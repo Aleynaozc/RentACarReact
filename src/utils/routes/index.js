@@ -8,6 +8,8 @@ import {
    import NotFound from "../../containers/NotFound";
    import Layout from "../../containers/Layout";
    import Reservation from "../../containers/Reservation/CarList";
+   import AllCar from "../../containers/AllCars/AllCars";
+
    const PageRoutes = () => {
     return (
      <Router>
@@ -15,6 +17,7 @@ import {
       <Route element={<Layout/>}>
       <Route exact path="/" element={<Home/>} />
       <Route exact path="reservation" element={<Reservation/>} />
+      <Route exact path="carList" element={<AllCar/>} />
       </Route>
        <Route path="*" element={<NotFound />} />
       </Routes>
