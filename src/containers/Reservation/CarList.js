@@ -1,15 +1,33 @@
-import { render } from '@testing-library/react';
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import "../../assets/styles/components/reservation/style.css"
 import Category from './Category';
-import handleClick from "../Home/Home"
+
 
 function cars() {
     const search = window.location.search;
-    
+    const dates = new URLSearchParams(window.location.search)
+
+
+    var startDate = dates.get("startDate");
+    var endDate = dates.get("endDate");
+
+    const newEndDate = new Date(endDate);
+    const newStartDate = new Date(startDate);
+
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    // Calculating the time difference between two dates
+    const diffInTime = newEndDate - newStartDate
+
+    // Calculating the no. of days between two dates
+    const diffInDays = Math.round(diffInTime / oneDay);
+
+
     const [carList, setCarList] = useState([]);
 
     const getCars = async () => {
@@ -22,12 +40,16 @@ function cars() {
 
     }, []);
 
+
+
+
     return (
 
         <div className="row filter">
-            <Category />
+            <Category carList={carList} setCarList={setCarList} />
             <div className="col-lg-8 col-md-8 car__card">
                 <div className='row'>
+
                     {
                         carList.map((carItem, index) => {
                             return <div className="card" key={index}>
@@ -56,7 +78,7 @@ function cars() {
                                         </div>
                                         <div className="car__price">
 
-                                            <span className=" total__price">{carItem.price} </span>
+                                            <span className=" total__price">{carItem.price * diffInDays} TL </span>
 
                                             <span className="daily__price">{carItem.price} / Günlük</span>
                                         </div>

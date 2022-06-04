@@ -29,17 +29,13 @@ const home = () => {
   const navigate = useNavigate();
 
 
-const handleClicka = ()   => {
-
-
-    const date1 = startDate;
-    const date2 = endDate;
+const handleClick = (values)   => {
 
     // One day in milliseconds
     const oneDay = 1000 * 60 * 60 * 24;
 
     // Calculating the time difference between two dates
-    const diffInTime = date2 - date1
+    const diffInTime = values.endDate - values.startDate
 
     // Calculating the no. of days between two dates
     const diffInDays = Math.round(diffInTime / oneDay);
@@ -98,10 +94,11 @@ const handleClicka = ()   => {
             }}
             onSubmit={(values) => {
               openofficies(values);
-            
+             
+           
             }}
           >
-            {({ handleChange, values, setFieldValue }) => (
+            {({ handleChange, values, setFieldValue}) => (
 
               <Form >
                 <div className="search__car__container">
@@ -135,7 +132,7 @@ const handleClicka = ()   => {
                     <div className='date__cont'>
                       <DatePicker
                         showDisabledMonthNavigation
-                        onChange={(date) => { setFieldValue("startDate", date) }}
+                        onChange={(date) => { setFieldValue("startDate",date) }}
                         className='date'
                         name="startDate"
                         selected={values.startDate}
@@ -146,14 +143,13 @@ const handleClicka = ()   => {
                     <p className='form-select-title'>Select return office</p>
                     <div className='date__cont' >
                       <DatePicker
-                        onCalendarClose={handleClicka}
-                        onChange={(date) => { setFieldValue("endDate", date) }}
+                        onCalendarClose={()=> {handleClick(values)}}
+                        onChange={(date) => { setFieldValue("endDate",date) }}
                         excludeDates={[addDays(new Date(), 0)]}
                         value={values.endDate}
                         selected={values.endDate}
                         minDate={values.startDate}
                         name="endDate"
-
                         className='date' />
                     </div>
                   </div>
@@ -175,7 +171,7 @@ const handleClicka = ()   => {
 
 
                   <button
-                    className='car__search-button'
+                    className='car__search-button col-3'
                     id='searchbtn'
                     type='submit'
                     name='btndate'
