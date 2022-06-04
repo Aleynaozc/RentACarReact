@@ -78,7 +78,7 @@ function cars() {
                                         </div>
                                         <div className="car__price">
 
-                                            <span className=" total__price">{carItem.price * diffInDays} TL </span>
+                                            <span className=" total__price">{diffInDays===0 ? carItem.price : carItem.price * diffInDays} TL </span>
 
                                             <span className="daily__price">{carItem.price} / Günlük</span>
                                         </div>

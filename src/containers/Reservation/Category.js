@@ -13,7 +13,7 @@ function Category() {
                     <div className='categories__item'>
                         <h5>Transmission Type</h5>
                         <div className="item__form-check">
-                            <input type="checkbox" className='custom' onClick={()=>filterResult("automatic")}/>
+                            <input type="checkbox" className='custom' />
                             <span className="form-check-label" for="flexCheckDefault" >
                                 Automatic
                             </span>

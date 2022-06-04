@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DatePicker from "react-datepicker";
-import { addMonths, addDays } from "date-fns"
+import { addMonths, addDays,subDays } from "date-fns"
 import "react-datepicker/dist/react-datepicker.css";
 import '../../assets/styles/components/home/style.css'
 import axios from 'axios'
@@ -18,9 +18,6 @@ const home = () => {
 
   const maxTime = new Date("01/02/2022 05:00 PM");
 
-  const [startDate, setStartDate] = useState(new Date());
-
-  const [endDate, setEndDate] = useState(new Date());
 
   const [officiesList, setOfficiesList] = useState([]);
 
@@ -40,7 +37,8 @@ const handleClick = (values)   => {
     // Calculating the no. of days between two dates
     const diffInDays = Math.round(diffInTime / oneDay);
 
-    setButtonText(`For ${diffInDays} Day`);
+    setButtonText( 
+     `${ diffInTime === 0 ? "Search":`For ${diffInDays} Day` }`);
 
   }
 
