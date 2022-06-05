@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../Header/style.css'
+
 export default function header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,10 +33,7 @@ export default function header() {
                 <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            
           </div>
         </div>
       </nav>

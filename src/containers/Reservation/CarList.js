@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import "../../assets/styles/components/reservation/style.css"
@@ -27,7 +27,6 @@ function cars() {
     // Calculating the no. of days between two dates
     const diffInDays = Math.round(diffInTime / oneDay);
 
-
     const [carList, setCarList] = useState([]);
 
     const getCars = async () => {
@@ -40,18 +39,32 @@ function cars() {
 
     }, []);
 
+    //FILTERED
+    const [selectedCategory, setSelectedCategory] = useState();
+    
+    
+     function getFilteredList(e) {
+        if (!selectedCategory) {
+          return carList;
+        }
+        return  carList.filter((item) => item.transmissionType.type === selectedCategory || item.fuelType.type === selectedCategory || item.classification.type === selectedCategory );
+      }
+      var filteredList = useMemo(getFilteredList, [selectedCategory, carList]);
+
 
 
 
     return (
 
         <div className="row filter">
-            <Category carList={carList} setCarList={setCarList} />
+            <Category setSelectedCategory={setSelectedCategory}/>
+             
             <div className="col-lg-8 col-md-8 car__card">
+            
                 <div className='row'>
-
+                
                     {
-                        carList.map((carItem, index) => {
+                        filteredList .map((carItem, index) => {
                             return <div className="card" key={index}>
                                 <div className='row'>
                                     <p className="car__classification">{carItem.classification.type}</p>
