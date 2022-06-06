@@ -71,7 +71,7 @@ function Category({setSelectedCategory}) {
                     </div>
 
                 </div>
-                <button className='btn btn-primary'>To Filter</button>
+               
             </div>
         </div>
     )

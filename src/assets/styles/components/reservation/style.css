@@ -1,6 +1,6 @@
 .car__card{
     display: block;
-   
+    
     justify-content: center;
     padding: 100px;
     
@@ -10,7 +10,8 @@
     margin-left:10px;
     margin-bottom: 20px;
     border-radius: 20px;
- 
+    display:flex;
+
     border:2px solid rgb(0, 0, 0);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -37,31 +38,34 @@
     
 }
 .slider__arrow{
-    margin-left: 230px;
+    margin-left: 130px;
 }
 .arrows{
     cursor: pointer;
     font-size: 15px;
-     margin-right: 30px;
+   margin-right: 30px;
  }
 .slider__container{
-    position: relative;
-    left:40px;
-    height: 200px;
-    align-items: center;
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    border-radius: 20px;
-}
-.card-img-top{
-   height:inherit;
-}
-.slider{
+    
+    justify-content:center;
     display: flex;
     
-    width: 400px;
-    height: 200px;
+  
+    
+   
 }
+.slider{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 20px;
+    width:400px;
+    height: inherit;
+    padding: 30px;
+}
+.card-img-top{
+   width: inherit;
+   height:inherit;
+}
+
 
 
 
@@ -150,7 +154,7 @@ input.custom {
     accent-color: rebeccapurple;
     margin-right: 20px;
     margin-top: 4px;
-    accent-color: auto;
+ 
     display: block;
     width: 15px;
     height: 15px;
@@ -158,110 +162,21 @@ input.custom {
 
 
   @media only screen and (max-width:768px) {
-    .card{
-        min-width: 340px!important;
-        margin-left:4px;
- 
-       }
-       .arrows{
+    
+    .arrows{
         position: relative;
         right:90px;
     }
-   
-    .card__features{
-        display:flex;
-       
-    }
-    .slider__container{
-        display: flex;
-        justify-content: center;
-     
-        left:50px;
-    }
-
-   
- 
- 
- 
-
 
 }
 @media only screen and (max-width:576px) {
  
-    .slider__container{
-        left:0px;
-    }
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-@media only screen and (max-width:768px) {
- 
     .card{
-     min-width: 340px!important;
-     margin-left:0px;
-    }
-.arrows{
-    position: relative;
-    right:60px;
- }
- 
- .card__features{
-     display: block;
- }
- 
-.slider__container{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    left:0px;
-}
-.card-img-top{
-    padding:10px;
- }
- .filter__container{
-    width:400px!important;
-}
-.filter{
-  justify-content: center;
-  display: flex;  
-}
-}
-@media only screen and (max-width:767px) {
-   .card{
-    margin-left:0px;
-   }
-    .slider__container{
-       
-        left:0px;
-    }
-}
-
-@media only screen and (max-width: 1440px) and (min-width: 1024) {
-    .card__features-body{
-        margin-left: 40px;
+        
+        margin-left:0px;
        
     }
     
-    
-    }
- */
 
-
-
+}

@@ -47,7 +47,7 @@ function cars() {
         if (!selectedCategory) {
           return carList;
         }
-        return  carList.filter((item) => item.transmissionType.type === selectedCategory || item.fuelType.type === selectedCategory || item.classification.type === selectedCategory );
+        return  carList.filter((item) => item.transmissionType.type === selectedCategory || item.fuelType.type === selectedCategory || item.classification.type === selectedCategory  );
       }
       var filteredList = useMemo(getFilteredList, [selectedCategory, carList]);
 
@@ -59,13 +59,16 @@ function cars() {
         <div className="row filter">
             <Category setSelectedCategory={setSelectedCategory}/>
              
-            <div className="col-lg-8 col-md-8 car__card">
+            <div className="col-lg-8 col-md-8  car__card">
             
                 <div className='row'>
-                
+          
                     {
                         filteredList .map((carItem, index) => {
-                            return <div className="card" key={index}>
+
+                            return <>
+                            
+                            <div className="card" key={index}>
                                 <div className='row'>
                                     <p className="car__classification">{carItem.classification.type}</p>
                                     <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
@@ -75,17 +78,17 @@ function cars() {
                                             <i className="fa-solid fa-circle-arrow-right arrows" ></i>
                                         </div>
                                     </div>
-                                    <div className='slider__container col-lg-6 col-md-9 col-sm-9 '>
-                                        <div className="slider ">
+                                    <div className='slider__container  '>
+                                        <div className="slider col-lg-7 col-md-10 col-sm-7">
                                             <img className="card-img-top" src={carItem.imgURL} alt="Card image cap" />
                                         </div>
                                     </div>
-                                    <div className="card__features-body col-lg-6 col-md-12 col-sm-12">
+                                    <div className="card__features-body  col-md-12 col-sm-12">
                                         <div className="card__features ">
                                             <i className="fa-solid fa-gas-pump icons "></i>
                                             <p className='features'>{carItem.fuelType.type}</p>
                                             <img className="mt-1 transmission__image" src={'../images/transmission.png'} />
-                                            <p className='features'>{carItem.transmissionType.type}</p>
+                                            <p className='features'>{carItem.transmissionType.type} </p>
                                             <i className="fa-solid fa-credit-card icons"></i>
                                             <p className='features'>Credit Card</p>
                                         </div>
@@ -101,6 +104,7 @@ function cars() {
                                     </div>
                                 </div>
                             </div>
+                            </>
                         })}
                 </div>
 

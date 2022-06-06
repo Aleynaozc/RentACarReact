@@ -1,0 +1,81 @@
+.all_car-card{
+    border:2px solid rgb(181, 24, 24);
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.allcar__arrows{
+    cursor: pointer;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.car__slider{
+    width:500px;
+
+}
+.car__card-img-top{
+    width: inherit;
+    height: inherit;
+}
+.allCar_card__features{
+    display: flex;
+    
+    justify-content: center;
+}
+.all_car__list{
+    display: grid;
+    grid-template-columns: auto auto ;
+    padding: 30px;
+    column-gap: 150px;
+    row-gap: 50px;
+   
+}
+.officies__name{
+    font-size: 15px;
+    color:rebeccapurple;
+    font-weight: 600;
+}
+
+@media only screen and (max-width:576px) {
+ 
+ 
+    .all_car__list{
+       
+      display: block;
+    
+       
+    }
+    .all_car-card{
+        display: block;
+        
+        text-align: center;
+        border:2px solid rgb(181, 24, 24);
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    .car_slider__container{
+        width: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .car__slider{
+        
+       width: inherit;
+    
+    }
+    .allCar_card__features{
+        display: block;
+        
+        
+    }
+    .allCar_daily__price{
+        color:rebeccapurple;
+    }
+    .car__card-img-top{
+        width:270px;
+        display: flex;
+        justify-content: center;
+    }
+}
