@@ -1,28 +1,16 @@
 
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
 
-function Category({selectedCategory,setSelectedCategory}) {
-    const search = window.location.search;
-    const [carList, setCarList] = useState([]);   
+import React from 'react'
 
-  
-    const getCars = async () => {
-        axios.get("https://localhost:44352/api/RentaCar/reservation" + search)
-            .then((res) => setCarList(res.data))
-    };
-     useEffect(() => {
-        getCars();
+function Category({setSelectedCategory}) {
 
-    }, []);
-  
+
     function handleCategoryChange(event) { 
-           if(event.target.checked)
-           {
-               setSelectedCategory(event.target.value);
-           } 
-        
+        if (event.target.checked) {
+            setSelectedCategory(event.target.value);
+        } else {
+            setSelectedCategory(null);
+        }
      }
  
   

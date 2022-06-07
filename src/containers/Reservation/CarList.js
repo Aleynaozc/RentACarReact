@@ -83,15 +83,8 @@ function cars() {
       };
 
 
-      function handleCategoryChange(event) { 
-        if(event.target.checked)
-        {
-            setSelectedCategory(event.target.value);
-            
-        } 
-     
-  }
-
+ 
+  
     return (
         <div>
             <div className='row'>
