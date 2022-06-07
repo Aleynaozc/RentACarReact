@@ -50,7 +50,7 @@ function cars() {
     
     function getFilteredList() {
         let testList = carList;
-        console.log(selectedCategory)
+    
         Object.keys(selectedCategory).forEach(catType => {
             if (selectedCategory[catType].length > 0) {
                 testList = testList.filter(car => {
@@ -58,10 +58,7 @@ function cars() {
                 });
             }
         })
-        // if (!selectedCategory) {
-        //     return carList
-        // }
-        // return carList.filter((item) => item.transmissionType.type === selectedCategory || item.fuelType.type === selectedCategory || item.classification.type === selectedCategory);
+     
 
         return testList;
     }
@@ -111,7 +108,7 @@ function cars() {
                 </div>
 
 
-                <Category selectedCategory={selectedCategory} setCarList={setCarList} setSelectedCategory={setSelectedCategory} />
+                <Category selectedCategory={selectedCategory}  setSelectedCategory={setSelectedCategory} />
 
                 <div className="col-lg-8 col-md-8  car__card">
 

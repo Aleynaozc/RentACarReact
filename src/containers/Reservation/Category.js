@@ -2,17 +2,18 @@
 
 import React from 'react'
 
-function Category({ setSelectedCategory, setCarList, selectedCategory }) {
+function Category({ setSelectedCategory, selectedCategory }) {
 
     const setCategroyFilters = (value, type) => {
         const findedItemIndex = selectedCategory[type].findIndex(x => x == value);
         if (findedItemIndex == -1)
             setSelectedCategory({ ...selectedCategory, [type]: [...selectedCategory[type], value] });
         else {
+
             selectedCategory[type].splice(findedItemIndex, 1)
             setSelectedCategory({
                 ...selectedCategory,
-                type: [...selectedCategory[type]]
+                [type]: [...selectedCategory[type]]
             });
         }
     }
@@ -65,27 +66,27 @@ function Category({ setSelectedCategory, setCarList, selectedCategory }) {
                             </label>
                         </div>
                     </div>
-                    {/* <div className='categories__item'>
+                    <div className='categories__item'>
                         <h5>Classification</h5>
                         <div className="item__form-check">
-                            <input type="checkbox" className='custom' value='Economic' onChange={handleCategoryChange("classification")}  />
+                            <input type="checkbox" className='custom' value='Economic' onChange={(e) => { handleCategoryChange(e, "classification") }} />
                             <label className="form-check-label" for="flexCheckDefault">
                                 Economic
                             </label>
                         </div>
                         <div className="item__form-check">
-                            <input type="checkbox" className='custom' value='Standart' onChange={handleCategoryChange("classification")} />
+                            <input type="checkbox" className='custom' value='Standart' onChange={(e) => { handleCategoryChange(e, "classification") }} />
                             <label className="form-check-label" for="flexCheckChecked">
                                 Standart
                             </label>
                         </div>
                         <div className="item__form-check">
-                            <input type="checkbox" className='custom' value='Premium' onChange={handleCategoryChange("classification")}  />
+                            <input type="checkbox" className='custom' value='Premium' onChange={(e) => { handleCategoryChange(e, "classification") }} />
                             <label className="form-check-label" for="flexCheckChecked">
                                 Premium
                             </label>
                         </div>
-                    </div> */}
+                    </div>
 
                 </div>
 
