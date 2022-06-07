@@ -2,27 +2,44 @@ import {
     BrowserRouter as Router,
     Route,
     Routes
-   } from "react-router-dom";
-   import React from 'react'
-   import Home from "../../containers/Home/Home";
-   import NotFound from "../../containers/NotFound";
-   import Layout from "../../containers/Layout";
-   import Reservation from "../../containers/Reservation/CarList";
-   import AllCar from "../../containers/AllCars/AllCars";
+} from "react-router-dom";
+import React from 'react'
+import Home from "../../containers/Home/Home";
+import NotFound from "../../containers/NotFound";
+import Layout from "../../containers/Layout";
+import Reservation from "../../containers/Reservation/CarList";
+import AllCar from "../../containers/AllCars/AllCars";
+import DashboardLayout from "../../containers/Dashboards/DashboardLayout";
+import Users from "../../containers/Dashboards/User/Users";
+import Admin from "../../containers/Dashboards/Admin/Admin";
+import SaveCars from "../../containers/Dashboards/SaveCars/SaveCars";
+import SignInUp from "../../containers/SignInUp/SignInUp";
 
-   const PageRoutes = () => {
+const PageRoutes = () => {
     return (
-     <Router>
-      <Routes>
-      <Route element={<Layout/>}>
-      <Route exact path="/" element={<Home/>} />
-      <Route exact path="reservation" element={<Reservation/>} />
-      <Route exact path="carList" element={<AllCar/>} />
-      </Route>
-       <Route path="*" element={<NotFound />} />
-      </Routes>
-     </Router>
+        <Router>
+            <Routes>
+                <Route element={<Layout />}>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="reservation" element={<Reservation />} />
+                    <Route exact path="carList" element={<AllCar />} />
+                    <Route
+            path="/sign-in-up"
+            element= {<SignInUp /> }
+          />
+                </Route>
+                <Route
+                element={<DashboardLayout />}
+                >
+                    <Route path="/admin/users" element={<Users />} />
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/admin/savecars" element={<SaveCars />} />
+                </Route>
+                <Route path="*" element={<NotFound />} />
+
+            </Routes>
+        </Router>
     )
-   }
-   
-   export default PageRoutes;
+}
+
+export default PageRoutes;

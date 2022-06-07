@@ -29,9 +29,12 @@ export default function header() {
                   <li><a className="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-              <li className="nav-item col-6">
-                <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
+              <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to="sign-in-up">
+                  Login
+                </Link>
               </li>
+
             </ul>
             
           </div>

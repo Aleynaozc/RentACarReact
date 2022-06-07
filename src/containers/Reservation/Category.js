@@ -1,10 +1,31 @@
-import React, { useState } from 'react'
 
-function Category({setSelectedCategory}) {
-    function handleCategoryChange(event) {
-        setSelectedCategory(event.target.value);
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+
+function Category({selectedCategory,setSelectedCategory}) {
+    const search = window.location.search;
+    const [carList, setCarList] = useState([]);   
+
+  
+    const getCars = async () => {
+        axios.get("https://localhost:44352/api/RentaCar/reservation" + search)
+            .then((res) => setCarList(res.data))
+    };
+     useEffect(() => {
+        getCars();
+
+    }, []);
+  
+    function handleCategoryChange(event) { 
+           if(event.target.checked)
+           {
+               setSelectedCategory(event.target.value);
+           } 
+        
      }
-   
+ 
+  
     return (
 
         <div className='col-lg-4 col-md-4 filter__container'>
@@ -15,7 +36,7 @@ function Category({setSelectedCategory}) {
                     <div className='categories__item'>
                         <h5>Transmission Type</h5>
                         <div className="item__form-check">
-                            <input type="checkbox" className='custom' value='Automatic' onChange={handleCategoryChange}  />
+                            <input type="checkbox" className='custom'  value='Automatic'    onChange={ handleCategoryChange }  />
                             <span className="form-check-label" for="flexCheckDefault"  >
                                 Automatic
                             </span>
