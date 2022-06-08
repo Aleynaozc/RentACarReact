@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 import "../../assets/styles/components/allCars/style.css"
@@ -45,7 +46,7 @@ const AllCars = () => {
                             </div>
                             <div className='car_slider__container'>
                                 <div className="car__slider">
-                                    <img className="car__card-img-top" src={carItem.imgURL} alt="Card image cap" />
+                                    <img className="car__card-img-top" src={carItem.carModal.imgURL} alt="Card image cap" />
                                 </div>
                             </div>
                              <div className="allcar__card-body">
@@ -65,7 +66,9 @@ const AllCars = () => {
                                         <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
                                     </div>
                                     <div className="pay__button-area">
-                                        <button className="mb-3 pay__button">Pay Now</button>
+                                    <Link to="/">
+                                     <button className="pay__button">Pay Now</button>
+                                      </Link>
                                     </div>
                                 </div>
                             </div>

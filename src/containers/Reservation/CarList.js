@@ -1,7 +1,8 @@
 
 import axios from 'axios';
+import { Form } from 'formik';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import "../../assets/styles/components/reservation/style.css"
 import Category from './Category';
@@ -10,7 +11,7 @@ import Category from './Category';
 function cars() {
     const search = window.location.search;
     const dates = new URLSearchParams(window.location.search)
-
+    
 
     var startDate = dates.get("startDate");
     var endDate = dates.get("endDate");
@@ -28,9 +29,9 @@ function cars() {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     const [carList, setCarList] = useState([]);
-
+const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
     const getCars = async () => {
-        axios.get("https://localhost:44352/api/RentaCar/reservation" + search)
+       axios.get(jdhrf)
             .then((res) => setCarList(res.data))
     };
 
@@ -39,6 +40,22 @@ function cars() {
 
     }, []);
 
+    const navigate = useNavigate();
+    const openofficies = (values) => {
+
+        var params = new URLSearchParams();
+        Object.keys(values).forEach((key) => {
+          params.append(key, values[key]);
+        });
+        navigate("/paypage?" + params.toString());
+      }
+    
+   
+
+  
+
+
+
     //FILTERED
     const [selectedCategory, setSelectedCategory] = useState({
         transmissionType: [],
@@ -46,11 +63,11 @@ function cars() {
         classification: [],
     });
 
+   
 
-    
     function getFilteredList() {
         let testList = carList;
-    
+
         Object.keys(selectedCategory).forEach(catType => {
             if (selectedCategory[catType].length > 0) {
                 testList = testList.filter(car => {
@@ -58,7 +75,7 @@ function cars() {
                 });
             }
         })
-     
+
 
         return testList;
     }
@@ -108,19 +125,19 @@ function cars() {
                 </div>
 
 
-                <Category selectedCategory={selectedCategory}  setSelectedCategory={setSelectedCategory} />
+                <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
                 <div className="col-lg-8 col-md-8  car__card">
 
                     <div className='row'>
 
                         {
-                            filteredList.map((carItem, index) => {
+                            filteredList.map((carItem) => {
 
                                 return <>
 
-                                    <div className="card" key={index}>
-
+                                    <div className="card" key={carItem.id}>
+                                        <p id={carItem.id} hidden></p>
                                         <p className="car__classification">{carItem.classification.type}</p>
                                         <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
 
@@ -133,7 +150,7 @@ function cars() {
                                         <div className='row mb-3'>
                                             <div className='slider__container col-lg-6'>
                                                 <div className="slider ">
-                                                    <img className="card-img-top" src={carItem.imgURL} alt="Card image cap" />
+                                                    <img className="card-img-top" src={carItem.carModal.imgURL} alt="Card image cap" />
                                                 </div>
                                             </div>
 
@@ -153,7 +170,12 @@ function cars() {
                                                     <span className="daily__price">{carItem.price} / Daily</span>
                                                 </div>
                                                 <div className="pay__button-area">
-                                                    <button className="pay__button">Pay Now</button>
+                                                    <Link to={`paypage/${carItem.id}/${diffInDays}`}
+                                                 
+                                                    >
+                                                    <button value={carItem.id}   type="submit" className="pay__button">Pay Now</button>
+                                                    </Link>
+                                                   
                                                 </div>
                                             </div>
 

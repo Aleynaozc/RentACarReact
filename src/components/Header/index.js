@@ -13,10 +13,10 @@ export default function header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item col-6">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link active" aria-current="page" to="/" >Home</Link>
               </li>
               <li className="nav-item col-6">
-                <Link className="nav-link" to="carList">Cars</Link>
+                <Link className="nav-link" to="carlist">Cars</Link>
               </li>
               <li className="nav-item dropdown col-6">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

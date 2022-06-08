@@ -14,6 +14,7 @@ import Users from "../../containers/Dashboards/User/Users";
 import Admin from "../../containers/Dashboards/Admin/Admin";
 import SaveCars from "../../containers/Dashboards/SaveCars/SaveCars";
 import SignInUp from "../../containers/SignInUp/SignInUp";
+import Paypage from "../../containers/PayPage/Paypage";
 
 const PageRoutes = () => {
     return (
@@ -22,7 +23,9 @@ const PageRoutes = () => {
                 <Route element={<Layout />}>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="reservation" element={<Reservation />} />
-                    <Route exact path="carList" element={<AllCar />} />
+                    <Route exact path="carlist" element={<AllCar />} />
+                    <Route exact path="reservation/paypage/:cardID/:date" element={<Paypage/>}  />
+                    <Route exact path="carlist" element={<Paypage/>} />
                     <Route
             path="/sign-in-up"
             element= {<SignInUp /> }
