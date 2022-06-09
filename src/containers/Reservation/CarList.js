@@ -1,14 +1,19 @@
 
 import axios from 'axios';
-import { Form } from 'formik';
+
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link} from 'react-router-dom';
+import { date } from 'yup';
+
 
 import "../../assets/styles/components/reservation/style.css"
+
 import Category from './Category';
 
 
 function cars() {
+  
     const search = window.location.search;
     const dates = new URLSearchParams(window.location.search)
     
@@ -40,16 +45,8 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
 
     }, []);
 
-    const navigate = useNavigate();
-    const openofficies = (values) => {
 
-        var params = new URLSearchParams();
-        Object.keys(values).forEach((key) => {
-          params.append(key, values[key]);
-        });
-        navigate("/paypage?" + params.toString());
-      }
-    
+ 
    
 
   
@@ -109,8 +106,6 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
     };
 
 
-
-
     return (
         <div>
             <div className='row'>
@@ -158,7 +153,7 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
                                                 <div className="card__features ">
                                                     <i className="fa-solid fa-gas-pump icons "></i>
                                                     <p className='features'>{carItem.fuelType.type}</p>
-                                                    <img className="mt-1 transmission__image" src={'../images/transmission.png'} />
+                                                    <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL+'/images/transmission.png'} />
                                                     <p className='features'>{carItem.transmissionType.type} </p>
                                                     <i className="fa-solid fa-credit-card icons"></i>
                                                     <p className='features'>Credit Card</p>
@@ -173,7 +168,7 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
                                                     <Link to={`paypage/${carItem.id}/${diffInDays}`}
                                                  
                                                     >
-                                                    <button value={carItem.id}   type="submit" className="pay__button">Pay Now</button>
+                                                    <button value={carItem.id}    type="submit" className="pay__button">Pay Now</button>
                                                     </Link>
                                                    
                                                 </div>

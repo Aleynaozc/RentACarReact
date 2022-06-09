@@ -6,15 +6,9 @@ import { Link } from 'react-router-dom';
 
 
 import "../../assets/styles/components/allCars/style.css"
-import Category from '../Reservation/Category';
 
 const AllCars = () => {
-
     const [allCarList, setAllCarList] = useState([]);
-
-
-
-
     const getCars = async () => {
         axios.get("https://localhost:44352/api/RentaCar/Listcar")
             .then((res) => setAllCarList(res.data))

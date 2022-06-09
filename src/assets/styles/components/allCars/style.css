@@ -3,11 +3,16 @@
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
+.all_car-card:hover{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0,0.5);
+}
 .allcar__arrows{
     cursor: pointer;
     font-size: 15px;
     margin-right: 10px;
 }
+
 
 .car__slider{
     width:500px;

@@ -22,10 +22,10 @@ const PageRoutes = () => {
             <Routes>
                 <Route element={<Layout />}>
                     <Route exact path="/" element={<Home />} />
-                    <Route exact path="reservation" element={<Reservation />} />
-                    <Route exact path="carlist" element={<AllCar />} />
-                    <Route exact path="reservation/paypage/:cardID/:date" element={<Paypage/>}  />
-                    <Route exact path="carlist" element={<Paypage/>} />
+                    <Route  path="reservation" element={<Reservation />} />
+                    <Route  path="carlist" component={<AllCar />} />
+                    <Route  path="reservation/paypage/:cardID/:date" element={<Paypage/>}  />
+                    <Route  path="carlist" element={<Paypage/>} />
                     <Route
             path="/sign-in-up"
             element= {<SignInUp /> }
@@ -45,4 +45,4 @@ const PageRoutes = () => {
     )
 }
 
-export default PageRoutes;
+export default PageRoutes ;

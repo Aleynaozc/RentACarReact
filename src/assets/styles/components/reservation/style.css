@@ -126,7 +126,10 @@
     
 }
 
-
+.card:hover{
+    transform: scale(1);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0,0.5);
+}
 /*FILTER */
 .filter__container{
     background-color: antiquewhite;

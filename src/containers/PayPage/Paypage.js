@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+
 import { Link, useParams } from 'react-router-dom';
-import { date } from 'yup';
+
 
 function Paypage() {
-     
+    
+ 
      const params= useParams();
      
     const [oneCar,setOneCar]=useState([])
@@ -27,7 +30,7 @@ function Paypage() {
         <Formik
       
         >
-    <div className="col-lg-5 col-md-5  all_car__list">
+    <div className="col-lg-5 col-md-5 offset-3  all_car__list">
 
  
 
@@ -53,7 +56,7 @@ function Paypage() {
                             <div className="mt-2 allCar_card__features ">
                                 <i className="fa-solid fa-gas-pump icons "></i>
                                 <p className='features'>{carItem.fuelType.type}</p>
-                                <img className="mt-1 transmission__image" src={'../../images/transmission.png'} />
+                                <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL+'/images/transmission.png'} />
                                 <p className='features'>{carItem.transmissionType.type}</p>
                                 <i className="fa-solid fa-credit-card icons"></i>
                                 <p className='features'>Credit Card</p>
@@ -61,12 +64,12 @@ function Paypage() {
                             <div className="car__price">
 
                                 
-                            <span className=" total__price">{ carItem.price* params.date} TL </span>
-                                <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
+                            <span className=" total__price mx-3">{ params.date == 0 ? carItem.price : carItem.price * params.date} TL </span>
+                                <span className="allCar_daily__price "> {carItem.price} TL / Daily</span>
                             </div>
                             <div className="pay__button-area">
                             <Link to="paypage">
-                             <button className="pay__button">Pay Now</button>
+                             <button className="pay__button">Continue</button>
                               </Link>
                             </div>
                         </div>
