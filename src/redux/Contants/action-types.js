@@ -1,5 +1,0 @@
-export const ActionTypes = {
-    SET_ALL_CARS: "SET_ALL_CARS",
-    SELECTED_OFFICIES: "SELECTED_OFFICIES",
-    SELECTED_ONE_CARS: "SELECTED_ONE_CARS",
-  };

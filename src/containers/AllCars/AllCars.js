@@ -1,33 +1,38 @@
 
-
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { getAllCars } from '../../redux/slice/carSlice';
 
 import "../../assets/styles/components/allCars/style.css"
 
+
+
 const AllCars = () => {
-    const [allCarList, setAllCarList] = useState([]);
-    const getCars = async () => {
-        axios.get("https://localhost:44352/api/RentaCar/Listcar")
-            .then((res) => setAllCarList(res.data))
-    };
+   
+    // const [allCarList, setAllCarList] = useState([]);
+        // const getCars = async () => {
+    //     axios.get("https://localhost:44352/api/RentaCar/Listcar")
+    //         .then((res) => setAllCarList(res.data))
+    // };
+
+    const dispatch=useDispatch();
+    const cars = useSelector(state => state.cars.allCars);
+   
+
+
 
     useEffect(() => {
-        getCars();
+     dispatch(getAllCars())
 
-    }, []);
+    }, [dispatch]);
 
     return (
 
         <div className="row ">
             <div className="col-lg-5 col-md-5  all_car__list">
-
-              
-
                 {
-                        allCarList.map((carItem, index) => {
+                      cars.map((carItem) => {
                             
                             return    <div className="all_car-card " >
                             <p className="car__classification">{carItem.classification.type}</p>
@@ -60,8 +65,9 @@ const AllCars = () => {
                                         <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
                                     </div>
                                     <div className="pay__button-area">
+                                  
                                     <Link to="/">
-                                     <button className="pay__button">Pay Now</button>
+                                     <button className="pay__button" >Pay Now</button>
                                       </Link>
                                     </div>
                                 </div>

@@ -9,6 +9,10 @@ import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import loginImage from "../../assets/images/background.jpg";
 import { Formik, Form } from 'formik';
 import { useNavigate } from "react-router-dom"
+import { getAllOfficies } from '../../redux/slice/carSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+
 
 
 const home = () => {
@@ -18,15 +22,18 @@ const home = () => {
 
   const maxTime = new Date("01/02/2022 05:00 PM");
 
-
-  const [officiesList, setOfficiesList] = useState([]);
-
   const [buttonText, setButtonText] = useState('Search')
 
   const navigate = useNavigate();
 
-
+  let  validationSchema =yup.object({
+   location: yup.string().required("Please Select Officies"),
+   startTime: yup.string().required("Please Select Time"),
+  
+ 
+  })
 const handleClick = (values)   => {
+  const oneDayRent = 1;
 
     // One day in milliseconds
     const oneDay = 1000 * 60 * 60 * 24;
@@ -38,7 +45,7 @@ const handleClick = (values)   => {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     setButtonText( 
-     `${ diffInTime === 0 ? "Search":`For ${diffInDays} Day` }`);
+      `${ diffInDays <= 0 ? `For ${oneDayRent} Day`:`For ${diffInDays} Day` }`);
 
   }
 
@@ -50,15 +57,15 @@ const handleClick = (values)   => {
 
 
 
-  const getOfficies = async (e) => {
-    axios.get(`https://localhost:44352/api/RentaCar`)
-      .then((res) => {
+  // const getOfficies = async (e) => {
+  //   axios.get(`https://localhost:44352/api/RentaCar`)
+  //     .then((res) => {
 
-        setOfficiesList(res.data)
+  //       setOfficiesList(res.data)
 
 
-      });
-  };
+  //     });
+  // };
   const openofficies = (values) => {
 
     var params = new URLSearchParams();
@@ -68,14 +75,21 @@ const handleClick = (values)   => {
     navigate("/reservation?" + params.toString());
   }
 
-
+  const dispatch=useDispatch();
+  const officies = useSelector(state => state.cars.allOfficies);
 
 
   useEffect(() => {
-    getOfficies();
+   dispatch(getAllOfficies())
+   
+  }, [dispatch]);
 
 
-  }, []);
+  // useEffect(() => {
+  //   getOfficies();
+
+
+  // }, []);
 
 
 
@@ -84,28 +98,36 @@ const handleClick = (values)   => {
     <section className="container-fluid ">
       <div className="row">
         <div className="background__image" style={{ backgroundImage: `url(${loginImage})`, backgroundSize: 'cover' }}>
+      
           <Formik
             initialValues={{
               location: "",
               startDate: new Date(),
               endDate: new Date(),
+              startTime:"",
+              endTime:""
             }}
+            validationSchema={validationSchema}
             onSubmit={(values) => {
               openofficies(values);
              
            
             }}
           >
-            {({ handleChange, values, setFieldValue}) => (
+            {({ handleChange, values, setFieldValue,errors,touched}) => (
 
               <Form >
+                {errors.location && touched.location? <span className='d-flex justify-content-center error-massage '>{errors.location}</span>:null}
+                {errors.startTime && touched.startTime? <span className='time-error-massage'>{errors.startTime}</span>:null}
                 <div className="search__car__container">
+
                   <div className="col-lg-4 col-md-4">
+                
                     <p className='form-select-title'>Select Pick-up office</p>
 
                     <select className="form-select" name="location" onChange={handleChange}>
                       <option selected>Select Pick Up Officies</option>
-                      {officiesList.map((officiesItem, index) => {
+                      {officies.map((officiesItem, index) => {
 
                         return <option
                           key={index} value={officiesItem.name}  >
@@ -114,15 +136,16 @@ const handleClick = (values)   => {
                       })}
 
                     </select>
-
+                   
                     <p className='form-select-title'>Select return office</p>
 
                     <select className="form-select " name="officies" onChange={handleChange}>
                       <option selected>Select Drop Off Officies</option>
-                      {officiesList.map((officiesItem, index) => {
+                      {officies.map((officiesItem, index) => {
                         return <option key={index} value={officiesItem.name}> {officiesItem.name},{officiesItem.city}</option>
                       })}
                     </select>
+                   
 
                   </div>
                   <div className="col-lg-4 col-md-4  time_date">
@@ -130,6 +153,7 @@ const handleClick = (values)   => {
                     <div className='date__cont'>
                       <DatePicker
                         showDisabledMonthNavigation
+                        onCalendarClose={()=> {handleClick(values)}}
                         onChange={(date) => { setFieldValue("startDate",date) }}
                         className='date'
                         name="startDate"
@@ -137,6 +161,7 @@ const handleClick = (values)   => {
                         minDate={new Date()}
                         value={values.startDate}
                       />
+                       
                     </div>
                     <p className='form-select-title'>Select return office</p>
                     <div className='date__cont' >
@@ -145,26 +170,36 @@ const handleClick = (values)   => {
                         onChange={(date) => { setFieldValue("endDate",date) }}
                         excludeDates={[addDays(new Date(), 0)]}
                         value={values.endDate}
-                        selected={values.endDate}
+                        selected={values.startDate>values.endDate? values.startDate : values.endDate}
                         minDate={values.startDate}
                         name="endDate"
                         className='date' />
                     </div>
                   </div>
-
+             
+                
                   <div className=" col-lg-3 col-md-3 col-sm-3 time">
-                    <TimePickerComponent placeholder='Select Pick Up Time'
-
+   
+                <div>
+                    <TimePickerComponent
+                     placeholder='Select Pick Up Time'
+                     onChange={handleChange}
+                     name='startTime'
                       min={minTime}
                       max={maxTime}
                       format='HH:mm'
                     />
+                   
                     <TimePickerComponent
                       placeholder='Select Drop Off Time'
+                      onChange={handleChange}
+                      value={values.startTime}
+                      name='endTime'
                       min={minTime}
                       max={maxTime}
                       format='HH:mm'
                     />
+                    </div>
                   </div>
 
 

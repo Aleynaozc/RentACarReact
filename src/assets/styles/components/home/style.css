@@ -79,6 +79,18 @@ input::placeholder {
   color: rgb(133, 74, 1) !important;
 
 }
+.error-massage{
+  position: absolute;
+  margin-top: 40px;
+  left: 720px;
+  font-weight: 600;
+}
+.time-error-massage{
+  position: absolute;
+  margin-top: 70px;
+  left: 720px;
+  font-weight: 600;
+}
 @media only screen and (max-width : 768px) {
   
 

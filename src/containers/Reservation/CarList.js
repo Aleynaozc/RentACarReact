@@ -1,26 +1,18 @@
 
 import axios from 'axios';
-
 import React, { useEffect, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link} from 'react-router-dom';
-import { date } from 'yup';
-
-
 import "../../assets/styles/components/reservation/style.css"
-
 import Category from './Category';
 
 
 function cars() {
   
     const search = window.location.search;
-    const dates = new URLSearchParams(window.location.search)
-    
 
+    const dates = new URLSearchParams(window.location.search)
     var startDate = dates.get("startDate");
     var endDate = dates.get("endDate");
-
     const newEndDate = new Date(endDate);
     const newStartDate = new Date(startDate);
 
@@ -34,7 +26,7 @@ function cars() {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     const [carList, setCarList] = useState([]);
-const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
+     const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
     const getCars = async () => {
        axios.get(jdhrf)
             .then((res) => setCarList(res.data))
@@ -77,10 +69,6 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
         return testList;
     }
     var filteredList = useMemo(getFilteredList, [selectedCategory, carList]);
-
-
-
-
     const [filterSearch, setFilterSearch] = useState('');
 
     // the search result
@@ -160,14 +148,12 @@ const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
                                                 </div>
                                                 <div className="car__price">
 
-                                                    <span className=" total__price">{diffInDays === 0 ? carItem.price : carItem.price * diffInDays} TL </span>
+                                                    <span className=" total__price">{diffInDays <= 0 ? carItem.price : carItem.price * diffInDays} TL </span>
 
                                                     <span className="daily__price">{carItem.price} / Daily</span>
                                                 </div>
                                                 <div className="pay__button-area">
-                                                    <Link to={`paypage/${carItem.id}/${diffInDays}`}
-                                                 
-                                                    >
+                                                    <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}`}>
                                                     <button value={carItem.id}    type="submit" className="pay__button">Pay Now</button>
                                                     </Link>
                                                    

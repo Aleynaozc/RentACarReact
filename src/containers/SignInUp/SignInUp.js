@@ -1,11 +1,20 @@
 import { Form, Formik } from 'formik';
-import React from 'react'
+import React, { useState } from 'react'
 import { SignInModel } from '../../utils/Forms/SignIn/InitialModels';
 import { SignInValidationScheme } from '../../utils/Forms/SignIn/validationScheme';
 import { SignUpModel } from '../../utils/Forms/SignUp/initialModel';
 import { SignUpValidationScheme } from '../../utils/Forms/SignUp/validationScheme';
 import "../../assets/styles/components/SignInUp/style.css"
+import axios from 'axios';
+
+
+
 function SignInUp() {
+
+
+
+
+
   return (
     <div className='col-6 offset-3 mt-5'>
       <nav>
@@ -19,13 +28,26 @@ function SignInUp() {
           <Formik
             initialValues={SignInModel}
             validationSchema={SignInValidationScheme}
-            // onSubmit={(values, { setSubmitting, resetForm }) => {
-            //   _login(values);
-            // }}
-          >{({ isSubmitting, handleSubmit,
+            onSubmit={(values , { resetForm }) => {
+            
+              axios.post("https://localhost:44352/api/User/Login",
+                {
+                  email: values.email,
+                  password: values.password,
+              
+                } 
+                
+              ).then((response) => (response.data))
+                .catch((error) => {
+                  console.log(error);
+                })
+                
+                resetForm();
+            }}
+          >{({
             errors, touched, handleChange }) => (
             <Form>
-             
+
               <h1 className="h3 mb-5 fw-normal">Please sign in</h1>
 
               <div className="form-floating mb-3">
@@ -38,51 +60,99 @@ function SignInUp() {
                 <label for="floatingPassword">Password</label>
                 {errors.password && touched.password ? <small>{errors.password}</small> : null}
               </div>
-
+                
               <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+              
               <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
             </Form>
           )}</Formik>
         </div>
         <div className="tab-pane fade" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab" tabIndex="1">
+         
+         
+         {/* REGISTER */}
           <Formik
             initialValues={SignUpModel}
             validationSchema={SignUpValidationScheme}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              console.log("başarılı!")
-            }}
-          >{({ isSubmitting, handleSubmit,
-            errors, touched, handleChange }) => (
-            <Form>
+            onSubmit={(values , { resetForm }) => {
             
-              <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
+              axios.post("https://localhost:44352/api/User/Register",
+                {
 
-              <div className="form-floating mb-3">
-                <input type="text" name='fullName' onChange={handleChange} className="form-control" id="floatingInput" />
-                <label for="floatingInput">Full Name</label>
-                {errors.fullName && touched.fullName ? <small >{errors.fullName}</small> : null}
-              </div>
-              <div className="form-floating mb-3">
-                <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
-                <label for="floatingInput">Email address</label>
-                {errors.email && touched.email ? <small >{errors.email}</small> : null}
-              </div>
-              <div className="form-floating mb-3">
-                <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword"  />
-                <label for="floatingPassword">Password</label>
-                {errors.password && touched.password ? <small>{errors.password}</small> : null}
-              </div>
-              <div className="form-floating mb-3">
-                <input type="password" name="rePassword" onChange={handleChange} className="form-control" id="floatingPassword"  />
-                <label for="floatingPassword">Re-Password</label>
-                {errors.rePassword && touched.rePassword ? <small>{errors.rePassword}</small> : null}
-              </div>
-
+                  fullName: values.fullName,
+                  email: values.email,
+                  password: values.password,
+                  rePassword:""
+                }
+                
+              ).then((response) => console.log(response.data))      
+               
+                resetForm();
+               
+               
+            }
+          
+          }
             
-              <button className="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
-              <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-            </Form>
-          )}</Formik>
+          >
+            {({ errors, touched, handleChange, values }) => (
+              <Form>
+
+                <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
+
+                <div className="form-floating mb-3">
+                  <input
+                    type="text"
+                    name='fullName'
+                    onChange={handleChange}
+                    value={values.fullName}
+                    className="form-control"
+                    id="floatingInput"
+                  />
+                  <label for="floatingInput">Full Name</label>
+                  {errors.fullName && touched.fullName ? <small >{errors.fullName}</small> : null}
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    type="text"
+                    name='email'
+                    onChange={handleChange}
+                    value={values.email}
+                    className="form-control"
+                    id="floatingInput" />
+                  <label for="floatingInput">Email address</label>
+                  {errors.email && touched.email ? <small >{errors.email}</small> : null}
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    value={values.password}
+                    className="form-control"
+                    id="floatingPassword" />
+                  <label for="floatingPassword">Password</label>
+                  {errors.password && touched.password ? <small>{errors.password}</small> : null}
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    type="password"
+                    name="rePassword"
+                    onChange={handleChange}
+                    value={values.rePassword}
+                    className="form-control"
+                    id="floatingPassword" />
+                  <label for="floatingPassword">Re-Password</label>
+                  {errors.rePassword && touched.rePassword ? <small>{errors.rePassword}</small> : null}
+                </div>
+
+                
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+              
+                <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>

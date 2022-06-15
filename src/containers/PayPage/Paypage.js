@@ -64,7 +64,7 @@ function Paypage() {
                             <div className="car__price">
 
                                 
-                            <span className=" total__price mx-3">{ params.date == 0 ? carItem.price : carItem.price * params.date} TL </span>
+                            <span className=" total__price mx-3">{ params.date <= 0 ? carItem.price : carItem.price * params.date} TL </span>
                                 <span className="allCar_daily__price "> {carItem.price} TL / Daily</span>
                             </div>
                             <div className="pay__button-area">
