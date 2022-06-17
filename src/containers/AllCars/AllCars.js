@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllCars } from '../../redux/slice/carSlice';
+
 
 import "../../assets/styles/components/allCars/style.css"
+import { getAllCars } from '../../services/store/car';
+
 
 
 
@@ -15,17 +17,13 @@ const AllCars = () => {
     //     axios.get("https://localhost:44352/api/RentaCar/Listcar")
     //         .then((res) => setAllCarList(res.data))
     // };
-
-    const dispatch=useDispatch();
-    const cars = useSelector(state => state.cars.allCars);
-   
-
-
-
+const dispatch=useDispatch();
+    const cars = useSelector(state => state.car.allCars);
+  
     useEffect(() => {
-     dispatch(getAllCars())
-
-    }, [dispatch]);
+        
+        dispatch(getAllCars())
+       }, [dispatch]);
 
     return (
 

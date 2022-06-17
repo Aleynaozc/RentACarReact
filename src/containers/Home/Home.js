@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import DatePicker from "react-datepicker";
-import { addMonths, addDays,subDays } from "date-fns"
+import {addDays} from "date-fns"
 import "react-datepicker/dist/react-datepicker.css";
 import '../../assets/styles/components/home/style.css'
-import axios from 'axios'
+
 
 import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import loginImage from "../../assets/images/background.jpg";
 import { Formik, Form } from 'formik';
 import { useNavigate } from "react-router-dom"
-import { getAllOfficies } from '../../redux/slice/carSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
+import { getAllOfficies } from '../../services/store/car';
+
 
 
 
@@ -76,13 +77,15 @@ const handleClick = (values)   => {
   }
 
   const dispatch=useDispatch();
-  const officies = useSelector(state => state.cars.allOfficies);
+  const officies = useSelector(state => state.car.allOfficies);
 
 
   useEffect(() => {
    dispatch(getAllOfficies())
-   
+  
   }, [dispatch]);
+
+  
 
 
   // useEffect(() => {
@@ -142,7 +145,7 @@ const handleClick = (values)   => {
                     <select className="form-select " name="officies" onChange={handleChange}>
                       <option selected>Select Drop Off Officies</option>
                       {officies.map((officiesItem, index) => {
-                        return <option key={index} value={officiesItem.name}> {officiesItem.name},{officiesItem.city}</option>
+                        return <option key={index}  value={officiesItem.name}> {officiesItem.name},{officiesItem.city}</option>
                       })}
                     </select>
                    

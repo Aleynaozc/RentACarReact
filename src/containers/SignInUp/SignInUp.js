@@ -1,17 +1,24 @@
 import { Form, Formik } from 'formik';
 import React, { useState } from 'react'
-import { SignInModel } from '../../utils/Forms/SignIn/InitialModels';
-import { SignInValidationScheme } from '../../utils/Forms/SignIn/validationScheme';
-import { SignUpModel } from '../../utils/Forms/SignUp/initialModel';
-import { SignUpValidationScheme } from '../../utils/Forms/SignUp/validationScheme';
+import { SignInModel } from '../../services/utils/Forms/SignIn/InitialModels';
+import { SignInValidationScheme } from '../../services/utils/Forms/SignIn/validationScheme';
+import { SignUpModel } from '../../services/utils/Forms/SignUp/initialModel';
+import { SignUpValidationScheme } from '../../services/utils/Forms/SignUp/validationScheme';
 import "../../assets/styles/components/SignInUp/style.css"
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { authCreateToken } from '../../services/store/auth/createToken';
+
 
 
 
 function SignInUp() {
 
-
+  const dispatch = useDispatch();
+  const _login = (loginModel) => {
+    console.log(loginModel);
+     dispatch(authCreateToken(loginModel));
+  };
 
 
 
@@ -28,72 +35,61 @@ function SignInUp() {
           <Formik
             initialValues={SignInModel}
             validationSchema={SignInValidationScheme}
-            onSubmit={(values , { resetForm }) => {
-            
-              axios.post("https://localhost:44352/api/User/Login",
-                {
-                  email: values.email,
-                  password: values.password,
-              
-                } 
-                
-              ).then((response) => (response.data))
-                .catch((error) => {
-                  console.log(error);
-                })
-                
-                resetForm();
+            onSubmit={(values, { resetForm }) => {
+              _login(values);
+              resetForm();
             }}
-          >{({
-            errors, touched, handleChange }) => (
-            <Form>
+          >
+            {({
+              errors, touched, handleChange }) => (
+              <Form>
 
-              <h1 className="h3 mb-5 fw-normal">Please sign in</h1>
+                <h1 className="h3 mb-5 fw-normal">Please sign in</h1>
 
-              <div className="form-floating mb-3">
-                <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
-                <label for="floatingInput">Email address</label>
-                {errors.email && touched.email ? <small >{errors.email}</small> : null}
-              </div>
-              <div className="form-floating mb-3">
-                <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword" />
-                <label for="floatingPassword">Password</label>
-                {errors.password && touched.password ? <small>{errors.password}</small> : null}
-              </div>
-                
-              <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-              
-              <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-            </Form>
-          )}</Formik>
+                <div className="form-floating mb-3">
+                  <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
+                  <label for="floatingInput">Email address</label>
+                  {errors.email && touched.email ? <small >{errors.email}</small> : null}
+                </div>
+                <div className="form-floating mb-3">
+                  <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword" />
+                  <label for="floatingPassword">Password</label>
+                  {errors.password && touched.password ? <small>{errors.password}</small> : null}
+                </div>
+
+                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
+                <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+              </Form>
+            )}</Formik>
         </div>
         <div className="tab-pane fade" id="nav-signup" role="tabpanel" aria-labelledby="nav-signup-tab" tabIndex="1">
-         
-         
-         {/* REGISTER */}
+
+
+          {/* REGISTER */}
           <Formik
             initialValues={SignUpModel}
             validationSchema={SignUpValidationScheme}
-            onSubmit={(values , { resetForm }) => {
-            
-              axios.post("https://localhost:44352/api/User/Register",
-                {
+            onSubmit={(values, { resetForm }) => {
 
+              axios.post("https://localhost:44352/api/Anonymous/Register",
+                {
+                  headers: { 'Content-type': 'application/json' },
                   fullName: values.fullName,
                   email: values.email,
                   password: values.password,
-                  rePassword:""
+                  rePassword: ""
                 }
-                
-              ).then((response) => console.log(response.data))      
-               
-                resetForm();
-               
-               
+
+              ).then((response) => console.log(response.data))
+
+              resetForm();
+
+
             }
-          
-          }
-            
+
+            }
+
           >
             {({ errors, touched, handleChange, values }) => (
               <Form>
@@ -146,9 +142,9 @@ function SignInUp() {
                   {errors.rePassword && touched.rePassword ? <small>{errors.rePassword}</small> : null}
                 </div>
 
-                
+
                 <button className="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
-              
+
                 <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
               </Form>
             )}

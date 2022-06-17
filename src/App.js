@@ -1,7 +1,7 @@
 import React  from 'react';
 import './App.css';
+import PageRoutes from './services/routes';
 
-import PageRoutes from './utils/routes';
 
 function App() {
 
