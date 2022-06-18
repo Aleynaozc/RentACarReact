@@ -2,34 +2,18 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Header/style.css';
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import {authLogout} from "../../services/store/auth/index"
 
-const header=(props)=> {
+const header = (token) => {
 
-//  const logOut = async () => {
-//     axios.post("https://localhost:44352/api/User/Logout");
-//   }
+  const { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const _signOut = () => {
+    dispatch(authLogout());
+  };
 
-// useEffect(()=>{
-//   logOut();
-// })
-  let menu;
-  if (props.fullName == '') {
-    menu = (
-      <li className="nav-item">
-        <Link className="nav-link " aria-current="page" to="sign-in-up">
-          Login
-        </Link>
-      </li>
-    )
-  }
-  else {
-    menu = (
-      <li className="nav-item">
-        <Link className="nav-link " aria-current="page" to="sign-in-up">
-          Login
-        </Link>
-      </li>)
-  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -45,11 +29,31 @@ const header=(props)=> {
             <li className="nav-item col-6">
               <Link className="nav-link" to="carslist">Cars</Link>
             </li>
-            <div>{menu}</div>
-            <li className='nav-item col-6'>
-              {props.fullName}
+            {/* <div>{menu}</div> */}
+
+            {!auth.token ? (
+              <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to="sign-in-up">
+                  Login
+                </Link>
+              </li>
+            ) : null}
+            <li className="nav-item">
+              <Link className="nav-link " aria-current="page" to="dashboard/admin">
+                Dashboard
+              </Link>
             </li>
           </ul>
+          {auth.token && (
+            <button
+              className="btn btn-outline-secondary"
+              onClick={() => {
+                _signOut();
+              }}
+            >
+              Sign out
+            </button>
+          )}
 
         </div>
       </div>

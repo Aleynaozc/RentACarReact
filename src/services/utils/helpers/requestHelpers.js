@@ -26,7 +26,7 @@ const Get = (url, headers) => {
     .then((response) => {
       const { isSuccess, data, message } = response.data;
       if (isSuccess) {
-        return new ResponseModel(data, isSuccess, message);
+        return new ResponseModel();
       } 
     })
    
@@ -38,10 +38,7 @@ const Post = (url, reqBody, headers) => {
       headers: headers ? { ...defaultHeaders, ...headers } : defaultHeaders,
     })
     .then((response) => {
-      const { isSuccess, data, message } = response.data;
-      if (isSuccess) {
-        return new ResponseModel(data, isSuccess, message);
-      } 
+      return response.data
     })
     
 };

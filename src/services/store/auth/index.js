@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Navigate } from "react-router-dom";
+
 import { authCreateToken } from "./createToken";
 
 
@@ -20,9 +20,8 @@ const authStore = createSlice({
   },
   extraReducers: {
     [authCreateToken.fulfilled]: (state, action) => {
-      state.token = action.payload.token;
-      state.role = action.payload.role;
-      
+      state.token = action.payload;
+      // window.history.pushState({}, "", "/");
     },
     [authCreateToken.rejected]: (state, action) => {
       state.token = undefined;

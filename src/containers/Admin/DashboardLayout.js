@@ -7,7 +7,7 @@ function DashboardLayout() {
    <div>
 
 <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <Link className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" to="/admin">
+        <Link className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" to="/dashboard/admin">
          RentaCar
         </Link>
         <button
@@ -47,7 +47,7 @@ function DashboardLayout() {
           <div className="position-sticky pt-3">
             <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link" activeClassName="active" aria-current="page" to="/admin">
+                <Link className="nav-link" activeClassName="active" aria-current="page" to="/dashboard/admin">
                   <span
                     data-feather="home"
                     className="align-text-bottom"
@@ -56,7 +56,7 @@ function DashboardLayout() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" activeClassName="active" to="/admin/savecars">
+                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/savecars">
                   <span
                     data-feather="file"
                     className="align-text-bottom"
@@ -65,7 +65,7 @@ function DashboardLayout() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" activeClassName="active" to="admin/users">
+                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/users">
                   <span
                     data-feather="shopping-cart"
                     className="align-text-bottom"

@@ -1,10 +1,11 @@
 import {
     BrowserRouter as Router,
-  
+
     Navigate,
-  
+
     Route,
-    Routes
+    Routes,
+    useLocation
 } from "react-router-dom";
 import React from 'react'
 import Home from "../../containers/Home/Home";
@@ -12,23 +13,37 @@ import NotFound from "../../containers/NotFound";
 import Layout from "../../containers/Layout";
 import Reservation from "../../containers/Reservation/CarList";
 import AllCar from "../../containers/AllCars/AllCars";
-import DashboardLayout from "../../containers/Dashboards/DashboardLayout";
-import Users from "../../containers/Dashboards/User/Users";
-import Admin from "../../containers/Dashboards/Admin/Admin";
-import SaveCars from "../../containers/Dashboards/SaveCars/SaveCars";
+import DashboardLayout from "../../containers/Admin/DashboardLayout";
+import Users from "../../containers/Admin/Dashboards/User/Users";
+import Admin from "../../containers/Admin/Dashboards/AdminPage/Admin";
+import SaveCars from "../../containers/Admin/Dashboards/SaveCars/SaveCars";
 import SignInUp from "../../containers/SignInUp/SignInUp";
 import Paypage from "../../containers/PayPage/Paypage";
-import RequireAdminAuth from "./requireAdminAuth";
-import RequireUserAuth from "./requireUserAuth";
+import AdminLogin from "../../containers/Admin/AdminLogin";
+// import RequireUserAuth from "./requireUserAuth";
 import { useSelector } from "react-redux";
+import store from "../store";
 
 
+
+function RequireUserAuth({ children }) {
+    
+    const { token } = useSelector((state) => state.auth)
+
+    if (!token) {
+        return <Navigate to="/sign-in-up" replace />
+    }
+
+
+    return children;
+}
 
 
 
 const PageRoutes = () => {
 
     const { token } = useSelector((state) => state.auth);
+
     return (
         <Router>
             <Routes>
@@ -36,31 +51,36 @@ const PageRoutes = () => {
 
                     <Route exact path="/" element={<Home />} />
                     <Route path="reservation" element={<Reservation />} />
-                    <Route path="carslist" element={<AllCar />} />
-                    <Route path="/sign-in-up" element={!token ? <SignInUp /> : <Navigate to="/" />} />
-
-                    <Route path="reservation/paypage/:cardID/:date" element={
-                        <RequireAdminAuth>
-                            <DashboardLayout/>
-                        </RequireAdminAuth>
+                    <Route path="carslist" element={
+                        <AllCar />
                     } />
+                    <Route path="/sign-in-up" element={!token ? <SignInUp /> : <Navigate to="/" />} />
+                    <Route path="reservation/paypage/:cardID/:date" element={!token ?
+                        <RequireUserAuth>
+                            <Paypage />
+                        </RequireUserAuth>
+                        : <Navigate to="paypage" />} />
                     <Route path="carlist" element={
                         <RequireUserAuth>
-                    <Paypage />
-                    </RequireUserAuth>
+                            <Paypage />
+                        </RequireUserAuth>
                     } />
                 </Route>
-
-                <Route element={
-                    <RequireAdminAuth>
+                <Route  path="/admin"
+                   
+                   element= {<AdminLogin />}
+                >
+               </Route>
+                <Route path="dashboard" element={
+                    
                         <DashboardLayout />
-                    </RequireAdminAuth>
-                }>
-                    <Route path="/admin/users" element={<Users />} />
-                    <Route path="/admin" element={<Admin />} />
-                    <Route path="/admin/savecars" element={<SaveCars />} />
+                   
+                    }>
+                    <Route path="/dashboard/admin/users" element={<Users />} />
+                    <Route path="/dashboard/admin" element={<Admin />} />
+                    <Route path="/dashboard/admin/savecars" element={<SaveCars />} />
                 </Route>
-
+             
                 <Route path="*" element={<NotFound />} />
 
             </Routes>

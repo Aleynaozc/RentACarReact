@@ -96,12 +96,13 @@ input::placeholder {
 
   .search__car__container {
     display: block;
-    width: 900px;
+    width: inherit;
     height: inherit;
     align-items:center;
-    padding: 10px;
-    position: relative;
-    left:40px;
+    text-align: center;
+    padding: 40px;
+ 
+  
   }
 
   .form-select-title{
@@ -120,17 +121,69 @@ input::placeholder {
     border:none;
     
   }
-  .react-datepicker__month-container {
-    float: left;
-  }
+
   .car__search-button{
-    position:relative;
-    right: 130px;
-    top:280px;
+  
+ 
+  right: 0px;
+  
+  top:0px;
+
+  padding: 15px 32px;
+    
+   
   
   }
   .time{
     margin-top: 5px;
   }
+  .e-time-wrapper {
+    margin-bottom: 0px !important;
+  }
   
   }
+  @media only screen and (min-width: 768px) and (max-width : 992px) {
+    .search__car__container {
+   
+      width: inherit;
+      height: inherit;
+      align-items:center;
+      text-align: center;
+      padding: 60px;
+    }
+    .form-select {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      position: relative;
+      right: 50px;
+    
+    }
+    .time_date {
+
+      margin-left: 0px;
+    
+    }
+    
+  
+   
+    
+ 
+ 
+    
+    .car__search-button {
+    
+
+    
+      top:100px;
+    
+     
+      
+    
+      
+    }
+    
+   .time{
+      margin-left: 60px;
+   }
+    
+    }

@@ -122,9 +122,9 @@ const handleClick = (values)   => {
               <Form >
                 {errors.location && touched.location? <span className='d-flex justify-content-center error-massage '>{errors.location}</span>:null}
                 {errors.startTime && touched.startTime? <span className='time-error-massage'>{errors.startTime}</span>:null}
-                <div className="search__car__container">
+                <div className="search__car__container ">
 
-                  <div className="col-lg-4 col-md-4">
+                  <div className="col-lg-4 col-md-5 col-sm-10 col-12">
                 
                     <p className='form-select-title'>Select Pick-up office</p>
 
@@ -151,8 +151,8 @@ const handleClick = (values)   => {
                    
 
                   </div>
-                  <div className="col-lg-4 col-md-4  time_date">
-                    <p className='form-select-title'>Select Pick-up time</p>
+                  <div className="col-lg-4 col-md-3 col-sm-10 time_date">
+                    <p className='form-select-title'>Select Pick-up Date</p>
                     <div className='date__cont'>
                       <DatePicker
                         showDisabledMonthNavigation
@@ -166,7 +166,7 @@ const handleClick = (values)   => {
                       />
                        
                     </div>
-                    <p className='form-select-title'>Select return office</p>
+                    <p className='form-select-title'>Select Return Date</p>
                     <div className='date__cont' >
                       <DatePicker
                         onCalendarClose={()=> {handleClick(values)}}
@@ -181,7 +181,7 @@ const handleClick = (values)   => {
                   </div>
              
                 
-                  <div className=" col-lg-3 col-md-3 col-sm-3 time">
+                  <div className=" col-lg-3 col-md-4 col-sm-10 col-12 time">
    
                 <div>
                     <TimePickerComponent
@@ -207,7 +207,7 @@ const handleClick = (values)   => {
 
 
                   <button
-                    className='car__search-button col-3'
+                    className='car__search-button col-lg-3 col-md-3'
                     id='searchbtn'
                     type='submit'
                     name='btndate'
