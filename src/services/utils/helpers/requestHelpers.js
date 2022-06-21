@@ -38,16 +38,6 @@ const Post = (url, reqBody, headers) => {
       headers: headers ? { ...defaultHeaders, ...headers } : defaultHeaders,
     })
     .then((response) => {
-      return response.data
-    })
-    
-};
-const Post2 = (url, reqBody, headers) => {
-  return axios
-    .post(url, reqBody, {
-      headers: headers ? { ...defaultHeaders, ...headers } : defaultHeaders,
-    })
-    .then((response) => {
       const { isSuccess, data, message } = response.data;
       if (isSuccess) {
         return new ResponseModel(data, isSuccess, message);
@@ -55,8 +45,9 @@ const Post2 = (url, reqBody, headers) => {
         errorToast(message);
       }
     })
- 
+    
 };
+
 const Put = (url, reqBody, headers) => {
   return axios
     .put(url, reqBody, {
@@ -85,4 +76,4 @@ const Delete = (url, headers) => {
    
 };
 
-export { Get, Post, Put, Delete,Post2 };
+export { Get, Post, Put, Delete};

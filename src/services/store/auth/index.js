@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { authCreateToken } from "./createToken";
+import { authAdminCreateToken } from "./createAdminToken";
 
 
 const _authLogout = (state, action) => {
   state.token = undefined;
   state.role = undefined;
-  window.history.pushState({}, "", "/");
+
 };
 
 const authStore = createSlice({
@@ -21,9 +22,17 @@ const authStore = createSlice({
   extraReducers: {
     [authCreateToken.fulfilled]: (state, action) => {
       state.token = action.payload;
-      // window.history.pushState({}, "", "/");
+      state.role=action.payload;
     },
     [authCreateToken.rejected]: (state, action) => {
+      state.token = undefined;
+      state.role = undefined;
+    },
+    [authAdminCreateToken.fulfilled]: (state, action) => {
+      state.token = action.payload.token;
+      state.role = action.payload.role;
+    },
+    [authAdminCreateToken.rejected]: (state, action) => {
       state.token = undefined;
       state.role = undefined;
     },

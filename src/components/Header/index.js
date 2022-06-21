@@ -45,8 +45,7 @@ const header = () => {
                 Dashboard
               </Link>
             </li>
-          </ul>
-          {auth.token && (
+            {auth.token && (
             <button
               className="btn btn-outline-secondary"
               onClick={() => {
@@ -55,7 +54,9 @@ const header = () => {
             >
               Sign out
             </button>
-          )}
+          )}   
+          </ul>
+         
 
         </div>
       </div>
