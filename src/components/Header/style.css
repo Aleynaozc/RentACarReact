@@ -23,3 +23,7 @@ nav{
 .nav-link:active{
     color:rgb(220, 250, 243)!important;
 }
+.logout{
+position: relative;
+left:900px;
+}

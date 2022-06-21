@@ -6,6 +6,7 @@ import {
     Route,
     Routes,
 
+
 } from "react-router-dom";
 import React from 'react'
 import Home from "../../containers/Home/Home";
@@ -28,6 +29,8 @@ import { UserRole } from "../utils/enums/auth";
 
 
 function RequireUserAuth({ children }) {
+    
+ 
     const { token } = useSelector((state) => state.auth)
     if (!token) {
         return <Navigate to="/sign-in-up" replace />
@@ -59,17 +62,14 @@ const PageRoutes = () => {
 
                     <Route exact path="/" element={<Home />} />
                     <Route path="reservation" element={<Reservation />} />
-                    <Route exact path="carslist" element={
-                    < RequireAdminAuth>
-                          <AllCar />
-                    </RequireAdminAuth>
-                    } />
-                    <Route path="/sign-in-up" element={ role !== UserRole.ADMIN ? <SignInUp /> : <Navigate to="dashboard" />} />
+                    <Route  path="/carslist" element={<AllCar />} />
+                    <Route path="/sign-in-up" element={  <SignInUp /> } />
+
                     <Route path="reservation/paypage/:cardID/:date" element={!token ?
                         <RequireUserAuth>
                             <Paypage />
                         </RequireUserAuth>
-                        : <Navigate to="paypage" />} />
+                        : <Navigate to="/paypage" />} />
 
                     <Route path="carlist" element={
                         <RequireUserAuth 
@@ -80,11 +80,13 @@ const PageRoutes = () => {
                 </Route>
                 <Route path="/admin"
 
-                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/" />}
+                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/dashboard" />}
                 />
-                  <Route path="dashboard" element={
+                  <Route path="/dashboard" element={
+                    <RequireAdminAuth>
+                        <DashboardLayout />
+                    </RequireAdminAuth>
                     
-                    <DashboardLayout />
                
                 }>
                     <Route path="/dashboard/admin/users" element={<Users />} />

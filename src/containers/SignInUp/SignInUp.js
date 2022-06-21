@@ -8,6 +8,8 @@ import "../../assets/styles/components/SignInUp/style.css"
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { authCreateToken } from '../../services/store/auth/createToken';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -22,7 +24,8 @@ function SignInUp() {
 
 
 
-
+  const navigate = useNavigate();
+ 
 
 
 
@@ -62,7 +65,7 @@ function SignInUp() {
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <button className="w-100 btn btn-lg btn-primary"  onClick={() => navigate(-1)}  type="submit" >Sign in</button>
 
                 <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
               </Form>

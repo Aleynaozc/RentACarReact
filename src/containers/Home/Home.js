@@ -162,7 +162,7 @@ const home = () => {
                     </select>
                   </div>
                   <div className="col-lg-4 col-md-3 col-sm-10 time_date">
-                    <p className='form-select-title'><i class="fa-solid fa-calendar-days search_car_icons"></i>  Pick-Up</p>
+                    <p className='form-select-title'><i className="fa-solid fa-calendar-days search_car_icons"></i>  Pick-Up</p>
                     <div className='date__cont'>
                       <DatePicker
                         showDisabledMonthNavigation
@@ -175,7 +175,7 @@ const home = () => {
                         value={values.startDate}
                       />
                     </div>
-                    <p className='form-select-title'><i class="fa-solid fa-calendar-days search_car_icons"></i> Drop-Of</p>
+                    <p className='form-select-title'><i className="fa-solid fa-calendar-days search_car_icons"></i> Drop-Of</p>
                     <div className='date__cont' >
                       <DatePicker
                         onCalendarClose={() => { handleClick(values) }}

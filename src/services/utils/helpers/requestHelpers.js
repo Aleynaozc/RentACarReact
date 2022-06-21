@@ -7,16 +7,7 @@ const defaultHeaders = {
   "Content-Type": "application/json",
 };
 
-// const exceptionHandler = (err) => {
-//   if (err?.response?.data) {
-//     const { data, isSuccess, message } = err.response.data;
-//     errorToast(message);
-//     return new ResponseModel(data, isSuccess, message);
-//   }
 
-//   errorToast("Beklenmedik bir hata oluştu!");
-//   return new ResponseModel(null, false, "Beklenmedik bir hata oluştu!");
-// };
 
 const Get = (url, headers) => {
   return axios

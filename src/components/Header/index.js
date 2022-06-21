@@ -34,18 +34,21 @@ const header = () => {
             {/* <div>{menu}</div> */}
 
             {!auth.token ? (
-              <li className="nav-item">
+              <li className="nav-item col-6">
                 <Link className="nav-link " aria-current="page" to="sign-in-up">
                   Login
                 </Link>
               </li>
             ) : null}
-            <li className="nav-item">
+            <li className="nav-item col-6">
               <Link className="nav-link " aria-current="page" to="dashboard/admin">
                 Dashboard
               </Link>
             </li>
-            {auth.token && (
+           
+          </ul>
+          {auth.token && (
+              <div className=' col-6 logout'>
             <button
               className="btn btn-outline-secondary"
               onClick={() => {
@@ -54,9 +57,8 @@ const header = () => {
             >
               Sign out
             </button>
+            </div>
           )}   
-          </ul>
-         
 
         </div>
       </div>

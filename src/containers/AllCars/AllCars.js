@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 import "../../assets/styles/components/allCars/style.css"
@@ -9,9 +9,9 @@ import { getAllCars } from '../../services/store/car';
 
 
 
-
 const AllCars = () => {
    
+    const { token } = useSelector((state) => state.auth);
     // const [allCarList, setAllCarList] = useState([]);
         // const getCars = async () => {
     //     axios.get("https://localhost:44352/api/RentaCar/Listcar")
@@ -19,6 +19,7 @@ const AllCars = () => {
     // };
 const dispatch=useDispatch();
     const cars = useSelector(state => state.car.allCars);
+
   
     useEffect(() => {
         
@@ -64,9 +65,9 @@ const dispatch=useDispatch();
                                     </div>
                                     <div className="pay__button-area">
                                   
-                                    <Link to="/">
+                                    <Link to={!token ? "/sign-in-up" : "/paypage" }>
                                      <button className="pay__button" >Pay Now</button>
-                                      </Link>
+                                     </Link>
                                     </div>
                                 </div>
                             </div>
