@@ -5,7 +5,8 @@ function Layout(props) {
   return (
     <>
     <Header fullName={props.fullName}/>
-    <div className='container'>
+ 
+    <div className='container-fluid'>
     <Outlet/>
     </div>
     </>

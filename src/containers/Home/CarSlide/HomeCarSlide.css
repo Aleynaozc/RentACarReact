@@ -1,0 +1,38 @@
+.home__car__slide__title{
+    position: relative;
+    top: 600px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home__car__slide__container{
+    padding: 30px;
+    position: relative;
+    width: 80%;
+    top: 660px;
+   left: 140px;
+    text-align: center;
+    background-color: rgba(187, 212, 168, 0.441);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;  overflow: hidden;
+}
+.car__slide__card__area{
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+
+}
+.car__slide__card{
+    border: 1px solid black;
+    width: 250px;
+    height: inherit;
+    padding: 30px ;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.slide__cars_img{
+    width: 180px;
+}

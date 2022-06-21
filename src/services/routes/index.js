@@ -5,7 +5,7 @@ import {
 
     Route,
     Routes,
-    useLocation
+  
 } from "react-router-dom";
 import React from 'react'
 import Home from "../../containers/Home/Home";
@@ -20,9 +20,10 @@ import SaveCars from "../../containers/Admin/Dashboards/SaveCars/SaveCars";
 import SignInUp from "../../containers/SignInUp/SignInUp";
 import Paypage from "../../containers/PayPage/Paypage";
 import AdminLogin from "../../containers/Admin/AdminLogin";
-// import RequireUserAuth from "./requireUserAuth";
 import { useSelector } from "react-redux";
+import { UserRole } from "../utils/enums/auth";
 import store from "../store";
+
 
 
 
@@ -37,12 +38,20 @@ function RequireUserAuth({ children }) {
 
     return children;
 }
-
+function RequireAdminAuth({ children }) {
+    
+    const { role } = useSelector((state) => state.auth)
+    if(role!=UserRole.ADMIN){
+        return <Navigate to="/" replace/>
+    }
+    return children;
+}
 
 
 const PageRoutes = () => {
 
     const { token } = useSelector((state) => state.auth);
+    const {role } = useSelector((state) => state.auth);
 
     return (
         <Router>
@@ -52,7 +61,9 @@ const PageRoutes = () => {
                     <Route exact path="/" element={<Home />} />
                     <Route path="reservation" element={<Reservation />} />
                     <Route path="carslist" element={
+                    < RequireAdminAuth>
                         <AllCar />
+                        </RequireAdminAuth>
                     } />
                     <Route path="/sign-in-up" element={!token ? <SignInUp /> : <Navigate to="/" />} />
                     <Route path="reservation/paypage/:cardID/:date" element={!token ?
@@ -68,7 +79,7 @@ const PageRoutes = () => {
                 </Route>
                 <Route  path="/admin"
                    
-                   element= {<AdminLogin />}
+                  element={ !role? <AdminLogin/> : <Navigate to="/"/>}
                 >
                </Route>
                 <Route path="dashboard" element={

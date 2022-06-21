@@ -1,0 +1,57 @@
+.customer__service__container{
+    position: relative;
+    top:330px;
+    display: block;
+
+}
+.customer_main__title{
+    font-size: 50px;
+    color: rgb(68, 128, 33);
+}
+.customer__header{
+    position:relative;
+    text-align: center;
+   left: 300px;
+}
+.customer__subtitle{
+    
+    margin-bottom: 10px;
+}
+.customer__service__line{
+    border:3px solid  rgba(148, 223, 51, 0.642)!important;
+    width: 220px;
+    margin-left: 300px!important;
+    color: rgba(148, 223, 51, 0.642)!important;
+  
+}
+.customer__service_card-container{
+    position:relative;
+    left: 100px;
+    display: grid;
+    gap: 150px;
+    grid-template-columns: 550px 550px;
+    padding: 10px;
+}
+
+.customer_service_card{
+    background-color: rgba(241, 239, 239, 0.71);
+    padding: 30px;
+    box-shadow: rgba(137, 131, 73, 0.25) 0px 6px 12px -2px, rgba(169, 146, 31, 0.3) 0px 3px 7px -3px;
+    
+}
+.customer_service_card h3{
+  font-weight: 800;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.customer_service_card h3:hover{
+    color: rgb(76, 144, 36);
+    transition: 0.3s all;
+}
+.customer_services_icon{
+    color:rgb(243, 242, 218);
+    background-color: rgb(49, 76, 30);
+    width: 40px;
+    height: 40px;
+    padding: 5px 5px 4px ;
+    border-radius: 4px;
+}

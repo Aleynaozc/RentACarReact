@@ -42,7 +42,21 @@ const Post = (url, reqBody, headers) => {
     })
     
 };
-
+const Post2 = (url, reqBody, headers) => {
+  return axios
+    .post(url, reqBody, {
+      headers: headers ? { ...defaultHeaders, ...headers } : defaultHeaders,
+    })
+    .then((response) => {
+      const { isSuccess, data, message } = response.data;
+      if (isSuccess) {
+        return new ResponseModel(data, isSuccess, message);
+      } else {
+        errorToast(message);
+      }
+    })
+ 
+};
 const Put = (url, reqBody, headers) => {
   return axios
     .put(url, reqBody, {
@@ -71,4 +85,4 @@ const Delete = (url, headers) => {
    
 };
 
-export { Get, Post, Put, Delete };
+export { Get, Post, Put, Delete,Post2 };

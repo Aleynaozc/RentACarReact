@@ -1,14 +1,25 @@
 .logo{
     position: relative;
-    top:20px;
-    margin-right:20px;
-    width: 100px;
+    top:4px;
+    margin-right:124px;
+    width: 130px;
 }
 nav{
-
     position: sticky!important;
     top: 0; 
+ 
     z-index: 9999;
-  
+    font-size: 17px;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+}
+.nav-link{
+    color:rgb(209, 216, 223)!important;
+}
+.nav-link:hover{
+    color:rgb(251, 253, 255)!important;
+}
+.nav-link:active{
+    color:rgb(220, 250, 243)!important;
 }
