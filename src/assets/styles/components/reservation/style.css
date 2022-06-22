@@ -5,12 +5,12 @@
     padding: 100px;
     
 }
-.card{
+.carlist__cards{
     padding:0px;
-    margin-left:10px;
+   
     margin-bottom: 20px;
     border-radius: 20px;
-    display:flex;
+    display:block;
 
     border:2px solid rgb(0, 0, 0);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -31,17 +31,6 @@
 
 }
 
-.slider__arrow__container{
-    display: flex;
-}
-
-.arrows{
-    cursor: pointer;
-    font-size: 15px;
-        margin-right: 19px;
-
-    
- }
 .slider__container{
     display:flex;
 

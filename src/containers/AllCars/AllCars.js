@@ -64,9 +64,9 @@ const dispatch=useDispatch();
                                         <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
                                     </div>
                                     <div className="pay__button-area">
-                                  
-                                    <Link to={!token ? "/sign-in-up" : "/paypage" }>
-                                     <button className="pay__button" >Pay Now</button>
+                                 
+                                    <Link to={`/detail/${carItem.id}`}>
+                                     <button className="pay__button" value={carItem.id}> Show Detail </button>
                                      </Link>
                                     </div>
                                 </div>

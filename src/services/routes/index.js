@@ -23,14 +23,15 @@ import Paypage from "../../containers/PayPage/Paypage";
 import AdminLogin from "../../containers/Admin/AdminLogin";
 import { useSelector } from "react-redux";
 import { UserRole } from "../utils/enums/auth";
+import CarDetailPage from "../../containers/CarDetailsPage/CarDetailPage";
 
 
 
 
 
 function RequireUserAuth({ children }) {
-    
- 
+
+
     const { token } = useSelector((state) => state.auth)
     if (!token) {
         return <Navigate to="/sign-in-up" replace />
@@ -40,8 +41,8 @@ function RequireUserAuth({ children }) {
 
 const RequireAdminAuth = ({ children }) => {
     const { role } = useSelector((state) => state.auth)
-  
-  
+
+
     if (role != UserRole.ADMIN) {
         return <Navigate to="/admin" replace />
     }
@@ -62,32 +63,27 @@ const PageRoutes = () => {
 
                     <Route exact path="/" element={<Home />} />
                     <Route path="reservation" element={<Reservation />} />
-                    <Route  path="/carslist" element={<AllCar />} />
-                    <Route path="/sign-in-up" element={  <SignInUp /> } />
+                    <Route path="/carslist" element={<AllCar />} />
+                    <Route path="/sign-in-up" element={<SignInUp />} />
+                    <Route path="detail/:cardID/" element={<CarDetailPage/>} />
+                    
 
-                    <Route path="reservation/paypage/:cardID/:date" element={!token ?
-                        <RequireUserAuth>
-                            <Paypage />
-                        </RequireUserAuth>
-                        : <Navigate to="/paypage" />} />
-
+                    <Route path="reservation/paypage/:cardID/:date"
+                        element={token ? <Paypage /> :<SignInUp /> } 
+                    />
+{/* 
                     <Route path="carlist" element={
-                        <RequireUserAuth 
-                        element={<Paypage />}>
-
-                        </RequireUserAuth>
-                    } />
+                      <Paypage />} /> */}
+                    
                 </Route>
-                <Route path="/admin"
 
-                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/dashboard" />}
+                <Route path="/admin"
+                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/" />}
                 />
-                  <Route path="/dashboard" element={
+                <Route path="/dashboard" element={
                     <RequireAdminAuth>
                         <DashboardLayout />
                     </RequireAdminAuth>
-                    
-               
                 }>
                     <Route path="/dashboard/admin/users" element={<Users />} />
                     <Route path="/dashboard/admin" element={<Admin />} />

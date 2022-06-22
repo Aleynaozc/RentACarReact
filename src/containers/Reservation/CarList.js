@@ -51,9 +51,6 @@ function cars() {
         fuelType: [],
         classification: [],
     });
-
-   
-
     function getFilteredList() {
         let testList = carList;
 
@@ -64,11 +61,11 @@ function cars() {
                 });
             }
         })
-
-
-        return testList;
+          return testList;
     }
+
     var filteredList = useMemo(getFilteredList, [selectedCategory, carList]);
+    
     const [filterSearch, setFilterSearch] = useState('');
 
     // the search result
@@ -106,30 +103,18 @@ function cars() {
                         placeholder="Seacrh"
                     />
                 </div>
-
-
                 <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
                 <div className="col-lg-8 col-md-8  car__card">
-
-                    <div className='row'>
-
-                        {
-                            filteredList.map((carItem) => {
-
-                                return <>
-
-                                    <div className="card" key={carItem.id}>
+                <div className='row'>
+                        {filteredList.map((carItem) => {
+                                 return <>
+                                    <div className="carlist__cards " key={carItem.id}>
                                         <p id={carItem.id} hidden></p>
                                         <p className="car__classification">{carItem.classification.type}</p>
                                         <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
 
-                                        <div className="slider__arrow__container col-lg-6">
-                                            <div className='slider__arrow'>
-                                                <i className="fa-solid fa-circle-arrow-left arrows" ></i>
-                                                <i className="fa-solid fa-circle-arrow-right arrows" ></i>
-                                            </div>
-                                        </div>
+                                       
                                         <div className='row mb-3'>
                                             <div className='slider__container col-lg-6'>
                                                 <div className="slider ">

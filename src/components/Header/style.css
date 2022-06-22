@@ -5,25 +5,30 @@
     width: 130px;
 }
 nav{
-    position: sticky!important;
-    top: 0; 
- 
+   
     z-index: 9999;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+   
+    z-index: 99999!important;
 }
 .nav-link{
-    color:rgb(209, 216, 223)!important;
+    color:rgb(60, 88, 56)!important;
 }
 .nav-link:hover{
-    color:rgb(251, 253, 255)!important;
+    color:rgb(174, 174, 174)!important;
 }
 .nav-link:active{
     color:rgb(220, 250, 243)!important;
 }
 .logout{
-position: relative;
-left:900px;
+
+
+}
+.header_rentacar{
+    position: sticky;
+    top: 0!important; 
+    background-color: #c6c6c4;
+    z-index: 99999;
 }

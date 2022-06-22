@@ -33,7 +33,7 @@ function HomeCarSlideButton() {
               <div className='car__slide__card__area'>
                 <div className='car__slide__card'>
                 <img className='slide__cars_img' src={carItem.carModal.imgURL}></img>
-                <h5 className='slide__cars__name'>{carItem.brand.name} {carItem.carModal.name}</h5>
+                <h6 className='slide__cars__name'>{carItem.brand.name} {carItem.carModal.name}</h6>
                 <p className='slide__cars__pride'>{carItem.price} TL / Daily</p>
             </div>
             </div>

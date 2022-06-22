@@ -1,0 +1,70 @@
+.paypage__container{
+    position: relative;
+
+    display: block;
+    padding:50px;
+    margin-left:190px;  
+}
+.paypage__car__price_details {
+    color:#4f6355;
+  
+}
+.payment__car__img__cont{
+    margin-top:200px;
+    width:500px;
+    height: 230px;
+  
+    /* background-color: rgba(87, 80, 6, 0.559); */
+}
+.paypage__img{
+    width: inherit;
+    height: inherit;
+
+}
+.paypage__car__detail_cont{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image: linear-gradient( rgba(5, 70, 22, 0.397),rgb(255, 255, 255),rgb(255, 255, 255));
+}
+.paypage__car__detail{
+    margin-top: 60px;
+}
+.paypage__car__detail_features{
+position: relative;
+display: flex ;
+top:100px;
+justify-content: space-between;
+}
+.receipt__summary__container{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+   
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgba(240, 240, 240, 0.936);
+}
+.receipt__summary{
+   
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(1, 28, 27);
+}
+.payment__information__container{
+   
+    color: #3d4f42;
+    padding:10px;
+}
+.payment__mastercard_img {
+    width:37px;
+  
+}
+.payment__button{
+    background-color: #f7b225!important;
+    width:310px;
+    color: rgb(254, 255, 255) !important;
+}
+.payment__button:hover{
+    
+    color: rgb(113, 89, 44) !important;
+}

@@ -15,9 +15,9 @@ const header = () => {
 
 
   return (
-    <>
+    <div className='header_rentacar'>
    
-    <nav className="navbar navbar-expand-lg  bg-transparent z-index-1 position-absolute ">
+    <nav className="navbar navbar-expand-lg  ">
       <div className="container-fluid">
         <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="logo" />
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@ const header = () => {
             <li className="nav-item col-6">
               <Link className="nav-link" to="carslist">Cars</Link>
             </li>
-            {/* <div>{menu}</div> */}
+      
 
             {!auth.token ? (
               <li className="nav-item col-6">
@@ -63,7 +63,7 @@ const header = () => {
         </div>
       </div>
     </nav>
-    </>
+    </div>
   )
 }
 export default header

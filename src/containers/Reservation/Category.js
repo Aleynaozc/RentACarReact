@@ -25,7 +25,7 @@ function Category({ setSelectedCategory, selectedCategory }) {
 
     return (
 
-        <div className='col-lg-4 col-md-4 filter__container'>
+        <div className='col-lg-3 col-md-3 filter__container'>
             <h3 className=''>Choose a Vehicle Class</h3>
             <div className='filter__categories'>
                 <h4 className='filter__title'>FILTERS</h4>

@@ -15,6 +15,9 @@ import { getAllOfficies } from '../../services/store/car';
 import CustomerService from './CustomerService/CustomerService';
 import Howitworks from './HowItWorks/Howitworks';
 import HomeCarSlide from './CarSlide/HomeCarSlide';
+import Slider from 'react-slick';
+import logo from '../../assets/images/bg19.jpg';
+
 
 
 
@@ -107,14 +110,44 @@ const home = () => {
   }, [dispatch]);
 
 
+  var settings = {
+    slidesToShow: 1,
+   
+    autoplay: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    autoplaySpeed: 10000,
+    speed: 3000,
+  };
 
 
-
-
+  function SampleNextArrow(props) {
+    const { className, style} = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "none"}}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "none"}}
+      />
+    );
+  }
   return (
     <>
-      <div className="row ">
-        <div className="background__image ">
+      <div className="">
+        <div className="home__slide__bg ">
+        <Slider {...settings}>
+        <img className='background__image'style={{width:'100'}} src= {require('../../assets/images/bg19.jpg')}></img>
+        <img className='background__image' src= {require('../../assets/images/bg11.jpg')}></img>
+        </Slider>
           <div className='slogan__container col-lg-5'>
             <p className='slogan__main__title'> Save <span className='big'>big</span> with our car rental</p>
           </div>

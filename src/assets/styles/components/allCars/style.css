@@ -1,3 +1,12 @@
+.all_car__list{
+    display: grid;
+    grid-template-columns: auto auto ;
+    padding:100px;
+    column-gap: 150px;
+    row-gap: 50px;
+    position: relative;
+    margin:120px;
+}
 .all_car-card{
     border:2px solid rgb(181, 24, 24);
     padding: 10px;
@@ -27,14 +36,7 @@
     
     justify-content: center;
 }
-.all_car__list{
-    display: grid;
-    grid-template-columns: auto auto ;
-    padding: 30px;
-    column-gap: 150px;
-    row-gap: 50px;
-   
-}
+
 .officies__name{
     font-size: 15px;
     color:rebeccapurple;

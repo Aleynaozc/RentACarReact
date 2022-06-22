@@ -1,27 +1,29 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
-
-.background__image {
-  height: 600px;
+.home__slide__bg{
   z-index: -1;
-  margin: 0px;
-  background-repeat: no-repeat;
-  background-image: url(../../../images/bg8.jpg);
-  background-size: cover;
-
+  height: 680px;
+  
 }
+.background__image {
+
+ 
+  width:140%;
+  height:680px;
+}
+
 .slogan__container {
-  position: relative;
-  top: 140px;
+  position: absolute;
+  top:180px;
   line-height: 1.1;
   border-radius: 20px;
   left: 70px;
   font-size: 20px;
-  color:  #173008; 
+  color:  #efd6b7; 
   padding: 30px;
   font-weight: 620;
 }
 .big{
-  color:#fcf0c9;
+  color:#d19c20;
 }
 .slogan__main__title {
   font-size: 50px;
@@ -30,7 +32,7 @@
 .book_ride_btn{
   color: rgb(64, 75, 4);
   position:absolute;
-  top:340px;
+  top:390px;
   left:120px;
   border: none;
   border-radius: 10px;
@@ -66,7 +68,7 @@ right:50%;
 }
 .as {
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
   align-items: center;
   justify-content: center;
 }
@@ -76,7 +78,7 @@ right:50%;
 
 }
 .search__car__container {
-  background-color: #b9c2a7e2;
+  background-color: #dcc6a4e2;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
@@ -153,7 +155,7 @@ right:50%;
 .flag {
   padding: 10px;
   background-color: #24311b;
-  left: 646.09px;
+  left: 714.1px;
   bottom: 290px;
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
