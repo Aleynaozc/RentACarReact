@@ -6,7 +6,7 @@
 }
 .customer_main__title{
     font-size: 50px;
-    color: rgb(68, 128, 33);
+    color: #b49678;
 }
 .customer__header{
     position:relative;
@@ -18,25 +18,26 @@
     margin-bottom: 10px;
 }
 .customer__service__line{
-    border:3px solid  rgba(148, 223, 51, 0.642)!important;
+    border:3px solid #3e4d5d!important;
     width: 220px;
     margin-left: 300px!important;
-    color: rgba(148, 223, 51, 0.642)!important;
+    color: #3e4d5d!important;
   
 }
 .customer__service_card-container{
     position:relative;
     left: 100px;
     display: grid;
-    gap: 150px;
+    
     grid-template-columns: 550px 550px;
-    padding: 10px;
+    column-gap: 100px;
+    margin-bottom: 60px;
 }
 
 .customer_service_card{
-    background-color: rgba(241, 239, 239, 0.71);
+    background-color: #ede2d6 ;
     padding: 30px;
-    box-shadow: rgba(137, 131, 73, 0.25) 0px 6px 12px -2px, rgba(169, 146, 31, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(73, 115, 137, 0.25) 0px 6px 12px -2px, rgba(169, 146, 31, 0.3) 0px 3px 7px -3px;
     
 }
 .customer_service_card h3{
@@ -44,14 +45,15 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .customer_service_card h3:hover{
-    color: rgb(76, 144, 36);
+    color:#3e4d5d;
     transition: 0.3s all;
 }
 .customer_services_icon{
-    color:rgb(243, 242, 218);
-    background-color: rgb(49, 76, 30);
+    color:#345e85;
+    background-color:#e7d2bc ;
     width: 40px;
     height: 40px;
     padding: 5px 5px 4px ;
     border-radius: 4px;
+    box-shadow: rgba(24, 41, 50, 0.25) 0px 6px 12px -2px, rgba(63, 55, 13, 0.3) 0px 3px 7px -3px;
 }

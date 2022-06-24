@@ -1,65 +1,56 @@
-.car__card{
-    display: block;
+.nbr{
+    background-image: linear-gradient(to bottom right, rgb(245, 243, 243),rgb(245, 243, 243),rgba(197, 205, 185, 0.717),rgb(245, 243, 243), rgb(248, 248, 248));
     
-    justify-content: center;
-    padding: 100px;
+}
+.car__card{
+    display: grid;
+    grid-template-columns: 413px 413px ;
+    column-gap: 120px;
+    row-gap: 50px;
+    padding: 70px;
+    position: relative;
+ 
     
 }
 .carlist__cards{
-    padding:0px;
-   
-    margin-bottom: 20px;
+    padding: 0px;
     border-radius: 20px;
-    display:block;
-
-    border:2px solid rgb(0, 0, 0);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: #ececec6f;
+   
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 12px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .card-text{
     background-color: aliceblue;
 }
 .car__classification{
-    font-size: 20px;
-    color:brown;
+    font-size: 23px;
+    color:rgb(130, 65, 21);
     font-weight: 600;
+    position: relative;
+    left: 40px;
+
+   
 }
 .car_name{
-    
-    font-size:15px;
+    font-size:20px;
     color:black;
     font-weight: 600;
-
 }
-
 .slider__container{
-    display:flex;
-
+    display: flex;
+    justify-content: center;
 }
-.slider{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    border-radius: 20px;
-    width:400px;
-    height: inherit;
-    padding: 30px;
-}
-.card-img-top{
-   width: inherit;
+.card-img-top__carlist{
+   width: 430px;
+   margin-top: 30px;
    height:inherit;
 }
-
-
-.card__features-body{
-   
-    padding:30px;
-   
-}
 .card__features{
+    font-size: 15px;
+    position: relative;
     justify-content: center;
-    display: flex;
-    margin-top: 10px;
-
-   
-
+    display: block;
+    
 }
 .transmission__image{
     width:20px;
@@ -71,18 +62,40 @@
     margin-right:10px;
     margin-top: 4px;
 }
-.features{
-    margin-right: 20px;
-}
-.car__price{
+
+.car_name{
     display: flex;
     justify-content: center;
-   
-  
- 
+    text-align: center;
 }
+.car__price{
+    top:20px;
+    align-items: center;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    
+}
+.dm{
+    border:3px solid  #7e8b54;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow:  #7e8b54 1.95px 1.95px 2.6px;
+    font-weight: 600;
+}
+.car__features_cont{
+   border-radius: 30px;
+    
+    border-left: none;
+    
+    border-right: none;
+    padding: 20px;
+}
+
 .total__price{
-   color:rebeccapurple;
+ 
+    
+   color:rgb(59, 157, 23);
    font-weight: 600;
 }
 .daily__price{
@@ -90,29 +103,35 @@
     margin-left: 20px;
 }
 .pay__button-area{
-    display: flex;
-   
-    justify-content: center;
-    margin-top: 30px;
+
+    
 }
 .pay__button{
     width: 100px;
     border:none;
-    background-color: rgb(255, 183, 0);
+    background-color: #7e8b54;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(53, 79, 5, 0.15) 0px 5px 15px 0px;
     height: 50px;
+    outline :none;
+    color:  rgb(255, 255, 255);
+    transition:  0.3s ease-out;
+    position: relative;
+    left: 200px;
+}
+.pay__button:hover{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px rgba(36, 97, 10, 0.021);
+    color:#ffffff;
 }
 .search__button{
     width:150px!important;
     height: 30px;
     position: relative;
     top:20px;
-    border-radius: 3px;
-    border:1px solid rgb(172, 161, 161);
-    bottom: 30px;
     float: right;
-    
+    border-radius: 3px;
+    border:1px solid rgb(172, 161, 161); 
 }
 
 .card:hover{
@@ -121,18 +140,17 @@
 }
 /*FILTER */
 .filter__container{
-    background-color: antiquewhite;
+   
     position: relative;
     top:50px;
     height: 600px;
     border-radius: 10px;
-    border:1px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
     padding:30px;
 }
 .filter__categories{
     margin-top:40px;
     padding:10px;
-  
     border-radius: 20px;
 }
 
@@ -150,7 +168,6 @@ input.custom {
     accent-color: rebeccapurple;
     margin-right: 20px;
     margin-top: 4px;
- 
     display: block;
     width: 15px;
     height: 15px;

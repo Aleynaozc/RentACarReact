@@ -96,7 +96,7 @@ function Paypage() {
                                             <label className="form-label">CVC</label>
                                             <input type="text" className="form-control" aria-describedby="basic-addon1" />
                                         </div>
-                                        <button type="submit" className="btn payment__button"><i class="fa-solid fa-lock"></i> BOOK SECURELY</button>
+                                        <button type="submit" className="payment__button"><i class="fa-solid fa-lock"></i> BOOK SECURELY</button>
                                     </form>
                                 </Formik>
                             </div>

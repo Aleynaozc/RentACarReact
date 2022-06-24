@@ -141,19 +141,20 @@ const home = () => {
     );
   }
   return (
-    <>
-      <div className="">
+    <div className=' '>
+   
+      <div className=" ">
         <div className="home__slide__bg ">
         <Slider {...settings}>
-        <img className='background__image'style={{width:'100'}} src= {require('../../assets/images/bg19.jpg')}></img>
-        <img className='background__image' src= {require('../../assets/images/bg11.jpg')}></img>
+        <img className='background__image' src= {require('../../assets/images/bg23.jpg')}></img>
+        <img className='background__image' src= {require('../../assets/images/bg21.jpg')}></img>
         </Slider>
           <div className='slogan__container col-lg-5'>
             <p className='slogan__main__title'> Save <span className='big'>big</span> with our car rental</p>
+            <button onClick={scrollToReservation} className='book_ride_btn'>Book a Ride</button>
           </div>
         </div>
       </div>
-      <button onClick={scrollToReservation} className='book_ride_btn'>Book a Ride</button>
       <div className='as'>
         <div className=' reservation__container'>
           <span className='flag'>SAVE 15% if you prepay your booking</span>
@@ -258,22 +259,22 @@ const home = () => {
           </Formik>
         </div>
       </div>
-      <div className=''>
+      <div className='home__customer__services__area'>
         <CustomerService></CustomerService>
       </div>
-      <div className=''>
+      <div className='home__howitwork__area'>
         <Howitworks></Howitworks>
       </div>
-      <div className=''>
+      <div className='home__ourcars__area'>
         <HomeCarSlide></HomeCarSlide>
       </div>
-   
+     
       {showButton && (
         <button onClick={scrollToTop} className="back-to-top">
           &#8679;
         </button>
       )}
-    </>
+    </div>
   )
 }
 export default home;

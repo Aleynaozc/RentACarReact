@@ -29,13 +29,13 @@ const dispatch=useDispatch();
     return (
 
         <div className="row ">
-            <div className="col-lg-5 col-md-5  all_car__list">
+            <div className="col-lg-5 col-md-5 all_car__list">
                 {
                       cars.map((carItem) => {
                             
                             return    <div className="all_car-card " >
                             <p className="car__classification">{carItem.classification.type}</p>
-                            <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
+                            <p className="car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
         
                             <div className="allCar__slider__arrow__container">
         

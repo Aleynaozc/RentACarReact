@@ -1,13 +1,13 @@
 
 import axios from 'axios';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../../assets/styles/components/reservation/style.css"
 import Category from './Category';
 
 
 function cars() {
-  
+
     const search = window.location.search;
 
     const dates = new URLSearchParams(window.location.search)
@@ -26,9 +26,9 @@ function cars() {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     const [carList, setCarList] = useState([]);
-     const jdhrf="https://localhost:44352/api/RentaCar/reservation" + search;
+    const jdhrf = "https://localhost:44352/api/RentaCar/reservation" + search;
     const getCars = async () => {
-       axios.get(jdhrf)
+        axios.get(jdhrf)
             .then((res) => setCarList(res.data))
     };
 
@@ -38,10 +38,10 @@ function cars() {
     }, []);
 
 
- 
-   
 
-  
+
+
+
 
 
 
@@ -61,11 +61,11 @@ function cars() {
                 });
             }
         })
-          return testList;
+        return testList;
     }
 
     var filteredList = useMemo(getFilteredList, [selectedCategory, carList]);
-    
+
     const [filterSearch, setFilterSearch] = useState('');
 
     // the search result
@@ -93,7 +93,7 @@ function cars() {
 
     return (
         <div>
-            <div className='row'>
+            <div className='nbr'>
                 <div className='search__button_area'>
                     <input
                         type="search"
@@ -103,58 +103,67 @@ function cars() {
                         placeholder="Seacrh"
                     />
                 </div>
-                <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                <div className='row m-0'>
+                    <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
-                <div className="col-lg-8 col-md-8  car__card">
-                <div className='row'>
+                    <div className="col-lg-8 col-md-8  car__card">
+
                         {filteredList.map((carItem) => {
-                                 return <>
-                                    <div className="carlist__cards " key={carItem.id}>
-                                        <p id={carItem.id} hidden></p>
-                                        <p className="car__classification">{carItem.classification.type}</p>
-                                        <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
+                            return <>
+                                <div className="carlist__cards " key={carItem.id}>
+                                    <p id={carItem.id} hidden></p>
+                                    <p className="car__classification">{carItem.classification.type}</p>
+                                    <div className='row mb-3'>
 
-                                       
-                                        <div className='row mb-3'>
-                                            <div className='slider__container col-lg-6'>
-                                                <div className="slider ">
-                                                    <img className="card-img-top" src={carItem.carModal.imgURL} alt="Card image cap" />
+                                        <div className="card__features-body">
+                                            <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
+                                            <div className='row car__features_cont'>
+
+                                                <div className='slider__container  '>
+                                                    <div className="">
+                                                        <img className="card-img-top__carlist" src={carItem.carModal.imgURL} alt="Card image cap" />
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div className=" car__price">
+                                                    <div className=" col-lg-4 card__features ">
 
-                                            <div className="card__features-body  col-lg-6 col-md-12 col-sm-10">
-                                                <div className="card__features ">
-                                                    <i className="fa-solid fa-gas-pump icons "></i>
-                                                    <p className='features'>{carItem.fuelType.type}</p>
-                                                    <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL+'/images/transmission.png'} />
-                                                    <p className='features'>{carItem.transmissionType.type} </p>
-                                                    <i className="fa-solid fa-credit-card icons"></i>
-                                                    <p className='features'>Credit Card</p>
-                                                </div>
-                                                <div className="car__price">
+                                                        <i className="fa-solid fa-gas-pump icons "></i>
+                                                        <p className='features'>{carItem.fuelType.type}</p>
+                                                        <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} />
+                                                        <p className='features'>{carItem.transmissionType.type} </p>
+                                                        <i className="fa-solid fa-credit-card icons"></i>
+                                                        <p className='features'>Credit Card</p>
 
-                                                    <span className=" total__price">{diffInDays <= 0 ? carItem.price : carItem.price * diffInDays} TL </span>
+                                                    </div>
+                                                    <div className='dm col-lg-7'>
+                                                        <span className=" total__price">{diffInDays <= 0 ? carItem.price : carItem.price * diffInDays} TL </span>
 
-                                                    <span className="daily__price">{carItem.price} / Daily</span>
+                                                        <span className="daily__price">{carItem.price} / Daily</span>
+                                                        
+                                                    </div>
+                                              
                                                 </div>
                                                 <div className="pay__button-area">
-                                                    <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}`}>
-                                                    <button value={carItem.id}    type="submit" className="pay__button">Pay Now</button>
-                                                    </Link>
-                                                   
-                                                </div>
+                                                <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}`}>
+                                                    <button value={carItem.id} type="submit" className="pay__button">Book Now</button>
+                                                </Link>
+
+                                            </div>
                                             </div>
 
+                                           
                                         </div>
+
                                     </div>
-                                </>
-                            })}
+                                </div>
+                            </>
+                        })}
                     </div>
 
                 </div>
-
             </div>
         </div>
+
 
     )
 }

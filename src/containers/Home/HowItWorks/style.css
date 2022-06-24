@@ -1,19 +1,13 @@
 .howitworks__container {
-
-
+         top: 120px;
         position: relative;
-        top: 490px;
-
-
 }
 
 .howitworks__header {
-
         text-align: center;
 }
 
 .howitworks_main__title {
-
         color: rgb(150, 150, 150);
 }
 
@@ -22,18 +16,19 @@
         gap: 50px;
         grid-template-columns: auto auto auto;
         padding: 20px;
-        margin-left: 300px;
+        margin-left: 330px;
         margin-top: 100px;
         align-items: center;
         text-align: center;
-       
 }
 
 .howitwork_icon {
         font-size: 34px;
         background-color: rgba(128, 128, 128, 0.208);
+        
+         /* background-image: linear-gradient(#c8ccd3,#3e4d5d); */
         border: 3px solid rgb(255, 255, 255);
-        color: rgb(255, 170, 0);
+        color: #3e4d5d;
 
         border-radius: 100px;
         width: 100px;
@@ -42,30 +37,28 @@
 }
 
 .howitwork_line {
-        width: 150px;
-        height: 50px;
+        width: 180px;
+        height: 200px;
         position: absolute;
-        top: 180px;
-        left: 450px;
+        top: 160px;
+        left: 470px;
         display: flex;
         justify-content: space-around;
 }
 
 .howitwork_line1 {
-        width: 150px;
-        height: 50px;
+        width: 180px;
+        height: 200px;
         position: absolute;
         display: flex;
         justify-content: space-around;
-        left: 770px;
-        top: 250px;
+        left: 790px;
+        top: 150px;
 }
 .steps__description{
         position: relative;
-        left:220px;
+        left:240px;
         justify-content: space-around;
         display: flex;
 }
-.home__car__slide{
-       display: block;
-}
+

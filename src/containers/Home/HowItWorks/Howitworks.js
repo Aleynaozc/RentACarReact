@@ -12,7 +12,7 @@ function Howitworks() {
                 <div className='steps__container col-lg-8'>
                     <i className="fa-solid fa-location-dot howitwork_icon"></i>
                     <img className='howitwork_line1 ' src={require('../../../assets/images/work2.png')} />
-                    <i className="fa-solid fa-calendar-plus howitwork_icon " style={{background: "linear-gradient(rgb(236, 201, 201),rgb(246, 215, 144))" ,color:'rgb(255, 255, 255)'}}></i>
+                    <i className="fa-solid fa-calendar-plus howitwork_icon " style={{background: "linear-gradient(#c8ccd1,#3e4d5d)" ,color:'rgb(255, 255, 255)'}}></i>
                     <img className='howitwork_line' src={require('../../../assets/images/work.png')} />
                     <i className="fa-solid fa-calendar-check howitwork_icon"></i>
                 </div>

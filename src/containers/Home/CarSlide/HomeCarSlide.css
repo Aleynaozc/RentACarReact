@@ -1,39 +1,55 @@
-.home__car__slide__title{
-    position: relative;
-    top: 600px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    .home__car__slide__title {
+        position: relative;
+       
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #4c6c80;
+    }
 
-}
+    .slide__cars__name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-top: 10px;
+    }
 
-.home__car__slide__container{
-    padding: 30px;
-    position: relative;
-    width: 80%;
-    top: 660px;
-   left: 140px;
-    text-align: center;
-    background-color: rgba(187, 212, 168, 0.441);
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;  overflow: hidden;
-}
-.car__slide__card__area{
-    text-align: center;
-    align-items: center;
-    padding: 10px;
-
-}
-.car__slide__card{
-    border: 1px solid black;
-    width: 250px;
-    height: inherit;
-    padding: 30px ;
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-.slide__cars_img{
-    width: 180px;
+    .home__car__slide__container {
+        padding: 30px;
+        position: relative;
+        width: 80%;
+      
+        left: 140px;
+        text-align: center;
+        background: #d1beaa73;
+        border-radius: 10px;
+        box-shadow: rgb(5, 5, 4) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     
-}
+
+    }
+
+    .car__slide__card__area {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        align-items: center;
+        padding: 40px;
+        text-overflow: ellipsis;
+    }
+
+    .car__slide__card {
+        border-radius: 50px;
+        border: none;
+        width: 250px;
+        max-height: 200px;
+        height: inherit;
+        padding: 30px;
+        background-image: radial-gradient(rgb(244, 244, 244)5%, rgb(163, 158, 143) 80%);
+        box-shadow: rgba(61, 68, 74, 0.25) 0px 14px 28px;
+    }
+
+    .slide__cars_img {
+        width: 180px;
+    }

@@ -1,12 +1,12 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
+
 .home__slide__bg{
   z-index: -1;
   height: 680px;
   
+  
 }
 .background__image {
-
- 
   width:140%;
   height:680px;
 }
@@ -16,56 +16,61 @@
   top:180px;
   line-height: 1.1;
   border-radius: 20px;
-  left: 70px;
-  font-size: 20px;
-  color:  #efd6b7; 
+  left: 60px;
+  color:  #b49678; 
   padding: 30px;
   font-weight: 620;
+  
+
+  
 }
 .big{
-  color:#d19c20;
+  color: #11607f;
 }
 .slogan__main__title {
   font-size: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.book_ride_btn{
-  color: rgb(64, 75, 4);
-  position:absolute;
-  top:390px;
-  left:120px;
+.book_ride_btn {
+color: #11607f;
+font-weight: 600;
+  position: relative;
+  z-index: 1;
   border: none;
-  border-radius: 10px;
-  background-color: #eee4cd;
-  padding: 7px 32px;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
- outline :none;
- transition:  0.3s ease-out;
- z-index: 1;
+  border-radius: 5px;
+  font-size: 23px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color:  #baa58f;
 }
-.book_ride_btn:hover{
-color:#ffffff;
+.book_ride_btn::before {  
+  transform: scaleX(0);
+  transform-origin: bottom left;
+ 
 }
-.book_ride_btn:before{
- transition: 0.5s all ease;
- position: absolute;
- top:0;
-right:50%;
- bottom:0;
- opacity:0;
- content:"";
- background-color: rgb(62, 77, 0);
- border-radius: 10px;
-  
+
+.book_ride_btn:hover::before {
+  transform: scaleY(1);
+  transform-origin: bottom left;
+ 
 }
-.book_ride_btn:hover:before{
-    transition: 0.5s all ease;
-    left:0;
-    right: 0;
-    opacity: 1;
-    z-index: -1;
+.book_ride_btn:hover {
+  color:#ffffff;
 }
+
+
+.book_ride_btn::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0 0 0 0;
+  background: #11607f;
+  z-index: -1;
+  transition: .3s ease;
+  border-radius: 5px;
+
+}
+
 .as {
   display: flex;
   margin-top: 40px;
@@ -78,38 +83,36 @@ right:50%;
 
 }
 .search__car__container {
-  background-color: #dcc6a4e2;
+  background-image: linear-gradient(to bottom right,rgb(219, 217, 217),#d3d8da,#9db1c7);
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   padding: 39px;
+ 
 }
 
 .search_car_icons {
-  color: #e9e5db;
+  color:#306e7c;
 }
 
 .form-select-title {
   display: block;
   font-weight: 600;
-  color: #0c1c00;
-
+  color: #3d3934;
 }
 
 .form-select {
   margin-top: 20px;
   margin-bottom: 30px;
-  background-color: #ffffff6b!important;
+  background-color: #fffffff2!important;
   text-align: center;
 }
 
 .time_date {
-
   margin-left: 30px;
   display: block;
-
 }
 
 .date__cont {
@@ -124,7 +127,7 @@ right:50%;
   position: relative;
   bottom: 30px;
   border-color: #ffffff!important;
-  background-color: #ffffff6b!important;
+  background-color: #fffffff2!important;
   width: 250px;
   border:1px solid #ced4da!important;
 }
@@ -132,17 +135,16 @@ right:50%;
 .time {
   position: relative;
   top: 48px;
-
 }
 .times{
-  background-color: #ffffff6b!important;
+  background-color: #fffffff2!important;
   height: 28px!important;
   border-radius: 5px!important;
   text-align: center;
   border:1px solid #ced4da!important;
 }
 .e-time-icon{
-  color:#e9e5db!important;
+  color:#306e7c!important;
   margin-left: 10px;
 
 }
@@ -154,7 +156,7 @@ right:50%;
 }
 .flag {
   padding: 10px;
-  background-color: #24311b;
+  background-color: #11607f;
   left: 714.1px;
   bottom: 290px;
   position: absolute;
@@ -163,17 +165,19 @@ right:50%;
   color: aliceblue;
 }
 .car__search-button {
-  color: rgb(206, 202, 202);
+  color: #306e7c;
   position: relative;
   right: 490px;
+  font-weight: 600;
   border: none;
   border-radius: 10px;
   top: 130px;
-  background-color: #2c3427;
+  background-color: #ffffff;
   padding: 7px 32px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 .car__search-button:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 input::placeholder {
   color: rgb(0, 0, 0) !important;
@@ -184,7 +188,7 @@ input::placeholder {
   margin-top: 0px;
   left: 20px;
   font-weight: 600;
-  color: rgb(196, 68, 25);
+  color: rgb(122, 33, 3);
 }
 
 .time-error-massage {
@@ -192,14 +196,14 @@ input::placeholder {
   margin-top: 0px;
   left: 190px;
   font-weight: 600;
-  color: rgb(196, 68, 25);
+  color: rgb(122, 33, 3);
 }
 .back-to-top {
   position: fixed;
   bottom: 20px;
   right: 10px;
   font-size: 25px;
-  background: rgb(141, 95, 12);
+  background: rgb(52, 72, 5);
   color: white;
   cursor: pointer;
   border-radius:20px;
@@ -208,8 +212,23 @@ input::placeholder {
 }
 
 .back-to-top:hover {
-  background: rgb(25, 50, 9);
+  background: #306e7c;
 }
+.home__customer__services__area{
+  margin-bottom: 300px;
+
+}
+.home__howitwork__area{
+  margin-bottom: 200px;
+
+}
+.home__ourcars__area{
+
+ position: relative;
+ margin-bottom: 30px;
+ padding: 30px;
+}
+
 @media only screen and (max-width : 768px) {
 
 
@@ -228,7 +247,7 @@ input::placeholder {
 
 
     display: block;
-    color: rgb(136, 89, 32);
+    color: rgb(234, 229, 224);
     text-align: center;
   }
 

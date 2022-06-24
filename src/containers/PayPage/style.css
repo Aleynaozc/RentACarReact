@@ -63,6 +63,9 @@ justify-content: space-between;
     background-color: #f7b225!important;
     width:310px;
     color: rgb(254, 255, 255) !important;
+    border:none;
+    padding:10px;
+    border-radius: 7px;
 }
 .payment__button:hover{
     

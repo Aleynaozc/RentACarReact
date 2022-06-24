@@ -1,0 +1,29 @@
+footer{
+    background-color:  #576d81;
+    color: rgb(255, 255, 255)!important;
+    border-top:3px solid #7e7655!important;
+}
+a{
+    text-decoration: none!important;
+}
+.border_bottom{
+    position: relative;
+    top:30px;
+    bottom:20px;
+    background-image: linear-gradient(to bottom right,#8aa1b9,#c0d4dc,rgb(219, 217, 217));
+    border-bottom:3px solid #7e7655!important;
+    padding: 30px;
+    border-top:3px solid #9f9e9d!important;
+    
+}
+.footer_icons{
+    color:#576d81;
+}
+.connect_social_media{
+    color:rgb(255, 255, 255);
+}
+.fw-bold{
+    margin-top: 29px;
+    
+    color:#f9f6f6;
+}

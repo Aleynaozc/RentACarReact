@@ -14,21 +14,18 @@ nav{
     z-index: 99999!important;
 }
 .nav-link{
-    color:rgb(60, 88, 56)!important;
+    color:rgb(255, 255, 255)!important;
 }
 .nav-link:hover{
     color:rgb(174, 174, 174)!important;
 }
 .nav-link:active{
-    color:rgb(220, 250, 243)!important;
+    color:rgb(255, 255, 255)!important;
 }
-.logout{
 
-
-}
 .header_rentacar{
     position: sticky;
     top: 0!important; 
-    background-color: #c6c6c4;
+    background-image: linear-gradient(to bottom right,#8aa1b9,#c0d4dc,rgb(219, 217, 217))!important;
     z-index: 99999;
 }

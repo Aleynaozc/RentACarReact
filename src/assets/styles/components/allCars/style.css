@@ -1,14 +1,15 @@
 .all_car__list{
     display: grid;
     grid-template-columns: auto auto ;
-    padding:100px;
     column-gap: 150px;
     row-gap: 50px;
     position: relative;
-    margin:120px;
+    left: 100px;
+    padding:30px;
 }
 .all_car-card{
     border:2px solid rgb(181, 24, 24);
+    background-color:gold;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
