@@ -1,0 +1,82 @@
+.livesupportlogin__header{
+    position: absolute;
+    padding: 0px 17px 0px 7px;
+    top: 60px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    border-bottom: 1px rgb(101, 129, 178) solid;
+    color:rgb(15, 71, 123);
+    background-color:#d7d8da;
+    box-sizing: border-box;
+    font-size: 20px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+.livesupportlogin__container{
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 999999;
+    width: 300px;
+    top: 0px;
+    background-color: #ffffff;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.253) 0px 2px 2px, rgba(0, 0, 0, 0.587) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    overflow: hidden;
+    animation-duration: 2s;
+    animation-name: modalopen;
+}
+.livesupport_signin{
+    position: relative;
+    top:300px;
+    padding: 0px 7px 0px 7px;
+    animation-duration: 2s;
+  animation-name: getsignin;
+}
+.livesupport_logo_img{
+position: relative;
+left: 20px;
+  width: 240px;
+  height: 40px;
+  margin-bottom: 30px;
+}
+@keyframes modalopen {
+    from {
+      margin-left: 0%;
+      height: 0%;
+    }
+  
+    to {
+      margin-left: 30%;
+     height: 100%;
+    }
+  }
+  @keyframes modalclose {
+    from {
+      
+      margin-top: 0%;
+      height: 100%;
+    }
+  
+    to {
+      margin-top: 100%;
+      height: 0%;
+    }
+  }
+@keyframes getsignin {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }

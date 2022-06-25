@@ -1,5 +1,5 @@
 .nbr{
-    background-image: linear-gradient(to bottom right, rgb(245, 243, 243),rgb(245, 243, 243),rgba(197, 205, 185, 0.717),rgb(245, 243, 243), rgb(248, 248, 248));
+  
     
 }
 .car__card{
@@ -140,7 +140,7 @@
 }
 /*FILTER */
 .filter__container{
-   
+    background-image: linear-gradient(to bottom left, rgb(245, 243, 243),rgb(245, 243, 243),rgba(77, 111, 122, 0.717),rgb(245, 243, 243), rgb(248, 248, 248));
     position: relative;
     top:50px;
     height: 600px;

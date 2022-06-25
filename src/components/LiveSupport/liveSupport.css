@@ -1,0 +1,23 @@
+
+.livesupport__container{
+    display: block;
+    position: fixed;
+  
+    bottom: 30px;
+    top:700px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 999999;
+    width: 80px;
+    height: 590px;
+}
+.livesupport__icons_area{
+   
+ 
+    display: flex;
+    justify-content: center;
+  
+}
+.livesupport__icon{
+    width: 75px;
+}

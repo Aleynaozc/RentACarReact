@@ -1,0 +1,29 @@
+.car__detail__page__area{
+  margin-top:200px;
+  margin-bottom:80px;
+  background-image:radial-gradient(#c4dadf 40%,white 90%); 
+}
+
+.detail__page__card-body{
+
+    padding:30px;
+}
+.detail__page_car__classification{
+    font-weight: bold;
+    color:rgb(190, 119, 38);
+    font-size:25px;
+}
+.detail__page_prop{
+    border-right: 1px solid black;
+    padding:30px;
+}
+.detail__page_car_name{
+    font-weight: bold;
+}
+.detail__page_car_properties{
+    /* background-color:rgba(43, 102, 100, 0.484); */
+ 
+    padding: 30px;
+    border-radius: 10px;
+   
+}

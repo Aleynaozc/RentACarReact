@@ -116,7 +116,7 @@ function cars() {
                                     <div className='row mb-3'>
 
                                         <div className="card__features-body">
-                                            <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
+                                            <p className="car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
                                             <div className='row car__features_cont'>
 
                                                 <div className='slider__container  '>

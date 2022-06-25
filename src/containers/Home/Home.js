@@ -16,7 +16,7 @@ import CustomerService from './CustomerService/CustomerService';
 import Howitworks from './HowItWorks/Howitworks';
 import HomeCarSlide from './CarSlide/HomeCarSlide';
 import Slider from 'react-slick';
-import logo from '../../assets/images/bg19.jpg';
+
 
 
 
@@ -268,12 +268,14 @@ const home = () => {
       <div className='home__ourcars__area'>
         <HomeCarSlide></HomeCarSlide>
       </div>
-     
-      {showButton && (
+     <div className='back_to_top_button'>
+     {showButton && (
         <button onClick={scrollToTop} className="back-to-top">
           &#8679;
         </button>
       )}
+     </div>
+      
     </div>
   )
 }

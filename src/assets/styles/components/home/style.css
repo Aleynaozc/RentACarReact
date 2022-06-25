@@ -200,19 +200,27 @@ input::placeholder {
 }
 .back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 10px;
+  bottom: 0px;
+  width: 100px;
+
   font-size: 25px;
-  background: rgb(52, 72, 5);
+  background: #576d81;
   color: white;
   cursor: pointer;
-  border-radius:20px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
   border: none;
   box-shadow: 0 5px 10px #ccc;
+  z-index: 999999;
+}
+.back_to_top_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .back-to-top:hover {
-  background: #306e7c;
+  background: #0a2f37;
 }
 .home__customer__services__area{
   margin-bottom: 300px;

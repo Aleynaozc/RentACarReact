@@ -31,13 +31,13 @@ function Paypage() {
     return (
 
         <div className='paypage__container '>
-             <div className='row'>
+            <div className='row'>
                 {oneCar.map((carItem) => {
 
                     return <>
                         <div className='col-lg-6 paypage__car__detail_cont' id={carItem.id}>
                             <div className='paypage__car__detail'>
-                                <h2 className="d-flex justify-content-center">{carItem.brand.name} {carItem.carModal.name}</h2>
+                                <h2 className="d-flex justify-content-center">{carItem.carModal.brand.name} {carItem.carModal.name}</h2>
                                 <div className='paypage__car__detail_features'>
                                     <h5><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</h5>
                                     <h5><img className="transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} /> {carItem.transmissionType.type}</h5>

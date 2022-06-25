@@ -46,7 +46,7 @@
         max-height: 200px;
         height: inherit;
         padding: 30px;
-        background-image: radial-gradient(rgb(244, 244, 244)5%, rgb(163, 158, 143) 80%);
+        background-image: radial-gradient(rgb(244, 244, 244)5%, #576d81ab 80%);
         box-shadow: rgba(61, 68, 74, 0.25) 0px 14px 28px;
     }
 

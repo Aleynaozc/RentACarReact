@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
+import "../../assets/styles/components/cardetailpage/style.css"
 function CarDetailPage() {
     const params = useParams();
     const [oneCar, setOneCar] = useState([])
@@ -11,57 +12,55 @@ function CarDetailPage() {
         axios.get(fh)
             .then((res) => setOneCar(res.data))
     };
-
     useEffect(() => {
         getOneCars();
 
     }, []);
-
-
     return (
 
-        <div className="row ">
-            <Formik
-
-            >
-                <div className="col-lg-5 col-md-5 offset-3  all_car__list">
+        <>
+            <Formik>
+                <div className="car__detail__page__area">
                     {
                         oneCar.map((carItem) => {
-                            return <div id={carItem.id} className="all_car-card " >
-                                <p className="car__classification">{carItem.classification.type}</p>
-                                <p className="car_name">{carItem.brand.name} {carItem.carModal.name} </p>
-                                <div className="allCar__slider__arrow__container">
-
-                                    <i className="fa-solid fa-circle-arrow-left allcar__arrows" ></i>
-                                    <i className="fa-solid fa-circle-arrow-right allcar__arrows " ></i>
-                                </div>
-                                <div className='car_slider__container'>
-                                    <div className="car__slider">
+                            return <div id={carItem.id} className="row m-0" >
+                                <div className='col-lg-7'>
+                                    <div className="detail__page_image_container">
                                         <img className="car__card-img-top" src={carItem.carModal.imgURL} alt="Card image cap" />
                                     </div>
                                 </div>
-                                <div className="allcar__card-body">
-                                    <div className="col-lg-12 col-md-12 col-sm-12">
-                                        <div className="mt-2 allCar_card__features ">
-                                            <i className="fa-solid fa-gas-pump icons "></i>
-                                            <p className='features'>{carItem.fuelType.type}</p>
-                                            <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} />
-                                            <p className='features'>{carItem.transmissionType.type}</p>
-                                            <i className="fa-solid fa-credit-card icons"></i>
-                                            <p className='features'>Credit Card</p>
+                                <div className="detail__page__card-body col-lg-5">
+                                    <div className="col-lg-12 col-md-12 col-sm-12 row">
+                                        <div className='detail__page_prop col-lg-4'>
+                                        <p className="detail__page_car__classification">{carItem.classification.type}</p>
+                                        <p className="detail__page_car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
                                         </div>
-                                        <div className="car__price">
-                                           
-                                            <span className="allCar_daily__price "> {carItem.price} TL / Daily</span>
+                                      
+                                        <div className=" col-lg-5 ">
+                                          
+                                         <div className='detail__page_car_properties'>
+                                            <div >
+                                            <p className='features'><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
+                                            <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} /> {carItem.transmissionType.type}</p>
+                                            <p className='features'><i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                         </div>
-                                        
+                                        </div>
+                                        </div>
+                                        <div className="show__detail_button-area">
+                                            <div className="car__price">
+                                                <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
+                                            </div>
+                                        </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
                         })}
                 </div>
             </Formik>
-        </div>
+        </>
     )
 }
 

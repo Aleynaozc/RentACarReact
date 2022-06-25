@@ -28,20 +28,14 @@ const dispatch=useDispatch();
 
     return (
 
-        <div className="row ">
-            <div className="col-lg-5 col-md-5 all_car__list">
+        <div className="row p-0 m-0">
+            <div className="col-lg-4 col-md-5 all_car__list">
                 {
                       cars.map((carItem) => {
                             
                             return    <div className="all_car-card " >
                             <p className="car__classification">{carItem.classification.type}</p>
                             <p className="car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
-        
-                            <div className="allCar__slider__arrow__container">
-        
-                                <i className="fa-solid fa-circle-arrow-left allcar__arrows" ></i>
-                                <i className="fa-solid fa-circle-arrow-right allcar__arrows " ></i>
-                            </div>
                             <div className='car_slider__container'>
                                 <div className="car__slider">
                                     <img className="car__card-img-top" src={carItem.carModal.imgURL} alt="Card image cap" />
@@ -50,23 +44,17 @@ const dispatch=useDispatch();
                              <div className="allcar__card-body">
                                 <div className="col-lg-12 col-md-12 col-sm-12">
                                     <div className="mt-2 allCar_card__features ">
-                                        <i className="fa-solid fa-gas-pump icons "></i>
-                                        <p className='features'>{carItem.fuelType.type}</p>
-                                        <img className="mt-1 transmission__image" src={'../images/transmission.png'} />
-                                        <p className='features'>{carItem.transmissionType.type}</p>
-                                        <i className="fa-solid fa-credit-card icons"></i>
-                                        <p className='features'>Credit Card</p>
+                                        <p className='features'>  <i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
+                                        <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} /> {carItem.transmissionType.type}</p>
+                                        <p className='features'><i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                     </div>
+      
+                                    <div className="show__detail_button-area">
                                     <div className="car__price">
-        
-                                        
-        
                                         <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
                                     </div>
-                                    <div className="pay__button-area">
-                                 
                                     <Link to={`/detail/${carItem.id}`}>
-                                     <button className="pay__button" value={carItem.id}> Show Detail </button>
+                                     <button className="show__detail_button" value={carItem.id}> Show Detail </button>
                                      </Link>
                                     </div>
                                 </div>

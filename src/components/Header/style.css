@@ -26,6 +26,6 @@ nav{
 .header_rentacar{
     position: sticky;
     top: 0!important; 
-    background-image: linear-gradient(to bottom right,#8aa1b9,#c0d4dc,rgb(219, 217, 217))!important;
+    background:#cad6da!important;
     z-index: 99999;
 }
