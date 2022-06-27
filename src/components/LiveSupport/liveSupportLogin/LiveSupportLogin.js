@@ -30,12 +30,12 @@ function liveSupportLogin({setopenlivesupport,openlivesupport}) {
               <Form>
                 <div className="form-floating mb-3">
                   <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
-                  <label for="floatingInput">Email address</label>
+                  <label htmlFor="floatingInput">Email address</label>
                   {errors.email && touched.email ? <small >{errors.email}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
                   <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword" />
-                  <label for="floatingPassword">Password</label>
+                  <label htmlFor="floatingPassword">Password</label>
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 

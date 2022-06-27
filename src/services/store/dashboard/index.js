@@ -10,6 +10,16 @@ export const getAllUsers = createAsyncThunk(
     }
 
 )
+// export const deleteUser = createAsyncThunk(
+//     'allUsers/getAllUsers',
+//     async () => {
+//         const response = await axios("https://localhost:44352/api/Admin/DeleteUser?id=")
+//         const formattedResponce = await response.data;
+//         return formattedResponce;
+//     }
+
+// )
+
 
 
 export const dashboardStore = createSlice({

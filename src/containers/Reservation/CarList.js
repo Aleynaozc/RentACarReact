@@ -94,7 +94,7 @@ function cars() {
 
     return (
         <div>
-            <div class="search_box">
+            <div className="search_box">
                 <form name="search">
                     <input
                         type="text"
@@ -104,7 +104,7 @@ function cars() {
                         value={filterSearch}
                         onChange={filter}
                         />
-                    <i class="fas fa-search"></i>
+                    <i className="fas fa-search"></i>
                 </form>
             </div>
             <div className=' filter__area'  onClick={()=>setopencategory(true)} 

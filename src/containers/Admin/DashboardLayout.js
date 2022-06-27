@@ -6,11 +6,11 @@ function DashboardLayout() {
 
   return (
     <div>
-      <nav class="sidebar-navigation">
+      <nav className="sidebar-navigation">
         <ul>
           <li>
           <Link className="navigation_link"  aria-current="page" to="/dashboard/admin">
-            <i class="fa-solid fa-table-columns"></i>
+            <i className="fa-solid fa-table-columns"></i>
             <span className='navigation_name'>Admin</span>
             </Link>
           </li>
@@ -18,18 +18,18 @@ function DashboardLayout() {
           <li>
           <Link className="navigation_link" to="/dashboard/admin/users">
             
-            <i class="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user"></i>
             <span className='navigation_name'>Users</span>
             </Link>
           </li>
           <li>
           <Link className="navigation_link" to="/dashboard/admin/savecars">
-          <i class="fa-solid fa-car "></i>
+          <i className="fa-solid fa-car "></i>
             <span className='navigation_name'>Save Cars</span>
             </Link>
           </li>
           <li>
-            <i class="fa fa-sliders"></i>
+            <i className="fa fa-sliders"></i>
             <span className='navigation_name'> Settings</span>
           </li>
         </ul>

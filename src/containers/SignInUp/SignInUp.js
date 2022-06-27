@@ -56,12 +56,12 @@ function SignInUp() {
 
                 <div className="form-floating mb-3">
                   <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
-                  <label for="floatingInput">Email address</label>
+                  <label htmlFor="floatingInput">Email address</label>
                   {errors.email && touched.email ? <small >{errors.email}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
                   <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword" />
-                  <label for="floatingPassword">Password</label>
+                  <label htmlFor="floatingPassword">Password</label>
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 
@@ -113,7 +113,7 @@ function SignInUp() {
                     className="form-control"
                     id="floatingInput"
                   />
-                  <label for="floatingInput">Full Name</label>
+                  <label htmlFor="floatingInput">Full Name</label>
                   {errors.fullName && touched.fullName ? <small >{errors.fullName}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
@@ -124,7 +124,7 @@ function SignInUp() {
                     value={values.email}
                     className="form-control"
                     id="floatingInput" />
-                  <label for="floatingInput">Email address</label>
+                  <label htmlFor="floatingInput">Email address</label>
                   {errors.email && touched.email ? <small >{errors.email}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
@@ -135,7 +135,7 @@ function SignInUp() {
                     value={values.password}
                     className="form-control"
                     id="floatingPassword" />
-                  <label for="floatingPassword">Password</label>
+                  <label htmlFor="floatingPassword">Password</label>
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
@@ -146,7 +146,7 @@ function SignInUp() {
                     value={values.rePassword}
                     className="form-control"
                     id="floatingPassword" />
-                  <label for="floatingPassword">Re-Password</label>
+                  <label htmlFor="floatingPassword">Re-Password</label>
                   {errors.rePassword && touched.rePassword ? <small>{errors.rePassword}</small> : null}
                 </div>
 

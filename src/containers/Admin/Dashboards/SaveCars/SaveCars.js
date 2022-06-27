@@ -32,7 +32,7 @@ function SaveCars() {
             <h1 className='d-flex justify-content-center'>Save Cars</h1>
             <div className='d-flex justify-content-center'>
 
-                <div class="col-9">
+                <div className="col-9">
                     <Formik
                         initialValues={{
                             officiesID: '',
@@ -67,8 +67,8 @@ function SaveCars() {
                             <Form >
                                 <input asp-for="ID" hidden />
 
-                                <div class="mb-3">
-                                    <label class="form-label">Select Officies</label>
+                                <div className="mb-3">
+                                    <label className="form-label">Select Officies</label>
                                     <select className="form-select" name="officiesID"  onChange={handleChange}>
                                         <option selected> Select Officies </option>
                                         {officies.map((officiesItem, index) => {
@@ -79,8 +79,8 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Select CarModel</label>
+                                <div className="mb-3">
+                                    <label className="form-label">Select CarModel</label>
                                     <select className="form-select"  name="carModalID" onChange={handleChange}>
                                         <option selected> Select CarModel </option>
                                         {carmodals.map((carmodalsItem, index) => {
@@ -91,12 +91,12 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Daily Price</label>
-                                    <input name='price' type="text" class="form-control" value={values.price} onChange={handleChange} />
+                                <div className="mb-3">
+                                    <label className="form-label">Daily Price</label>
+                                    <input name='price' type="text" className="form-control" value={values.price} onChange={handleChange} />
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Fuel Type</label>
+                                <div className="mb-3">
+                                    <label className="form-label">Fuel Type</label>
                                     <select className="form-select" name="fuelTypeID" onChange={handleChange}>
                                         <option selected> Select Fuel Type </option>
                                         {fueltype.map((fueltypeItem, index) => {
@@ -107,8 +107,8 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Transmission Type</label>
+                                <div className="mb-3">
+                                    <label className="form-label">Transmission Type</label>
                                     <select className="form-select" name="transmissionID" onChange={handleChange}>
                                         <option selected> Select Transmission Type </option>
                                         {transmissiontype.map((transmissionItem, index) => {
@@ -119,8 +119,8 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Classification Type</label>
+                                <div className="mb-3">
+                                    <label className="form-label">Classification Type</label>
                                     <select className="form-select" name="classificationID" onChange={handleChange}>
                                         <option selected> Select Classification Type </option>
                                         {classification.map((classificationItem, index) => {
@@ -131,7 +131,7 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" className="btn btn-primary">Save</button>
                             </Form>
                         )}
                     </Formik>

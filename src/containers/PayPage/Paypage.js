@@ -41,7 +41,7 @@ function Paypage() {
                                 <div className='paypage__car__detail_features'>
                                     <h5><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</h5>
                                     <h5><img className="transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} /> {carItem.transmissionType.type}</h5>
-                                    <h5><i class="fa-solid fa-chart-simple"></i> {carItem.classification.type}</h5>
+                                    <h5><i className="fa-solid fa-chart-simple"></i> {carItem.classification.type}</h5>
                                 </div>
                             </div>
                             <div className="payment__car__img__cont">
@@ -74,15 +74,15 @@ function Paypage() {
                                     <form>
                                         <div className="mb-3">
                                             <label className="form-label">Name on credit card</label>
-                                            <input type="text" class="form-control" aria-describedby="basic-addon1" />
+                                            <input type="text" className="form-control" aria-describedby="basic-addon1" />
                                         </div>
                                         <label className="form-label">Credit Card Number</label>
-                                        <div class="input-group mb-3">
-                                            <input class="form-control" />
-                                            <span class="input-group-text"><img src={require('../../assets/images/mastercard.png')} className=" payment__mastercard_img "></img></span>
+                                        <div className="input-group mb-3">
+                                            <input className="form-control" />
+                                            <span className="input-group-text"><img src={require('../../assets/images/mastercard.png')} className=" payment__mastercard_img "></img></span>
                                         </div>
                                         <div className="mb-3">
-                                            <label for="exampleInputPassword1" className="form-label">Expires on</label>
+                                            <label htmlFor="exampleInputPassword1" className="form-label">Expires on</label>
                                             <div className="d-flex">
                                                 <DatePicker
                                                     selected={startYear}
@@ -96,7 +96,7 @@ function Paypage() {
                                             <label className="form-label">CVC</label>
                                             <input type="text" className="form-control" aria-describedby="basic-addon1" />
                                         </div>
-                                        <button type="submit" className="payment__button"><i class="fa-solid fa-lock"></i> BOOK SECURELY</button>
+                                        <button type="submit" className="payment__button"><i className="fa-solid fa-lock"></i> BOOK SECURELY</button>
                                     </form>
                                 </Formik>
                             </div>

@@ -39,12 +39,12 @@ function AdminLogin() {
 
                 <div className="form-floating mb-3">
                   <input type="text" name='fullName' onChange={handleChange} className="form-control" id="floatingInput" />
-                  <label for="floatingInput">Fullname</label>
+                  <label htmlFor="floatingInput">Fullname</label>
                   {errors.fullName && touched.fullName ? <small >{errors.fullName}</small> : null}
                 </div>
                 <div className="form-floating mb-3">
                   <input type="password" name="password" onChange={handleChange} className="form-control" id="floatingPassword" />
-                  <label for="floatingPassword">Password</label>
+                  <label htmlFor="floatingPassword">Password</label>
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 

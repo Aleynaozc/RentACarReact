@@ -34,13 +34,13 @@ function Category({ setSelectedCategory, selectedCategory,opencategory }) {
                         <h5>Transmission Type</h5>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Automatic' onChange={(e) => { handleCategoryChange(e, "transmissionType") }} />
-                            <span className="form-check-label" for="flexCheckDefault"  >
+                            <span className="form-check-label" htmlFor="flexCheckDefault"  >
                                 Automatic
                             </span>
                         </div>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Manual' onChange={(e) => { handleCategoryChange(e, "transmissionType") }} />
-                            <label className="form-check-label" for="flexCheckChecked">
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
                                 Manual
                             </label>
                         </div>
@@ -49,19 +49,19 @@ function Category({ setSelectedCategory, selectedCategory,opencategory }) {
                         <h5>Fuel Type</h5>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Gasoline' onChange={(e) => { handleCategoryChange(e, "fuelType") }} />
-                            <label className="form-check-label" for="flexCheckDefault">
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Gasoline
                             </label>
                         </div>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Diesel' onChange={(e) => { handleCategoryChange(e, "fuelType") }} />
-                            <label className="form-check-label" for="flexCheckChecked">
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
                                 Diesel
                             </label>
                         </div>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Lpg' onChange={(e) => { handleCategoryChange(e, "fuelType") }} />
-                            <label className="form-check-label" for="flexCheckChecked">
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
                                 Lpg
                             </label>
                         </div>
@@ -70,19 +70,19 @@ function Category({ setSelectedCategory, selectedCategory,opencategory }) {
                         <h5>Classification</h5>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Economic' onChange={(e) => { handleCategoryChange(e, "classification") }} />
-                            <label className="form-check-label" for="flexCheckDefault">
+                            <label className="form-check-label" htmlFor="flexCheckDefault">
                                 Economic
                             </label>
                         </div>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Standart' onChange={(e) => { handleCategoryChange(e, "classification") }} />
-                            <label className="form-check-label" for="flexCheckChecked">
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
                                 Standart
                             </label>
                         </div>
                         <div className="item__form-check">
                             <input type="checkbox" className='custom' value='Premium' onChange={(e) => { handleCategoryChange(e, "classification") }} />
-                            <label className="form-check-label" for="flexCheckChecked">
+                            <label className="form-check-label" htmlFor="flexCheckChecked">
                                 Premium
                             </label>
                         </div>
