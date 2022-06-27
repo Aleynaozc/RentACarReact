@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-function Category({ setSelectedCategory, selectedCategory }) {
+function Category({ setSelectedCategory, selectedCategory,opencategory }) {
 
     const setCategroyFilters = (value, type) => {
         const findedItemIndex = selectedCategory[type].findIndex(x => x == value);
@@ -24,8 +24,8 @@ function Category({ setSelectedCategory, selectedCategory }) {
 
 
     return (
-
-        <div className='col-lg-3 col-md-3 filter__container'>
+         <>
+        <div className='col-lg-3 filter__container ' >
             <h3 className=''>Choose a Vehicle Class</h3>
             <div className='filter__categories'>
                 <h4 className='filter__title'>FILTERS</h4>
@@ -87,11 +87,10 @@ function Category({ setSelectedCategory, selectedCategory }) {
                             </label>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
+        </>
     )
 }
 

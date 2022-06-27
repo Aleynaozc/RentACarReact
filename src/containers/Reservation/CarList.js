@@ -7,7 +7,8 @@ import Category from './Category';
 
 
 function cars() {
-
+    const [opencategory,setopencategory]=useState(false)
+ 
     const search = window.location.search;
 
     const dates = new URLSearchParams(window.location.search)
@@ -26,6 +27,7 @@ function cars() {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     const [carList, setCarList] = useState([]);
+    
     const jdhrf = "https://localhost:44352/api/RentaCar/reservation" + search;
     const getCars = async () => {
         axios.get(jdhrf)
@@ -34,9 +36,9 @@ function cars() {
 
     useEffect(() => {
         getCars();
-
+       
+    
     }, []);
-
 
 
 
@@ -76,9 +78,8 @@ function cars() {
             const results = carList.filter((user) => {
                 return user.transmissionType.type.toLowerCase().startsWith(keyword.toLowerCase())
                     || user.fuelType.type.toLowerCase().startsWith(keyword.toLowerCase())
-                    || user.fuelType.type.toLowerCase().startsWith(keyword.toLowerCase())
                     || user.classification.type.toLowerCase().startsWith(keyword.toLowerCase())
-                    || user.brand.name.toLowerCase().startsWith(keyword.toLowerCase());
+                    || user.carModal.brand.name.toLowerCase().startsWith(keyword.toLowerCase());
 
             });
             setCarList(results);
@@ -93,75 +94,91 @@ function cars() {
 
     return (
         <div>
-            <div className='nbr'>
-                <div className='search__button_area'>
+            <div class="search_box">
+                <form name="search">
                     <input
-                        type="search"
+                        type="text"
+                        className="search__button"
+                        name="txt"
+                        autoComplete='off'
                         value={filterSearch}
                         onChange={filter}
-                        className="search__button"
-                        placeholder="Seacrh"
-                    />
+                        />
+                    <i class="fas fa-search"></i>
+                </form>
+            </div>
+            <div className=' filter__area'  onClick={()=>setopencategory(true)} 
+            style=
+                {{
+                    display : opencategory ? "none":"flex" 
+                    
+                 } }>
+                <div className='filter__area_title'>
+                Filter
                 </div>
-                <div className='row m-0'>
-                    <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-
-                    <div className="col-lg-8 col-md-8  car__card">
-
-                        {filteredList.map((carItem) => {
-                            return <>
-                                <div className="carlist__cards " key={carItem.id}>
-                                    <p id={carItem.id} hidden></p>
-                                    <p className="car__classification">{carItem.classification.type}</p>
-                                    <div className='row mb-3'>
-
-                                        <div className="card__features-body">
-                                            <p className="car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
-                                            <div className='row car__features_cont'>
-
-                                                <div className='slider__container  '>
-                                                    <div className="">
-                                                        <img className="card-img-top__carlist" src={carItem.carModal.imgURL} alt="Card image cap" />
-                                                    </div>
+                
+         </div>
+         <div className=' filter__area2'  onClick={()=>setopencategory(false)} style=
+                {{
+                    display : opencategory ? "flex":"none" 
+                    
+                    
+                 } }>
+                <div className='filter__area_title'>
+                Filter
+                </div>
+                </div>
+            <div className='row m-0 ds' >
+                { opencategory && <Category selectedCategory={selectedCategory} opencategory={opencategory} setSelectedCategory={setSelectedCategory} /> }
+              
+                <div className="  col-lg-8 col-md-8 car__card" 
+                style=
+                {{
+                    left : opencategory ? "80px":"180px" ,
+                    columnGap : opencategory ? "120px":"180px"
+                 } }>
+                    
+                    {filteredList.map((carItem) => {
+                        return <>
+                            <div className="carlist__cards " key={carItem.id}>
+                                <p id={carItem.id} hidden></p>
+                                <p className="car__classification">{carItem.classification.type}</p>
+                                <div className='row mb-3'>
+                                    <div className="card__features-body">
+                                        <p className="car_name">{carItem.carModal.brand.name} {carItem.carModal.name} </p>
+                                        <div className='row car__features_cont'>
+                                            <div className='slider__container  '>
+                                                <div className="">
+                                                    <img className="card-img-top__carlist" src={carItem.carModal.imgURL} alt="Card image cap" />
                                                 </div>
-                                                <div className=" car__price">
-                                                    <div className=" col-lg-4 card__features ">
-
-                                                        <i className="fa-solid fa-gas-pump icons "></i>
-                                                        <p className='features'>{carItem.fuelType.type}</p>
-                                                        <img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} />
-                                                        <p className='features'>{carItem.transmissionType.type} </p>
-                                                        <i className="fa-solid fa-credit-card icons"></i>
-                                                        <p className='features'>Credit Card</p>
-
-                                                    </div>
-                                                    <div className='dm col-lg-7'>
-                                                        <span className=" total__price">{diffInDays <= 0 ? carItem.price : carItem.price * diffInDays} TL </span>
-
-                                                        <span className="daily__price">{carItem.price} / Daily</span>
-                                                        
-                                                    </div>
-                                              
+                                            </div>
+                                            <div className=" car__price">
+                                                <div className=" col-lg-4 card__features ">
+                                                    <p className='features'><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
+                                                    <p className='features'><img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} />{carItem.transmissionType.type} </p>
+                                                    <p className='features'> <i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                                 </div>
-                                                <div className="pay__button-area">
+                                                <div className='dm col-lg-7'>
+                                                    <span className=" total__price">{diffInDays <= 0 ? carItem.price : carItem.price * diffInDays} TL </span>
+                                                    <span className="daily__price">{carItem.price} / Daily</span>
+                                                </div>
+                                            </div>
+                                            <div className="pay__button-area">
                                                 <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}`}>
                                                     <button value={carItem.id} type="submit" className="pay__button">Book Now</button>
                                                 </Link>
 
                                             </div>
-                                            </div>
-
-                                           
                                         </div>
-
                                     </div>
                                 </div>
-                            </>
-                        })}
-                    </div>
-
+                            </div>
+                        </>
+                    })}
                 </div>
+
             </div>
+
         </div>
 
 

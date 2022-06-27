@@ -1,0 +1,41 @@
+
+.dashboard_users_main_title{
+    color:#4a5859;
+  
+    text-align: center;
+}
+  .responsive-table  li {
+    border-radius: 3px;
+    padding: 20px 30px;
+    display: flex;
+   
+    margin-bottom: 25px;
+  }
+   
+    .table-header {
+      background-color: #95A5A6;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .table-row {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+  
+   .dahboard_user_page_icon{
+    display: flex;
+    justify-content: space-between;
+    cursor:pointer;
+    color:#0c1323;
+   }
+   .fa-pen-to-square:hover{
+    
+    color:#67a1a3;
+   }
+   .fa-trash:hover{
+    color:rgb(189, 0, 0);
+   }
+  

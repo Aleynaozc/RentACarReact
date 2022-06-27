@@ -11,7 +11,7 @@ import { getAllCars } from '../../services/store/car';
 
 const AllCars = () => {
    
-    const { token } = useSelector((state) => state.auth);
+   
     // const [allCarList, setAllCarList] = useState([]);
         // const getCars = async () => {
     //     axios.get("https://localhost:44352/api/RentaCar/Listcar")
@@ -20,7 +20,7 @@ const AllCars = () => {
 const dispatch=useDispatch();
     const cars = useSelector(state => state.car.allCars);
 
-  
+  console.log(cars)
     useEffect(() => {
         
         dispatch(getAllCars())

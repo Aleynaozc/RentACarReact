@@ -182,7 +182,7 @@ const home = () => {
                       <option selected> Pick-Up </option>
                       {officies.map((officiesItem, index) => {
                         return <option
-                          key={index} value={officiesItem.name}  >
+                          key={index} value={officiesItem.name}>
                           {officiesItem.name},{officiesItem.city}
                         </option>
                       })}

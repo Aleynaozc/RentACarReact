@@ -13,7 +13,7 @@ function AdminLogin() {
     console.log(loginAdminModel);
   };
   return (
-    <div className='col-6 offset-3 mt-5'>
+    <div className='col-lg-6 offset-3 mt-5 '>
       <nav>
         <div className="nav nav-tabs mb-5" id="nav-tab" role="tablist">
           <button className="nav-link active" id="nav-signin-tab" data-bs-toggle="tab" data-bs-target="#nav-signin" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sign In</button>

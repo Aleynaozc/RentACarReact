@@ -65,33 +65,33 @@ const PageRoutes = () => {
                     <Route path="reservation" element={<Reservation />} />
                     <Route path="/carslist" element={<AllCar />} />
                     <Route path="/sign-in-up" element={<SignInUp />} />
-                    <Route path="detail/:cardID/" element={<CarDetailPage/>} />
-                    
-
+                    <Route path="detail/:cardID/" element={<CarDetailPage />} />
                     <Route path="reservation/paypage/:cardID/:date"
-                        element={token ? <Paypage /> :<SignInUp /> } 
-                    />
-{/* 
-                    <Route path="carlist" element={
-                      <Paypage />} /> */}
-                    
+                        element={token ? <Paypage /> : <SignInUp />} />
                 </Route>
 
                 <Route path="/admin"
                     element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/" />}
                 />
-                <Route path="/dashboard" element={
-                    <RequireAdminAuth>
-                        <DashboardLayout />
-                    </RequireAdminAuth>
-                }>
+
+                {/* <Route path="/dashboard"
+                    element={
+                        <RequireAdminAuth>
+                            <DashboardLayout />
+                        </RequireAdminAuth>
+                    }> */}
+                           <Route path="/dashboard"
+                    element={
+                       
+                            <DashboardLayout />
+                   
+                    }>
+                        
                     <Route path="/dashboard/admin/users" element={<Users />} />
                     <Route path="/dashboard/admin" element={<Admin />} />
                     <Route path="/dashboard/admin/savecars" element={<SaveCars />} />
                 </Route>
-
                 <Route path="*" element={<NotFound />} />
-
             </Routes>
         </Router>
     )
