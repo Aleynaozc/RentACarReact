@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import "../../assets/styles/components/cardetailpage/style.css"
 function CarDetailPage() {
     const params = useParams();

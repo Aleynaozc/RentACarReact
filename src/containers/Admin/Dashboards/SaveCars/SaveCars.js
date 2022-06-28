@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarModals, getALLClassification, getALLFuelType, getAllOfficies, getALLTransmissionType } from '../../../../services/store/car';
-import { Post } from '../../../../services/utils/helpers/requestHelpers';
+
 
 function SaveCars() {
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ function SaveCars() {
                             transmissionID: '',
                             classificationID: '',
                         }}
-                        onSubmit={(values , { resetForm }) => {
+                        onSubmit={(values,{resetForm},initialValues ) => {
                             axios.post("https://localhost:44352/api/Car/SaveCar",
                                 {
                                     // headers: { 'Content-type': 'application/json' },
@@ -55,18 +55,20 @@ function SaveCars() {
 
                                 }
 
-                            ).then((response) => console.log(values))
-
-                            resetForm();
-                            
+                            ).then((response) => 
+                            {console.log(values)
+                           
+                            })
+                          
+                            resetForm({ values: initialValues });
+                         
                         }}
                         
                     >
 
-                        {({ values, errors, touched, handleChange }) => (
-                            <Form >
+                        {({ values, handleChange  }) => (
+                            <Form  >
                                 <input asp-for="ID" hidden />
-
                                 <div className="mb-3">
                                     <label className="form-label">Select Officies</label>
                                     <select className="form-select" name="officiesID"  onChange={handleChange}>
@@ -131,7 +133,7 @@ function SaveCars() {
                                         })}
                                     </select>
                                 </div>
-                                <button type="submit" className="btn btn-primary">Save</button>
+                                <button type="submit" className="btn btn-primary" >Save</button>
                             </Form>
                         )}
                     </Formik>

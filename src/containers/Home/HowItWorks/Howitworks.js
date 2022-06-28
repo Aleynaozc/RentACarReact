@@ -1,6 +1,6 @@
 import React from 'react'
 import "../HowItWorks/style.css"
-import work from '../../../assets/images/work.png'; // with import
+
 function Howitworks() {
     return (
         <>

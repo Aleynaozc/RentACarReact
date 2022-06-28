@@ -80,6 +80,7 @@ font-weight: 600;
 .reservation__container {
   z-index: 1;
   position: absolute;
+  max-width: inherit;
 
 }
 .search__car__container {

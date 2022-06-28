@@ -31,8 +31,13 @@
     cursor:pointer;
     color:#0c1323;
    }
+   .fa-pen-to-square{
+    border:none;
+    background-color: transparent;
+
+   }
    .fa-pen-to-square:hover{
-    
+    border:none;
     color:#67a1a3;
    }
    .fa-trash:hover{
