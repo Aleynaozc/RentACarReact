@@ -13,11 +13,7 @@ import Modal from 'react-bootstrap/Modal';
 function SaveCars() {
     const [show, setShow] = useState(false);
     const [updateModalshow, setUpdateShow] = useState(false);
-
     const [getUpdateCar, setgetUpdateCar] = useState("");
-
-
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const updateModalShow = () => setUpdateShow(true);
@@ -32,8 +28,8 @@ function SaveCars() {
     const transmissiontype = useSelector(state => state.car.allTransmissionTypes);
     const fueltype = useSelector(state => state.car.allFuelTypes);
     const classification = useSelector(state => state.car.allClassifications);
-
     const cars = useSelector(state => state.car.allCars);
+    
     const numAscending = [...cars].sort((a, b) => b.id - a.id);
 
     const deleteCar = async (id) => {
