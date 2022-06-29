@@ -5,9 +5,13 @@ import React, { useEffect, useState } from 'react';
 import "../User/style.css"
 import axios from 'axios';
 import { Form, Formik, Field } from 'formik'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 function Users() {
-
+  const updateModalShow = () => setUpdateShow(true);
+  const updateModalClose = () => setUpdateShow(false);
+  const [updateModalshow, setUpdateShow] = useState(false);
   const [getUpdateUser, setgetUpdateUser] = useState("");
 
 
@@ -48,14 +52,6 @@ function Users() {
 
   // }
 
-
-
-
-
-
-
-  const [query, setQuery] = useState("")
-
   const dispatch = useDispatch();
   const users = useSelector(state => state.dashboard.allUsers);
 
@@ -66,9 +62,13 @@ function Users() {
 
   }, [dispatch]);
 
-  // const search = (data) => {
-  //   return data.filter((item) => item.fullName.toLowerCase().includes(query));
-  // };
+  const [query, setQuery] = useState("")
+
+  const searchUser = (data) => {
+    return data.filter(item => item.fullName.toLowerCase().includes(query) || item.email.toLowerCase().includes(query));
+  }
+
+  const data = searchUser(users);
 
   return (
 
@@ -80,7 +80,7 @@ function Users() {
             className="search__button"
             name="txt"
             autoComplete='off'
-            onChange={e => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
 
           />
           <i className="fas fa-search"></i>
@@ -95,7 +95,7 @@ function Users() {
           <div className="col col-4">Settings</div>
 
         </li>
-        {users.map((userItem, index) => {
+        {data.map((userItem, index) => {
           return <li className="table-row" key={index}>
             <div className="col-3" data-label="User Id">{userItem.id}</div>
             <div className="col-4" data-label="Customer Name">{userItem.fullName}</div>
@@ -107,7 +107,7 @@ function Users() {
 
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                onClick={() => { UpdateUser(userItem.id) }}
+               onClick={()=>{updateModalShow(); UpdateUser(userItem.id)}}
               ></button>
 
               <i className="fa-solid fa-trash" onClick={() => deleteUser(userItem.id)}></i>
@@ -116,71 +116,68 @@ function Users() {
 
         })}
       </ul>
+      <Modal show={updateModalshow} onHide={updateModalClose} onExited={() => { setgetUpdateUser("") }} >
+        <Modal.Header >
+          <Modal.Title>Update Cars</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {getUpdateUser && <Formik
+            initialValues={getUpdateUser}
+            onSubmit={(values,{resetForm}) => {
+              axios.post("https://localhost:44352/api/Admin/UpdatedUser?id=" + `${getUpdateUser.id}`,
+                values)
 
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => {
-                setgetUpdateUser("")
-              }}></button>
-            </div>
-            {getUpdateUser && <Formik
-              initialValues={getUpdateUser}
-              onSubmit={(values) => {
-                axios.post("https://localhost:44352/api/Admin/UpdatedUser?id=" + `${getUpdateUser.id}`,
-                  values)
+                .then((response) => {
+                  console.log(response.data)
+                  console.log(getUpdateUser.fullName)
+                  console.log(values.fullName)
+                  dispatch(getAllUsers())
+                  resetForm();
+                })
+         
 
-                  .then((response) => {
-                    console.log(response.data)
-                    console.log(getUpdateUser.fullName)
-                    console.log(values.fullName)
-                    dispatch(getAllUsers())
-                  })
+            }}
 
+          >
 
-              }}
-
-            >
-
-              {({ values, handleChange, initialValues }) => (
-                <Form >
-                  <div className="modal-body">
-
-
-                    <div className="form-floating mb-3">
-                      <Field
-                        type="text"
-                        name='fullName'
-
-                        onChange={handleChange}
-                        className="form-control"
-                      />
-                      <label htmlFor="floatingInput">Full Name</label>
-
-                    </div>
-                    <div className="form-floating mb-3">
-                      <Field
-                        type="text"
-                        name='email'
-                        onChange={handleChange}
-                        className="form-control"
-                      />
-                      <label htmlFor="floatingInput">Email address</label>
-                    </div>
+            {({ handleChange }) => (
+              <Form >
+                <div className="modal-body">
+                  <div className="form-floating mb-3">
+                    <Field
+                      type="text"
+                      name='fullName'
+                      onChange={handleChange}
+                      className="form-control"
+                    />
+                    <label htmlFor="floatingInput">Full Name</label>
                   </div>
-                  <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" className="btn btn-primary" >Save changes</button>
+                  <div className="form-floating mb-3">
+                    <Field
+                      type="text"
+                      name='email'
+                      onChange={handleChange}
+                      className="form-control"
+                    />
+                    <label htmlFor="floatingInput">Email address</label>
                   </div>
+                </div>
+                <Modal.Footer>
+                  <Button variant="secondary" style={{ backgroundColor: "#00B1E1" }} onClick={() => {
+                    updateModalClose();
+                    setgetUpdateUser("")
+                  }}>
+                    Close
+                  </Button>
+                  <button type="submit" onClick={() => { updateModalClose() }} className="btn btn-primary" >Save</button>
+                </Modal.Footer>
+              </Form>
+            )}
+          </Formik>}
+        </Modal.Body>
 
-                </Form>
-              )}
-            </Formik>}
-          </div>
-        </div>
-      </div>
+      </Modal>
+
     </div>
 
   )

@@ -20,7 +20,7 @@ const AllCars = () => {
 const dispatch=useDispatch();
     const cars = useSelector(state => state.car.allCars);
 
-  console.log(cars)
+  
     useEffect(() => {
         
         dispatch(getAllCars())

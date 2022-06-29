@@ -28,9 +28,9 @@ function cars() {
 
     const [carList, setCarList] = useState([]);
     
-    const jdhrf = "https://localhost:44352/api/RentaCar/reservation" + search;
+    const officiescars = "https://localhost:44352/api/RentaCar/reservation" + search;
     const getCars = async () => {
-        axios.get(jdhrf)
+        axios.get(officiescars)
             .then((res) => setCarList(res.data))
     };
 
