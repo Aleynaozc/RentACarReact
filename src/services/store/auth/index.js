@@ -15,6 +15,7 @@ const authStore = createSlice({
   initialState: {
     token: undefined,
     role: undefined,
+    userId:undefined,
   },
   reducers: {
     authLogout: _authLogout,
@@ -23,16 +24,19 @@ const authStore = createSlice({
     [authCreateToken.fulfilled]: (state, action) => {
       state.token = action.payload;
       state.role=action.payload;
+      state.userId=action.payload;
     },
-    [authCreateToken.rejected]: (state, action) => {
+    [authCreateToken.rejected]: (state) => {
       state.token = undefined;
       state.role = undefined;
+      state.userId=undefined;
+
     },
     [authAdminCreateToken.fulfilled]: (state, action) => {
       state.token = action.payload.token;
       state.role = action.payload.role;
     },
-    [authAdminCreateToken.rejected]: (state, action) => {
+    [authAdminCreateToken.rejected]: (state) => {
       state.token = undefined;
       state.role = undefined;
     },

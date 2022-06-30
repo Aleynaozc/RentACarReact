@@ -29,16 +29,15 @@ function HomeCarSlideButton() {
       <div className='home__car__slide__container'>
       <div >
         <Slider {...settings}>
-        {cars.map((carItem) => {         
-          return <>
-              <div className='car__slide__card__area'>
+        {cars.map((carItem,index) => {         
+          return <div className='car__slide__card__area' key={index} >
                 <div className='car__slide__card' >
-                <img className='slide__cars_img' src={carItem.carModal.imgURL}></img>
+                <img className='slide__cars_img' src={carItem.carModal.imgURL} alt="car-image"></img>
                 <h6 className='slide__cars__name'>{carItem.carModal.brand.name} {carItem.carModal.name}</h6>
                 <p className='slide__cars__pride'>{carItem.price} TL / Daily</p>
             </div>
             </div>
-               </>   
+               
           })}
         </Slider>
       </div>

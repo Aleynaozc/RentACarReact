@@ -15,7 +15,7 @@ const Get = (url, headers) => {
       headers: headers ? { ...defaultHeaders, ...headers } : defaultHeaders,
     })
     .then((response) => {
-      const { isSuccess, data, message } = response.data;
+      const { isSuccess} = response.data;
       if (isSuccess) {
         return new ResponseModel();
       } 

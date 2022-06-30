@@ -1,22 +1,29 @@
 
 import axios from 'axios';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "../../assets/styles/components/reservation/style.css"
 import Category from './Category';
+import moment from 'moment';
 
 
 function cars() {
     const [opencategory,setopencategory]=useState(false)
  
-    const search = window.location.search;
+ 
 
     const dates = new URLSearchParams(window.location.search)
     var startDate = dates.get("startDate");
     var endDate = dates.get("endDate");
-    const newEndDate = new Date(endDate);
+    var location = dates.get("location");
+     
+    const start=moment(startDate).format('YYYY-MM-DD')
+   const end=moment(endDate).format('YYYY-MM-DD')
+    const newEndDate = new Date(endDate);  
     const newStartDate = new Date(startDate);
+   
 
+const params = useParams();
     // One day in milliseconds
     const oneDay = 1000 * 60 * 60 * 24;
 
@@ -28,9 +35,9 @@ function cars() {
 
     const [carList, setCarList] = useState([]);
     
-    const officiescars = "https://localhost:44352/api/RentaCar/reservation" + search;
+    const officiescars = `https://localhost:44352/api/RentaCar/reservation?location=${location}&dts=${start}&dte=${end}` ;
     const getCars = async () => {
-        axios.get(officiescars)
+      await  axios.get(officiescars)
             .then((res) => setCarList(res.data))
     };
 
@@ -39,13 +46,6 @@ function cars() {
        
     
     }, []);
-
-
-
-
-
-
-
 
     //FILTERED
     const [selectedCategory, setSelectedCategory] = useState({
@@ -155,7 +155,7 @@ function cars() {
                                             <div className=" car__price">
                                                 <div className=" col-lg-4 card__features ">
                                                     <p className='features'><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
-                                                    <p className='features'><img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} />{carItem.transmissionType.type} </p>
+                                                    <p className='features'><img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} alt="transmission"/>{carItem.transmissionType.type} </p>
                                                     <p className='features'> <i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                                 </div>
                                                 <div className='dm col-lg-7'>
@@ -164,7 +164,7 @@ function cars() {
                                                 </div>
                                             </div>
                                             <div className="pay__button-area">
-                                                <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}`}>
+                                                <Link to={`paypage/${carItem.id}/${diffInDays <= 0 ? 1 : diffInDays}/${start}/${end}`}>
                                                     <button value={carItem.id} type="submit" className="pay__button">Book Now</button>
                                                 </Link>
 

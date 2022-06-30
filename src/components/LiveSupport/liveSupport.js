@@ -10,7 +10,7 @@ function liveSupport() {
     <>
     <div className='livesupport__container'  style={{ display: openlivesupport ? "none" : "block" }}>
       <div className='livesupport__icons_area'>
-        <img src={require('../../assets/images/canli2.png') } className="livesupport__icon" onClick={()=>setopenlivesupport(true)}></img>
+        <img src={require('../../assets/images/canli2.png') } className="livesupport__icon" onClick={()=>setopenlivesupport(true)} alt="livesupport"></img>
       </div>
       </div>
       <div>

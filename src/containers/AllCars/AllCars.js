@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-
-
+import { Link } from 'react-router-dom';
 import "../../assets/styles/components/allCars/style.css"
 import { getAllCars } from '../../services/store/car';
 
@@ -45,7 +43,7 @@ const dispatch=useDispatch();
                                 <div className="col-lg-12 col-md-12 col-sm-12">
                                     <div className="mt-2 allCar_card__features ">
                                         <p className='features'>  <i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
-                                        <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} /> {carItem.transmissionType.type}</p>
+                                        <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} alt="transmission"/> {carItem.transmissionType.type}</p>
                                         <p className='features'><i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                     </div>
       

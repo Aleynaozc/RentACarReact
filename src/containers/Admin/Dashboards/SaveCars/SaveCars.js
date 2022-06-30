@@ -80,7 +80,7 @@ function SaveCars() {
                         return <li className="table-row" key={index}>
                             <div className="col-2" data-label="User Id">{carItem.id}</div>
                             <div className="col-4">
-                                <img src={carItem.carModal.imgURL} alt="Car image" style={{ width: "220px" }} />
+                                <img src={carItem.carModal.imgURL} alt="Car image" style={{ width: "220px" }}  />
                             </div>
                             <div className="col-3" data-label="Car Modal Name">
                                 <div style={{ display: "block", color: "brown" }}>
@@ -157,8 +157,8 @@ function SaveCars() {
                                                     <input asp-for="ID" hidden />
                                                     <div className="mb-3">
                                                         <label className="form-label">Select Officies</label>
-                                                        <select className="form-select" name="officiesID" onChange={handleChange}>
-                                                            <option selected> Select Officies </option>
+                                                        <select className="form-select" name="officiesID" onChange={handleChange} defaultValue=" ">
+                                                            <option value=" " selected> Select Officies </option>
                                                             {officies.map((officiesItem, index) => {
                                                                 return <option
                                                                     key={index} value={officiesItem.id}  >
@@ -169,8 +169,8 @@ function SaveCars() {
                                                     </div>
                                                     <div className="mb-3">
                                                         <label className="form-label">Select CarModel</label>
-                                                        <select className="form-select" name="carModalID" onChange={handleChange}>
-                                                            <option selected> Select CarModel </option>
+                                                        <select className="form-select" name="carModalID" onChange={handleChange} defaultValue=" ">
+                                                            <option selected value=" "> Select CarModel </option>
                                                             {carmodals.map((carmodalsItem, index) => {
                                                                 return <option
                                                                     key={index} value={carmodalsItem.id}  >
@@ -185,8 +185,8 @@ function SaveCars() {
                                                     </div>
                                                     <div className="mb-3">
                                                         <label className="form-label">Fuel Type</label>
-                                                        <select className="form-select" name="fuelTypeID" onChange={handleChange}>
-                                                            <option selected> Select Fuel Type </option>
+                                                        <select className="form-select" name="fuelTypeID" onChange={handleChange} defaultValue=" ">
+                                                            <option selected value=" " > Select Fuel Type </option>
                                                             {fueltype.map((fueltypeItem, index) => {
                                                                 return <option
                                                                     key={index} value={fueltypeItem.id}  >
@@ -197,8 +197,8 @@ function SaveCars() {
                                                     </div>
                                                     <div className="mb-3">
                                                         <label className="form-label">Transmission Type</label>
-                                                        <select className="form-select" name="transmissionID" onChange={handleChange}>
-                                                            <option selected> Select Transmission Type </option>
+                                                        <select className="form-select" name="transmissionID" onChange={handleChange} defaultValue=" ">
+                                                            <option selected  value=" "> Select Transmission Type </option>
                                                             {transmissiontype.map((transmissionItem, index) => {
                                                                 return <option
                                                                     key={index} value={transmissionItem.id}  >
@@ -209,8 +209,8 @@ function SaveCars() {
                                                     </div>
                                                     <div className="mb-3">
                                                         <label className="form-label">Classification Type</label>
-                                                        <select className="form-select" name="classificationID" onChange={handleChange}>
-                                                            <option selected> Select Classification Type </option>
+                                                        <select className="form-select" name="classificationID" onChange={handleChange} defaultValue=" ">
+                                                            <option selected  value=" "> Select Classification Type </option>
                                                             {classification.map((classificationItem, index) => {
                                                                 return <option
                                                                     key={index} value={classificationItem.id}  >
@@ -265,7 +265,7 @@ function SaveCars() {
                                         <div className="" >
                                             <div className="mb-3">
                                                 <label className="form-label">Select Officies</label>
-                                                <select className="form-select" name="officiesID" onChange={handleChange}>
+                                                <select className="form-select" name="officiesID" onChange={handleChange} defaultValue="">
                                                     <option hidden> {getUpdateCar.officies.name},{getUpdateCar.officies.city}  </option>
                                                     {officies.map((officiesItem, index) => {
                                                         return <option

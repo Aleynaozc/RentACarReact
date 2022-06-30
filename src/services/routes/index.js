@@ -66,7 +66,7 @@ const PageRoutes = () => {
                     <Route path="/carslist" element={<AllCar />} />
                     <Route path="/sign-in-up" element={<SignInUp />} />
                     <Route path="detail/:cardID/" element={<CarDetailPage />} />
-                    <Route path="reservation/paypage/:cardID/:date"
+                    <Route path="reservation/paypage/:cardID/:datedif/:startdatetime/:enddatetime"
                         element={token ? <Paypage /> : <SignInUp />} />
                 </Route>
 

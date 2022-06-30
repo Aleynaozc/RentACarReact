@@ -16,7 +16,7 @@ function liveSupportLogin({setopenlivesupport,openlivesupport}) {
         </div>
         
       <div className="livesupport_signin" >
-      <img src={require('../../../assets/images/logo.png')} className="livesupport_logo_img"/>
+      <img src={require('../../../assets/images/logo.png')} className="livesupport_logo_img" alt="livesupport-login"/>
         <div className="">
          
           <Formik

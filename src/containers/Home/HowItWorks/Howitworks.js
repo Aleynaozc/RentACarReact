@@ -11,9 +11,9 @@ function Howitworks() {
                 </div>
                 <div className='steps__container col-lg-8'>
                     <i className="fa-solid fa-location-dot howitwork_icon"></i>
-                    <img className='howitwork_line1 ' src={require('../../../assets/images/work2.png')} />
+                    <img className='howitwork_line1 ' src={require('../../../assets/images/work2.png')} alt="howitwork" />
                     <i className="fa-solid fa-calendar-plus howitwork_icon " style={{background: "linear-gradient(#c8ccd1,#3e4d5d)" ,color:'rgb(255, 255, 255)'}}></i>
-                    <img className='howitwork_line' src={require('../../../assets/images/work.png')} />
+                    <img className='howitwork_line' src={require('../../../assets/images/work.png')} alt="howitwork"/>
                     <i className="fa-solid fa-calendar-check howitwork_icon"></i>
                 </div>
                 <div className='steps__description col-lg-8'>

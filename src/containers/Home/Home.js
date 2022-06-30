@@ -39,7 +39,6 @@ const home = () => {
     startTime: yup.string().required("Please Select Time"),
   })
 
-
   //Total day price 
   const handleClick = (values) => {
     const oneDayRent = 1;
@@ -109,10 +108,9 @@ const home = () => {
     });
   }, [dispatch]);
 
-
+//SLIDE SETTINGS
   var settings = {
     slidesToShow: 1,
-   
     autoplay: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -146,8 +144,8 @@ const home = () => {
       <div className=" ">
         <div className="home__slide__bg ">
         <Slider {...settings}>
-        <img className='background__image' src= {require('../../assets/images/bg23.jpg')}></img>
-        <img className='background__image' src= {require('../../assets/images/bg21.jpg')}></img>
+        <img className='background__image' src= {require('../../assets/images/bg23.jpg')} alt="slider"/>
+        <img className='background__image' src= {require('../../assets/images/bg21.jpg')} alt="slider"/>
         </Slider>
           <div className='slogan__container col-lg-5'>
             <p className='slogan__main__title'> Save <span className='big'>big</span> with our car rental</p>
@@ -178,8 +176,8 @@ const home = () => {
                 <div className="search__car__container ">
                   <div className="col-lg-4 col-md-5 col-sm-10 col-12">
                     <p className='form-select-title'><i className="fa-solid fa-location-dot search_car_icons"></i> Pick-up Office</p>
-                    <select className="form-select" name="location" onChange={handleChange}>
-                      <option selected> Pick-Up </option>
+                    <select className="form-select" name="location" onChange={handleChange} defaultValue=" ">
+                      <option selected  value=" " > Pick-Up </option>
                       {officies.map((officiesItem, index) => {
                         return <option
                           key={index} value={officiesItem.name}>
@@ -188,8 +186,8 @@ const home = () => {
                       })}
                     </select>
                     <p className='form-select-title'><i className="fa-solid fa-location-dot search_car_icons"></i> Drop-Of Office</p>
-                    <select className="form-select " name="officies" onChange={handleChange}>
-                      <option selected>Drop-Of</option>
+                    <select className="form-select " name="officies" onChange={handleChange}  defaultValue=" ">
+                      <option  value=" " selected>Drop-Of</option>
                       {officies.map((officiesItem, index) => {
                         return <option key={index} value={officiesItem.name}> {officiesItem.name},{officiesItem.city}</option>
                       })}
@@ -207,6 +205,7 @@ const home = () => {
                         selected={values.startDate}
                         minDate={new Date()}
                         value={values.startDate}
+                        
                       />
                     </div>
                     <p className='form-select-title'><i className="fa-solid fa-calendar-days search_car_icons"></i> Drop-Of</p>
