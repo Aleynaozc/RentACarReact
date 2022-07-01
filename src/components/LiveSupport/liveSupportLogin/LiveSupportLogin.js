@@ -9,14 +9,13 @@ function liveSupportLogin({setopenlivesupport,openlivesupport}) {
   return (
         <div className='livesupportlogin__container  'style={{ animationDuration: openlivesupport ? "2s" : "2s",  animationName: openlivesupport ? "modalopen" : "modalclose"  }}>
         <div className='livesupportlogin__header'>
-          Rent a Car 
-        
+           Live Support
           <i className="fa fa-chevron-down" onClick={()=>setopenlivesupport(false)}></i>
           
         </div>
         
       <div className="livesupport_signin" >
-      <img src={require('../../../assets/images/logo.png')} className="livesupport_logo_img" alt="livesupport-login"/>
+      <img src={require('../../../assets/images/logo2.png')} className="livesupport_logo_img" alt="livesupport-login"/>
         <div className="">
          
           <Formik
@@ -39,7 +38,7 @@ function liveSupportLogin({setopenlivesupport,openlivesupport}) {
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 
-                <button className="w-100 btn btn-lg btn-primary"   type="submit" >Sign in</button>
+                <button className="w-100 btn btn-lg sing_in_btnn"   type="submit" >Sign in</button>
               </Form>
             )}</Formik>
         </div>

@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import '../../assets/styles/components/home/style.css'
 
 
-import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
+// import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 import { Formik, Form } from 'formik';
 import { useNavigate } from "react-router-dom"
@@ -16,6 +16,7 @@ import CustomerService from './CustomerService/CustomerService';
 import Howitworks from './HowItWorks/Howitworks';
 import HomeCarSlide from './CarSlide/HomeCarSlide';
 import Slider from 'react-slick';
+import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 
 

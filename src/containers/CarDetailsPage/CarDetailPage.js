@@ -41,14 +41,17 @@ function CarDetailPage() {
                                          <div className='detail__page_car_properties'>
                                             <div >
                                             <p className='features'><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
-                                            <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} /> {carItem.transmissionType.type}</p>
+                                            <p className='features'><img className="mt-1 transmission__image" src={'../images/transmission.png'} />{carItem.transmissionType.type}</p>
+                                            <p className='features'><i class="fa-solid fa-users"></i> {carItem.carModal.seats}   Seats </p>
+                                            <p className='features'> <i class="fa-solid fa-suitcase-rolling"></i> {carItem.carModal.luggage}  Luggage</p>
+                                           
                                             <p className='features'><i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                         </div>
                                         </div>
                                         </div>
                                         <div className="show__detail_button-area">
-                                            <div className="car__price">
-                                                <span className="allCar_daily__price"> {carItem.price} TL / Daily</span>
+                                            <div className="car_detail__price">
+                                                <span className="car_detail_daily__price"> {carItem.price} TL / Daily</span>
                                             </div>
                                         </div>
 

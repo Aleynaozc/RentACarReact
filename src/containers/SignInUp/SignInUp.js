@@ -50,12 +50,12 @@ function SignInUp() {
           >
             {({
               errors, touched, handleChange }) => (
-              <Form>
+              <Form >
 
                 <h1 className="h3 mb-5 fw-normal">Please sign in</h1>
 
-                <div className="form-floating mb-3">
-                  <input type="text" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
+                <div className="form-floating mb-3" >
+                  <input type="text"  autocomplete="false" name='email' onChange={handleChange} className="form-control" id="floatingInput" />
                   <label htmlFor="floatingInput">Email address</label>
                   {errors.email && touched.email ? <small >{errors.email}</small> : null}
                 </div>
@@ -65,9 +65,9 @@ function SignInUp() {
                   {errors.password && touched.password ? <small>{errors.password}</small> : null}
                 </div>
 
-                <button className="w-100 btn btn-lg btn-primary"  onClick={() => navigate(-1)}  type="submit" >Sign in</button>
+                <button className="w-100 btn btn-lg sing_in_btnn"  onClick={() => navigate(-1)}  type="submit" >Sign in</button>
 
-                <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+                <p className="mt-5 mb-3 text-muted">&copy; 2022</p>
               </Form>
             )}</Formik>
         </div>
@@ -151,9 +151,9 @@ function SignInUp() {
                 </div>
 
 
-                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+                <button className="w-100 btn btn-lg sing_in_btnn" type="submit">Sign Up</button>
 
-                <p className="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+                <p className="mt-5 mb-3 text-muted">&copy; 2022</p>
               </Form>
             )}
           </Formik>

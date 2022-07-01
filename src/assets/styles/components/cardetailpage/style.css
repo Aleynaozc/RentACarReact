@@ -10,7 +10,7 @@
 }
 .detail__page_car__classification{
     font-weight: bold;
-    color:rgb(190, 119, 38);
+    color:rgb(42, 97, 165);
     font-size:25px;
 }
 .detail__page_prop{
@@ -22,8 +22,15 @@
 }
 .detail__page_car_properties{
     /* background-color:rgba(43, 102, 100, 0.484); */
- 
+   
     padding: 30px;
     border-radius: 10px;
-   
+
 }
+.car_detail__price{
+    color:rgb(5, 44, 91);
+    font-weight: bold;
+    margin-left: 220px;
+  
+}
+

@@ -95,12 +95,11 @@ const params = useParams();
     return (
         <div>
             <div className="search_box">
-                <form name="search">
+                <form name="search" autoComplete='off'>
                     <input
                         type="text"
                         className="search__button"
                         name="txt"
-                        autoComplete='off'
                         value={filterSearch}
                         onChange={filter}
                         />
@@ -156,6 +155,7 @@ const params = useParams();
                                                 <div className=" col-lg-4 card__features ">
                                                     <p className='features'><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</p>
                                                     <p className='features'><img className="mt-1 transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} alt="transmission"/>{carItem.transmissionType.type} </p>
+                                                    <p className='features'><i class="fa-solid fa-users"></i> {carItem.carModal.seats} Seats </p>
                                                     <p className='features'> <i className="fa-solid fa-credit-card icons"></i>Credit Card</p>
                                                 </div>
                                                 <div className='dm col-lg-7'>

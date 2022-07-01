@@ -57,6 +57,7 @@ function Paypage() {
                                 <div className='paypage__car__detail_features'>
                                     <h5><i className="fa-solid fa-gas-pump icons "></i>{carItem.fuelType.type}</h5>
                                     <h5><img className="transmission__image" src={process.env.PUBLIC_URL + '/images/transmission.png'} alt="transmission"/> {carItem.transmissionType.type}</h5>
+                                    <h5><i class="fa-solid fa-users"></i> {carItem.carModal.seats} Seats </h5>
                                     <h5><i className="fa-solid fa-chart-simple"></i> {carItem.classification.type}</h5>
                                 </div>
                             </div>

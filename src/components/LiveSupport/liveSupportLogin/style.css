@@ -1,11 +1,11 @@
 .livesupportlogin__header{
     position: absolute;
-    padding: 0px 17px 0px 7px;
+    padding: 40px 17px 40px 17px;
     top: 60px;
     left: 0px;
     right: 0px;
     height: 60px;
-    border-bottom: 1px rgb(101, 129, 178) solid;
+    border-bottom: 2px rgb(101, 129, 178) solid;
     color:rgb(15, 71, 123);
     background-color:#d7d8da;
     box-sizing: border-box;
@@ -34,17 +34,26 @@
 }
 .livesupport_signin{
     position: relative;
-    top:300px;
+    top:230px;
     padding: 0px 7px 0px 7px;
     animation-duration: 2s;
   animation-name: getsignin;
+
 }
 .livesupport_logo_img{
 position: relative;
-left: 20px;
-  width: 240px;
-  height: 40px;
+left: 50px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 30px;
+}
+.sing_in_btnn{
+  background-color: rgb(51, 78, 153)!important;
+  color: #d7d8da!important;
+}
+.sing_in_btnn:hover{
+  
+  color: #ffffff!important;
 }
 @keyframes modalopen {
     from {
