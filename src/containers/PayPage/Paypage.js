@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker";
 import axios from 'axios';
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "../PayPage/style.css"
 import { useSelector } from "react-redux";
 
@@ -30,6 +30,9 @@ function Paypage() {
 
     };
 
+    function paypageAlert() {
+        alert("Book successful");
+      }
 
     const [oneCar, setOneCar] = useState([])
     const fh = `https://localhost:44352/api/RentaCar/ListOneCar?searchId=${params.cardID}`
@@ -113,7 +116,10 @@ function Paypage() {
                                         <label className="form-label">CVC</label>
                                         <input type="text" className="form-control" aria-describedby="basic-addon1" />
                                     </div>
-                                    <button type="button" onClick={postRentedCar} className="payment__button"><i className="fa-solid fa-lock"></i> BOOK SECURELY</button>
+                                    <Link to="/">
+                                    <button type="button" onClick={()=>{paypageAlert(); postRentedCar()}} className="payment__button"><i className="fa-solid fa-lock"></i> BOOK SECURELY</button>
+                                    </Link>
+                                   
                                 </form>
 
 
