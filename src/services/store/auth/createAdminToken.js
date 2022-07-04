@@ -10,5 +10,6 @@ export const authAdminCreateToken = createAsyncThunk(
     const {data}= await Post("https://localhost:44352/api/Auth/Adminlogin", loginAdminModel);
     console.log("data =: ,, " + JSON.stringify(data));
     return data;
+   
   }
 );

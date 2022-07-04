@@ -71,7 +71,7 @@ const PageRoutes = () => {
                 </Route>
 
                 <Route path="/admin"
-                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/" />}
+                    element={role !== UserRole.ADMIN ? <AdminLogin /> : <Navigate to="/dashboard" />}
                 />
 
                 {/* <Route path="/dashboard"
@@ -82,9 +82,9 @@ const PageRoutes = () => {
                     }> */}
                            <Route path="/dashboard"
                     element={
-                       
+                        <RequireAdminAuth>
                             <DashboardLayout />
-                   
+                            </RequireAdminAuth>
                     }>
                         
                     <Route path="/dashboard/admin/users" element={<Users />} />

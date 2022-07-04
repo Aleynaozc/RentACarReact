@@ -40,11 +40,11 @@ const header = () => {
                 </Link>
               </li>
             ) : null}
-            <li className="nav-item col-6">
+            {/* <li className="nav-item col-6">
               <Link className="nav-link " aria-current="page" to="dashboard/admin">
                 Dashboard
               </Link>
-            </li>
+            </li>  */}
            
           </ul>
           {auth.token && (

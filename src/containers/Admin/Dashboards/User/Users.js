@@ -69,7 +69,7 @@ function Users() {
   }
 
   const data = searchUser(users);
-
+  const numAscendingUser = [...data].sort((a, b) => b.id - a.id);
   return (
 
     <div className="">
@@ -95,7 +95,7 @@ function Users() {
           <div className="col col-4">Settings</div>
 
         </li>
-        {data.map((userItem, index) => {
+        {numAscendingUser.map((userItem, index) => {
           return <li className="table-row" key={index}>
             <div className="col-3" data-label="User Id">{userItem.id}</div>
             <div className="col-4" data-label="Customer Name">{userItem.fullName}</div>

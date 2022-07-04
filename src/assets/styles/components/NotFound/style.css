@@ -1,0 +1,10 @@
+.notfound_btn{
+    color:rgb(249, 246, 246);
+    background-color: #d01826;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 20px;
+    padding:10px;
+    width: 220px;
+    margin-top: 40px;
+}
